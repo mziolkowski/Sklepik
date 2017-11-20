@@ -11,7 +11,7 @@ import java.sql.*;
  */
 public class DBUtil {
     //Declare JDBC Driver
-//    private static final String JDBC_DRIVER = "org.postgresql.Driver";
+    private static final String JDBC_DRIVER = "org.postgresql.Driver";
 
     //Connection
     private static Connection conn = null;
@@ -24,10 +24,9 @@ public class DBUtil {
 
     //Connect to DB
     public static void dbConnect()  {
-        Connection c = null;
         try {
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Sklep_z_multimediami",
+            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Sklep_z_multimediami",
                             "postgres", "postgres");
         } catch (Exception e) {
             e.printStackTrace();

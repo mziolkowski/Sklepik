@@ -3,7 +3,6 @@ package sample.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import sample.util.DBUtil;
-import sample.model.Pracownicy;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +10,7 @@ import java.sql.SQLException;
 public class PracownikDAO {
 
     public static ObservableList<Pracownicy> searchPracownicy() throws SQLException, ClassNotFoundException {
-        String selectStmt = "SELECT * FROM Pracownicy";
+        String selectStmt = "SELECT * FROM pracownicy";
 
         try {
             //Get ResultSet from dbExecuteQuery method
@@ -34,19 +33,19 @@ public class PracownikDAO {
 
         while (rs.next()) {
             Pracownicy prac = new Pracownicy();
-            prac.setId_pracownicy(rs.getInt("ID_Pracownik"));
-            prac.setImie(rs.getString("Imie"));
-            prac.setNazwisko(rs.getString("Nazwisko"));
-            prac.setDataUrodzenia(rs.getDate("Data_urodzenia"));
-            prac.setMiasto(rs.getString("Miasto"));
-            prac.setAdres(rs.getString("Adres"));
-            prac.setTelefon(rs.getString("Telefon"));
-            prac.setDataZatrudnienia(rs.getDate("Data_zatrudnienia"));
-            prac.setDataZwolnienia(rs.getDate("Data_zwolnienia"));
-            prac.setEmail(rs.getString("Email"));
-            prac.setPremia(rs.getInt("Premia"));
-            prac.setPensja(rs.getInt("Pensja"));
-            prac.setId_stanowiska(rs.getInt("ID_Stanowisko"));
+            prac.setId_pracownicy(rs.getInt("id_pracownicy"));
+            prac.setImie(rs.getString("imie"));
+            prac.setNazwisko(rs.getString("nazwisko"));
+            prac.setDataUrodzenia(rs.getDate("data_ur"));
+            prac.setMiasto(rs.getString("miasto"));
+            prac.setAdres(rs.getString("adres"));
+            prac.setTelefon(rs.getString("telefon"));
+            prac.setDataZatrudnienia(rs.getDate("data_zatr"));
+            prac.setDataZwolnienia(rs.getDate("data_zwol"));
+            prac.setMail(rs.getString("mail"));
+            prac.setPremia(rs.getInt("premia"));
+            prac.setPensja(rs.getInt("pensja"));
+            prac.setId_stanowiska(rs.getInt("id_stanowiska"));
 
             //Add employee to the ObservableList
             empList.add(prac);

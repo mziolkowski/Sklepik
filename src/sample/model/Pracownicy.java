@@ -1,8 +1,8 @@
 package sample.model;
 
 import javafx.beans.property.*;
+import java.sql.Date;
 
-import java.util.Date;
 
 /**
  * Created by maciejziolkowski on 12.11.2017.
@@ -11,13 +11,13 @@ public class Pracownicy {
     private IntegerProperty id_pracownicy;
     private StringProperty imie;
     private StringProperty nazwisko;
-    private SimpleObjectProperty<Date> dataUrodzenia;
+    private SimpleObjectProperty<java.sql.Date> dataUrodzenia;
     private StringProperty miasto;
     private StringProperty adres;
     private StringProperty telefon;
-    private SimpleObjectProperty<Date> dataZatrudnienia;
-    private SimpleObjectProperty<Date> dataZwolnienia;
-    private StringProperty email;
+    private SimpleObjectProperty<java.sql.Date> dataZatrudnienia;
+    private SimpleObjectProperty<java.sql.Date> dataZwolnienia;
+    private StringProperty mail;
     private IntegerProperty premia;
     private IntegerProperty pensja;
     private IntegerProperty id_stanowiska;
@@ -26,13 +26,13 @@ public class Pracownicy {
         this.id_pracownicy = new SimpleIntegerProperty();
         this.imie = new SimpleStringProperty();
         this.nazwisko = new SimpleStringProperty();
-        this.dataUrodzenia = new SimpleObjectProperty<Date>();
+        this.dataUrodzenia = new SimpleObjectProperty();
         this.miasto = new SimpleStringProperty();
         this.adres = new SimpleStringProperty();
         this.telefon = new SimpleStringProperty();
-        this.dataZatrudnienia = new SimpleObjectProperty<Date>();
-        this.dataZwolnienia = new SimpleObjectProperty<Date>();
-        this.email = new SimpleStringProperty();
+        this.dataZatrudnienia = new SimpleObjectProperty();
+        this.dataZwolnienia = new SimpleObjectProperty();
+        this.mail = new SimpleStringProperty();
         this.premia = new SimpleIntegerProperty();
         this.pensja = new SimpleIntegerProperty();
         this.id_stanowiska = new SimpleIntegerProperty();
@@ -146,16 +146,16 @@ public class Pracownicy {
         this.dataZwolnienia.set(dataZwolnienia);
     }
 
-    public String getEmail() {
-        return email.get();
+    public String getMail() {
+        return mail.get();
     }
 
-    public StringProperty emailProperty() {
-        return email;
+    public StringProperty mailProperty() {
+        return mail;
     }
 
-    public void setEmail(String email) {
-        this.email.set(email);
+    public void setMail(String mail) {
+        this.mail.set(mail);
     }
 
     public int getPremia() {

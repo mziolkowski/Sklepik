@@ -5,57 +5,111 @@ import javafx.fxml.FXML;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import sample.model.Pracownicy;
 import sample.model.PracownikDAO;
 
+import java.sql.Date;
 import java.sql.SQLException;
 
 public class PracownikController {
 
     @FXML
-    private TableView tabblePracownik;
+    private Button wyswietl;
+
     @FXML
-    private TableColumn<Pracownicy, Integer> pracIdColumn;
+    private TableView<Pracownicy> tablePracownik;
+
     @FXML
-    private TableColumn<Pracownicy, String> pracImie;
+    private TableColumn<Pracownicy, Integer> id_pracownikColumn;
+
+    @FXML
+    private TableColumn<Pracownicy, String> pracImieColumn;
+
+    @FXML
+    private TableColumn<Pracownicy, String> pracNazwiskoColumn;
+
+    @FXML
+    private TableColumn<Pracownicy, Date> pracData_urColumn;
+
+    @FXML
+    private TableColumn<Pracownicy, String> pracMiastoColumn;
+
+    @FXML
+    private TableColumn<Pracownicy, String> pracAdresColumn;
+
+    @FXML
+    private TableColumn<Pracownicy, String> pracTelefonColumn;
+
+    @FXML
+    private TableColumn<Pracownicy, Date> pracData_zatrColumn;
+
+    @FXML
+    private TableColumn<Pracownicy, Date> pracData_zwolColumn;
+
+    @FXML
+    private TableColumn<Pracownicy, String> pracMailColumn;
+
+    @FXML
+    private TableColumn<Pracownicy, Integer> pracPremiaColumn;
+
+    @FXML
+    private TableColumn<Pracownicy, Integer> pracPensjaColumn;
+
+    @FXML
+    private TableColumn<Pracownicy, Integer> pracId_stanowiskaColumn;
 
 
     @FXML
     private void initialize() {
-//    pracIdColumn.setCellFactory(cellData -> cellData.getVa;
-        pracImie.setCellValueFactory(cellData -> cellData.getValue().imieProperty());
+        id_pracownikColumn.setCellValueFactory(cellData -> cellData.getValue().id_pracownicyProperty().asObject());
+        pracImieColumn.setCellValueFactory(cellData -> cellData.getValue().imieProperty());
+        pracNazwiskoColumn.setCellValueFactory(cellData -> cellData.getValue().nazwiskoProperty());
+        pracData_urColumn.setCellValueFactory(cellData -> cellData.getValue().dataUrodzeniaProperty());
+        pracMiastoColumn.setCellValueFactory(cellData -> cellData.getValue().miastoProperty());
+        pracAdresColumn.setCellValueFactory(cellData -> cellData.getValue().adresProperty());
+        pracTelefonColumn.setCellValueFactory(cellData -> cellData.getValue().telefonProperty());
+        pracData_zatrColumn.setCellValueFactory(cellData -> cellData.getValue().dataZatrudnieniaProperty());
+        pracData_zwolColumn.setCellValueFactory(cellData -> cellData.getValue().dataZwolnieniaProperty());
+        pracMailColumn.setCellValueFactory(cellData -> cellData.getValue().mailProperty());
+        pracPremiaColumn.setCellValueFactory(cellData -> cellData.getValue().premiaProperty().asObject());
+        pracPensjaColumn.setCellValueFactory(cellData -> cellData.getValue().pensjaProperty().asObject());
+        pracId_stanowiskaColumn.setCellValueFactory(cellData -> cellData.getValue().id_stanowiskaProperty().asObject());
+
+
     }
 
-//    @FXML
-//    private void searchEmployee (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
-//        try {
-//            //Get Employee information
-//            Pracownicy prac = PracownikDAO.searchEmployee(empIdText.getText());
-//            //Populate Employee on TableView and Display on TextArea
-//            populateAndShowEmployee(prac);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            resultArea.setText("Error occurred while getting employee information from DB.\n" + e);
-//            throw e;
-//        }
-//    }
+    @FXML
+    void ViewPracownicy(ActionEvent event) throws SQLException {
+        try {
+            //Get all Employees information
+            ObservableList<Pracownicy> pracData = PracownikDAO.searchPracownicy();
+            //Populate Employees on TableView
+            populateEmployees((Pracownicy) pracData);
+        } catch (SQLException e){
+            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
-    private void populateEmployee(Pracownicy prac) throws ClassNotFoundException {
+    private void populateEmployees(Pracownicy prac) throws ClassNotFoundException {
         //Declare and ObservableList for table view
         ObservableList<Pracownicy> empData = FXCollections.observableArrayList();
         //Add employee to the ObservableList
         empData.add(prac);
         //Set items to the employeeTable
-        tabblePracownik.setItems(empData);
+        tablePracownik.setItems(empData);
     }
 
     @FXML
     private void populateAndShowEmployee(Pracownicy prac) throws ClassNotFoundException {
         if (prac != null) {
-            populateEmployee(prac);
+            populateEmployees(prac);
 //            setEmpInfoToTextArea(emp);
         } else {
 //            resultArea.setText("This employee does not exist!\n");
