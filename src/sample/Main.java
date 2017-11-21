@@ -19,9 +19,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 
-//        dbConnect();
-//        PracownikDAO pracownicyDAO = new PracownikDAO();
-//        pracownicyDAO.searchPracownicy();
 
     }
 
