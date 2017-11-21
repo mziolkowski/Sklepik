@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" hgap="10" prefHeight="701.0" prefWidth="1090.0" vgap="10" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" prefHeight="701.0" prefWidth="1090.0" vgap="10" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller_OLD">
    <children>
       <TabPane prefHeight="733.0" prefWidth="1168.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -55,7 +55,7 @@
                               <Button layoutX="658.0" layoutY="221.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="71.0" text="Ostatni" />
                               <TableView fx:id="tablePracownik" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                  <columns>
-                                    <TableColumn fx:id="id_pracownikColumn" prefWidth="75.0" text="id_pracownik" />
+                                    <TableColumn fx:id="id_pracownikColumn" prefWidth="75.0" text="id_pracownicy" />
                                     <TableColumn fx:id="pracImieColumn" prefWidth="75.0" text="Imie" />
                                     <TableColumn prefWidth="75.0" text="Nazwisko" />
                                     <TableColumn prefWidth="75.0" text="Data ur." />
@@ -70,7 +70,7 @@
                                     <TableColumn prefWidth="75.0" text="id_stanowiska" />
                                  </columns>
                               </TableView>
-                              <Button fx:id="wyswietl" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#wyswietl" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                              <Button fx:id="wyswietl" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
                               <Button fx:id="usun" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
                               <Button fx:id="uaktualnij" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                            </children>
