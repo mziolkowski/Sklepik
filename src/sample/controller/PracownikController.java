@@ -4,13 +4,14 @@ package sample.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import sample.model.Klient;
+import sample.model.KlientDAO;
 import sample.model.Pracownicy;
 import sample.model.PracownikDAO;
 
@@ -76,6 +77,65 @@ public class PracownikController {
     @FXML
     private TableColumn<Pracownicy, Integer> pracId_stanowiskaColumn;
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    KLIENT
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @FXML
+    private Tab KlienciTab;
+
+    @FXML
+    private AnchorPane klientAnchorPane;
+
+    @FXML
+    private AnchorPane KlientAnchorPane2;
+
+    @FXML
+    private Button nowy1;
+
+    @FXML
+    private TableView<Klient> tableKlienci;
+
+    @FXML
+    private TableColumn<Klient, Integer> id_klientColumn;
+
+    @FXML
+    private TableColumn<Klient, String> klientFirmaColumn;
+
+    @FXML
+    private TableColumn<Klient, String> klientImieColumn;
+
+    @FXML
+    private TableColumn<Klient, String> klientNazwiskoColumn;
+
+    @FXML
+    private TableColumn<Klient, String> klientAdresColumn;
+
+    @FXML
+    private TableColumn<Klient, String> klientKod_pocztowyColumn;
+
+    @FXML
+    private TableColumn<Klient, String> klientMiejscowoscColumn;
+
+    @FXML
+    private TableColumn<Klient, String> klientTelefonColumn;
+
+    @FXML
+    private TableColumn<Klient, String> klientMailColumn;
+
+    @FXML
+    private TableColumn<Klient, Boolean> klientStaly_klientColumn;
+
+    @FXML
+    private Button wyswietlKlient;
+
+    @FXML
+    private Button usun1;
+
+    @FXML
+    private Button uaktualnij1;
+
 
     @FXML
     private void initialize() {
@@ -93,7 +153,41 @@ public class PracownikController {
         pracPensjaColumn.setCellValueFactory(cellData -> cellData.getValue().pensjaProperty().asObject());
         pracId_stanowiskaColumn.setCellValueFactory(cellData -> cellData.getValue().id_stanowiskaProperty().asObject());
 
+        id_klientColumn.setCellValueFactory(cellData -> cellData.getValue().id_klientProperty().asObject());
+        klientFirmaColumn.setCellValueFactory(cellData -> cellData.getValue().firmaProperty());
+        klientImieColumn.setCellValueFactory(cellData -> cellData.getValue().imieProperty());
+        klientNazwiskoColumn.setCellValueFactory(cellData ->cellData.getValue().nazwiskoProperty());
+        klientAdresColumn.setCellValueFactory(cellData -> cellData.getValue().adresProperty());
+        klientKod_pocztowyColumn.setCellValueFactory(cellData -> cellData.getValue().kod_pocztowyProperty());
+        klientMiejscowoscColumn.setCellValueFactory(cellData -> cellData.getValue().miejscowoscProperty());
+        klientTelefonColumn.setCellValueFactory(cellData -> cellData.getValue().telefonProperty());
+        klientMailColumn.setCellValueFactory(cellData -> cellData.getValue().mailProperty());
+        klientStaly_klientColumn.setCellValueFactory(cellData -> cellData.getValue().staly_klientProperty());
 
+
+    }
+
+    @FXML
+    void ViewKlienci(ActionEvent event) throws SQLException {
+        try {
+            //Get all Employees information
+            ObservableList<Klient> cliData = KlientDAO.searchKlient();
+            //Populate Employees on TableView
+            populateClients(cliData);
+
+        } catch (SQLException e){
+            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate Clients for TableView
+    @FXML
+    private void populateClients (ObservableList<Klient> cliData) throws ClassNotFoundException {
+        //Set items to the tableKlienci
+        tableKlienci.setItems(cliData);
     }
 
     @FXML

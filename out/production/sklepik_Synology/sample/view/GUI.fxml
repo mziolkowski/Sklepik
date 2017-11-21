@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1048.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.PracownikController">
+<GridPane alignment="center" hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1048.0" vgap="10" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.PracownikController">
    <children>
       <TabPane prefHeight="743.0" prefWidth="1454.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -79,9 +79,61 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Untitled Tab 2">
+          <Tab fx:id="KlienciTab" text="Klienci">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane fx:id="klientAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="534.0" prefWidth="1004.0">
+                           <children>
+                              <AnchorPane fx:id="klientAnchorPane2" minHeight="0.0" minWidth="0.0" prefHeight="645.0" prefWidth="1043.0">
+                                 <children>
+                                    <Text layoutX="15.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_klient" />
+                                    <Text layoutX="17.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imie" />
+                                    <Text layoutX="18.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwisko" />
+                                    <Text layoutX="17.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Firma" />
+                                    <Text layoutX="26.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Miejscowosc" />
+                                    <Text layoutX="17.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adres" />
+                                    <Text layoutX="351.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefon" />
+                                    <Text layoutX="22.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kod pocztowy" />
+                                    <Text layoutX="350.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail" />
+                                    <Text layoutX="348.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staly klient" />
+                                    <TextField layoutX="146.0" layoutY="9.0" />
+                                    <TextField layoutX="146.0" layoutY="42.0" />
+                                    <TextField layoutX="501.0" layoutY="76.0" />
+                                    <TextField layoutX="146.0" layoutY="107.0" />
+                                    <TextField layoutX="146.0" layoutY="73.0" />
+                                    <TextField layoutX="146.0" layoutY="138.0" />
+                                    <TextField layoutX="501.0" layoutY="9.0" />
+                                    <TextField layoutX="501.0" layoutY="43.0" />
+                                    <TextField layoutX="146.0" layoutY="171.0" />
+                                    <TextField layoutX="146.0" layoutY="207.0" />
+                                    <Button fx:id="nowy1" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                                    <Button layoutX="348.0" layoutY="221.0" mnemonicParsing="false" text="Pierwszy" />
+                                    <Button layoutX="566.0" layoutY="221.0" mnemonicParsing="false" text="Następny" />
+                                    <Button layoutX="433.0" layoutY="221.0" mnemonicParsing="false" text="Poprzedni" />
+                                    <Button layoutX="658.0" layoutY="221.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="71.0" text="Ostatni" />
+                                    <TableView fx:id="tableKlienci" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
+                                       <columns>
+                                          <TableColumn fx:id="id_klientColumn" prefWidth="75.0" text="id_klient" />
+                                          <TableColumn fx:id="klientFirmaColumn" prefWidth="75.0" text="Firma" />
+                                          <TableColumn fx:id="klientImieColumn" prefWidth="75.0" text="Imie" />
+                                          <TableColumn fx:id="klientNazwiskoColumn" prefWidth="75.0" text="Nazwisko" />
+                                          <TableColumn fx:id="klientAdresColumn" prefWidth="75.0" text="Adres" />
+                                          <TableColumn fx:id="klientKod_pocztowyColumn" prefWidth="75.0" text="Kod_pocztowy" />
+                                          <TableColumn fx:id="klientMiejscowoscColumn" prefWidth="75.0" text="Miejscowosc" />
+                                          <TableColumn fx:id="klientTelefonColumn" prefWidth="75.0" text="Telefon" />
+                                          <TableColumn fx:id="klientMailColumn" prefWidth="75.0" text="Mail" />
+                                          <TableColumn fx:id="klientStaly_klientColumn" prefWidth="75.0" text="Staly_Klient" />
+                                       </columns>
+                                    </TableView>
+                                    <Button fx:id="wyswietlKlient" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewKlienci" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                                    <Button fx:id="usun1" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                                    <Button fx:id="uaktualnij1" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
             </content>
           </Tab>
             <Tab text="Untitled Tab">
