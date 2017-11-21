@@ -1,13 +1,16 @@
 package sample.controller;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 import sample.model.Pracownicy;
 import sample.model.PracownikDAO;
 
@@ -17,7 +20,19 @@ import java.sql.SQLException;
 public class PracownikController {
 
     @FXML
+    private Button nowy;
+
+    @FXML
+    private AnchorPane pracownikAnchorPane;
+
+    @FXML
     private Button wyswietl;
+
+    @FXML
+    private Button usun;
+
+    @FXML
+    private Button uaktualnij;
 
     @FXML
     private TableView<Pracownicy> tablePracownik;
@@ -87,7 +102,8 @@ public class PracownikController {
             //Get all Employees information
             ObservableList<Pracownicy> pracData = PracownikDAO.searchPracownicy();
             //Populate Employees on TableView
-            populateEmployees((Pracownicy) pracData);
+            populateEmployees(pracData);
+
         } catch (SQLException e){
             System.out.println("Error occurred while getting employees information from DB.\n" + e);
             throw e;
@@ -96,20 +112,27 @@ public class PracownikController {
         }
     }
 
+    //Populate Employees for TableView
     @FXML
-    private void populateEmployees(Pracownicy prac) throws ClassNotFoundException {
-        //Declare and ObservableList for table view
-        ObservableList<Pracownicy> empData = FXCollections.observableArrayList();
-        //Add employee to the ObservableList
-        empData.add(prac);
+    private void populateEmployees (ObservableList<Pracownicy> empData) throws ClassNotFoundException {
         //Set items to the employeeTable
         tablePracownik.setItems(empData);
     }
 
+//    @FXML
+//    private void populateEmployees(Pracownicy prac) throws ClassNotFoundException {
+//        //Declare and ObservableList for table view
+//        ObservableList<Pracownicy> empData = FXCollections.observableArrayList();
+//        //Add employee to the ObservableList
+//        empData.add(prac);
+//        //Set items to the employeeTable
+//        tablePracownik.setItems(empData);
+//    }
+
     @FXML
     private void populateAndShowEmployee(Pracownicy prac) throws ClassNotFoundException {
         if (prac != null) {
-            populateEmployees(prac);
+            populateEmployees((ObservableList<Pracownicy>) prac);
 //            setEmpInfoToTextArea(emp);
         } else {
 //            resultArea.setText("This employee does not exist!\n");
