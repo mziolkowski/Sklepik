@@ -340,6 +340,42 @@ public class Controller {
     @FXML
     private Button uaktualnij2;
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    TRANSPORT
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @FXML
+    private Tab transportTab;
+
+    @FXML
+    private AnchorPane transportAnchorPane1;
+
+    @FXML
+    private Button nowy11111;
+
+    @FXML
+    private TableView<Transport> tableTransport;
+
+    @FXML
+    private TableColumn<Transport, Integer> id_transportColumn;
+
+    @FXML
+    private TableColumn<Transport, String> transportNazwaColumn;
+
+    @FXML
+    private TableColumn<Transport, String> transportRodzajColumn;
+
+    @FXML
+    private Button wyswietlTransport;
+
+    @FXML
+    private Button usun11111;
+
+    @FXML
+    private Button uaktualnij11111;
+
     @FXML
     private void initialize() {
         id_pracownikColumn.setCellValueFactory(cellData -> cellData.getValue().id_pracownicyProperty().asObject());
@@ -397,7 +433,34 @@ public class Controller {
         towaryIloscColumn.setCellValueFactory(cellData -> cellData.getValue().iloscProperty().asObject());
         towaryCenaColumn.setCellValueFactory(cellData -> cellData.getValue().cenaProperty().asObject());
 
+        id_transportColumn.setCellValueFactory(cellData -> cellData.getValue().id_transportProperty().asObject());
+        transportNazwaColumn.setCellValueFactory(cellData -> cellData.getValue().nazwaProperty());
+        transportRodzajColumn.setCellValueFactory(cellData -> cellData.getValue().rodzajProperty());
 
+
+    }
+
+    @FXML
+    void ViewTransport(ActionEvent event) throws SQLException {
+        try {
+            //Get all Transports information
+            ObservableList<Transport> tranData = TransportDAO.searchTransport();
+            //Populate Transports on TableView
+            populateTransport(tranData);
+
+        } catch (SQLException e){
+            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate PositionItems for TableView
+    @FXML
+    private void populateTransport (ObservableList<Transport> transData) throws ClassNotFoundException {
+        //Set items to the tableStanowiska
+        tableTransport.setItems(transData);
     }
 
     @FXML
