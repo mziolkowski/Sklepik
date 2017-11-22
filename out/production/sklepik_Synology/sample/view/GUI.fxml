@@ -314,37 +314,50 @@
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab fx:id="transportTab" text="Transport">
+            <Tab fx:id="zamowieniaTab" text="Zamowienia">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane fx:id="zamowieniaAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="645.0" prefWidth="1043.0">
                            <children>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <AnchorPane fx:id="transportAnchorPane1" minHeight="0.0" minWidth="0.0" prefHeight="645.0" prefWidth="1043.0">
-                                       <children>
-                                          <Text layoutX="15.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_transport" />
-                                          <Text layoutX="17.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rodzaj" />
-                                          <Text layoutX="17.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa" />
-                                          <TextField layoutX="146.0" layoutY="9.0" />
-                                          <TextField layoutX="146.0" layoutY="42.0" />
-                                          <TextField layoutX="146.0" layoutY="73.0" />
-                                          <Button fx:id="nowy11111" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
-                                          <TableView fx:id="tableTransport" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
-                                             <columns>
-                                                <TableColumn fx:id="id_transportColumn" prefWidth="75.0" text="id_transport" />
-                                                <TableColumn fx:id="transportNazwaColumn" prefWidth="75.0" text="Nazwa" />
-                                                <TableColumn fx:id="transportRodzajColumn" prefWidth="75.0" text="Rodzaj" />
-                                             </columns>
-                                          </TableView>
-                                          <Button fx:id="wyswietlTransport" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewTransport" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                                          <Button fx:id="usun11111" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                                          <Button fx:id="uaktualnij11111" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
-                                       </children>
-                                    </AnchorPane>
-                                 </children>
-                              </AnchorPane>
+                              <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_zamowienia" />
+                              <Text layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_koszyk" />
+                              <Text layoutX="15.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_klienta" />
+                              <Text layoutX="17.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data zamówienia" />
+                              <Text layoutX="18.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_platnosc" />
+                              <Text layoutX="17.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faktura" />
+                              <Text layoutX="351.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status zamówienia" />
+                              <Text layoutX="351.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_transport" />
+                              <Text layoutX="349.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Czas dostawy" />
+                              <Text layoutX="22.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zaplacone" />
+                              <TextField layoutX="146.0" layoutY="9.0" />
+                              <TextField layoutX="146.0" layoutY="42.0" />
+                              <TextField layoutX="501.0" layoutY="73.0" />
+                              <TextField layoutX="146.0" layoutY="107.0" />
+                              <TextField layoutX="146.0" layoutY="73.0" />
+                              <TextField layoutX="501.0" layoutY="42.0" />
+                              <TextField layoutX="146.0" layoutY="138.0" />
+                              <TextField layoutX="501.0" layoutY="9.0" />
+                              <TextField layoutX="146.0" layoutY="171.0" />
+                              <TextField layoutX="146.0" layoutY="207.0" />
+                              <Button fx:id="nowy3" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                              <TableView fx:id="tableZamowienia" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
+                                 <columns>
+                                    <TableColumn fx:id="id_zamowieniaColumn" prefWidth="75.0" text="id_zamowienia" />
+                                    <TableColumn fx:id="zamowieniaId_koszykColumn" prefWidth="75.0" text="id_koszyk" />
+                                    <TableColumn fx:id="zamowieniaId_klientaColumn" prefWidth="75.0" text="id_klienta" />
+                                    <TableColumn fx:id="zamowieniaData_zamowieniaColumn" prefWidth="75.0" text="Data zamówienia" />
+                                    <TableColumn fx:id="zamowieniaId_platnoscColumn" prefWidth="75.0" text="id_platnosc" />
+                                    <TableColumn fx:id="zamowieniaZaplaconeColumn" prefWidth="75.0" text="Zapłacone" />
+                                    <TableColumn fx:id="zamowieniaFakturaColumn" prefWidth="75.0" text="Faktura" />
+                                    <TableColumn fx:id="zamowieniaStatusColumn" prefWidth="75.0" text="Status zamówienia" />
+                                    <TableColumn fx:id="zamowieniaid_transportColumn" prefWidth="75.0" text="id_transport" />
+                                    <TableColumn fx:id="zamowieniaCzas_dostawyColumn" prefWidth="75.0" text="Czas dostawy" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="wyswietlZamowienia" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewZamowienia" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                              <Button fx:id="usun3" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                              <Button fx:id="uaktualnij3" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                            </children>
                         </AnchorPane>
                      </children>
