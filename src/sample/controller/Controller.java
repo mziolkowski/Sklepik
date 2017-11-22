@@ -286,6 +286,60 @@ public class Controller {
     @FXML
     private Button stanowiskaUaktualnijBtn;
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    TOWARY
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @FXML
+    private Tab towaryTab;
+
+    @FXML
+    private AnchorPane towaryAnchorPane1;
+
+    @FXML
+    private Button nowy2;
+
+    @FXML
+    private TableView<Towary> tableTowary;
+
+    @FXML
+    private TableColumn<Towary, Integer> id_towarColumn;
+
+    @FXML
+    private TableColumn<Towary, String> towaryTypColumn;
+
+    @FXML
+    private TableColumn<Towary, String> towaryMarkaColumn;
+
+    @FXML
+    private TableColumn<Towary, String> towaryModelColumn;
+
+    @FXML
+    private TableColumn<Towary, Integer> towaryId_kodColumn;
+
+    @FXML
+    private TableColumn<Towary, String> towaryStatusColumn;
+
+    @FXML
+    private TableColumn<Towary, String> towaryOpisColumn;
+
+    @FXML
+    private TableColumn<Towary, Integer> towaryIloscColumn;
+
+    @FXML
+    private TableColumn<Towary, Integer> towaryCenaColumn;
+
+    @FXML
+    private Button wyswietlTowary;
+
+    @FXML
+    private Button usun2;
+
+    @FXML
+    private Button uaktualnij2;
+
     @FXML
     private void initialize() {
         id_pracownikColumn.setCellValueFactory(cellData -> cellData.getValue().id_pracownicyProperty().asObject());
@@ -333,8 +387,42 @@ public class Controller {
         id_stanowiskaColumn.setCellValueFactory(cellData -> cellData.getValue().id_stanowiskaProperty().asObject());
         stanowiskaNazwaColumn.setCellValueFactory(cellData -> cellData.getValue().nazwaProperty());
 
+        id_towarColumn.setCellValueFactory(cellData -> cellData.getValue().id_towarProperty().asObject());
+        towaryTypColumn.setCellValueFactory(cellData -> cellData.getValue().typProperty());
+        towaryMarkaColumn.setCellValueFactory(cellData -> cellData.getValue().markaProperty());
+        towaryModelColumn.setCellValueFactory(cellData -> cellData.getValue().modelProperty());
+        towaryId_kodColumn.setCellValueFactory(cellData -> cellData.getValue().id_kodProperty().asObject());
+        towaryStatusColumn.setCellValueFactory(cellData -> cellData.getValue().status_towaruProperty());
+        towaryOpisColumn.setCellValueFactory(cellData -> cellData.getValue().opisProperty());
+        towaryIloscColumn.setCellValueFactory(cellData -> cellData.getValue().iloscProperty().asObject());
+        towaryCenaColumn.setCellValueFactory(cellData -> cellData.getValue().cenaProperty().asObject());
+
 
     }
+
+    @FXML
+    void ViewTowary(ActionEvent event) throws SQLException {
+        try {
+            //Get all Items information
+            ObservableList<Towary> itemData = TowaryDAO.searchItems();
+            //Populate Items on TableView
+            populateItems(itemData);
+
+        } catch (SQLException e){
+            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate PositionItems for TableView
+    @FXML
+    private void populateItems (ObservableList<Towary> itemData) throws ClassNotFoundException {
+        //Set items to the tableStanowiska
+        tableTowary.setItems(itemData);
+    }
+
 
     @FXML
     void ViewStanowiska(ActionEvent event) throws SQLException {

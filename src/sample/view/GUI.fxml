@@ -172,9 +172,9 @@
                         <AnchorPane fx:id="platnosciAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="645.0" prefWidth="1043.0">
                            <children>
                               <Text layoutX="15.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_platnosci" />
-                              <Text layoutX="17.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="przelew" />
-                              <Text layoutX="18.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="kwota" />
-                              <Text layoutX="17.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="gotowka" />
+                              <Text layoutX="17.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Przelew" />
+                              <Text layoutX="18.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kwota" />
+                              <Text layoutX="17.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gotowka" />
                               <TextField layoutX="146.0" layoutY="9.0" />
                               <TextField layoutX="146.0" layoutY="42.0" />
                               <TextField layoutX="146.0" layoutY="107.0" />
@@ -198,16 +198,16 @@
               </content>
             </Tab>
             <Tab fx:id="koszykTab" text="Koszyk">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <AnchorPane fx:id="koszykAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="645.0" prefWidth="1043.0">
                                  <children>
                                     <Text layoutX="15.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_koszyk" />
-                                    <Text layoutX="17.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ilosc" />
-                                    <Text layoutX="18.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cena" />
+                                    <Text layoutX="17.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilosc" />
+                                    <Text layoutX="18.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cena" />
                                     <Text layoutX="17.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_towar" />
                                     <TextField layoutX="146.0" layoutY="9.0" />
                                     <TextField layoutX="146.0" layoutY="42.0" />
@@ -231,30 +231,51 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-               </content>
+              </content>
             </Tab>
-            <Tab fx:id="stanowiskaTab" text="Stanowiska">
+            <Tab fx:id="towaryTab" text="Towary">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <AnchorPane fx:id="towaryAnchorPane1" minHeight="0.0" minWidth="0.0" prefHeight="534.0" prefWidth="1004.0">
                            <children>
-                              <AnchorPane fx:id="stanowiskaAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="645.0" prefWidth="1043.0">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="645.0" prefWidth="1043.0">
                                  <children>
-                                    <Text layoutX="15.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_stanowiska" />
-                                    <Text layoutX="17.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwa" />
+                                    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_towar" />
+                                    <Text layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Typ" />
+                                    <Text layoutX="15.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marka" />
+                                    <Text layoutX="17.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Model" />
+                                    <Text layoutX="18.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_kod" />
+                                    <Text layoutX="17.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opis" />
+                                    <Text layoutX="351.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość" />
+                                    <Text layoutX="351.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cena" />
+                                    <Text layoutX="22.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status towaru" />
                                     <TextField layoutX="146.0" layoutY="9.0" />
                                     <TextField layoutX="146.0" layoutY="42.0" />
-                                    <Button fx:id="stanowiskaNowyBtn" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
-                                    <TableView fx:id="tableStanowiska" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
+                                    <TextField layoutX="146.0" layoutY="107.0" />
+                                    <TextField layoutX="146.0" layoutY="73.0" />
+                                    <TextField layoutX="501.0" layoutY="42.0" />
+                                    <TextField layoutX="146.0" layoutY="138.0" />
+                                    <TextField layoutX="501.0" layoutY="9.0" />
+                                    <TextField layoutX="146.0" layoutY="171.0" />
+                                    <TextField layoutX="146.0" layoutY="207.0" />
+                                    <Button fx:id="nowy2" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                                    <TableView fx:id="tableTowary" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                        <columns>
-                                          <TableColumn fx:id="id_stanowiskaColumn" prefWidth="75.0" text="id_stanowiska" />
-                                          <TableColumn fx:id="stanowiskaNazwaColumn" prefWidth="75.0" text="Nazwa" />
+                                          <TableColumn fx:id="id_towarColumn" prefWidth="75.0" text="id_towar" />
+                                          <TableColumn fx:id="towaryTypColumn" prefWidth="75.0" text="Typ" />
+                                          <TableColumn fx:id="towaryMarkaColumn" prefWidth="75.0" text="Marka" />
+                                          <TableColumn fx:id="towaryModelColumn" prefWidth="75.0" text="Model" />
+                                          <TableColumn fx:id="towaryId_kodColumn" prefWidth="75.0" text="Id_kod" />
+                                          <TableColumn fx:id="towaryStatusColumn" prefWidth="75.0" text="Status towaru" />
+                                          <TableColumn fx:id="towaryOpisColumn" prefWidth="75.0" text="Opis" />
+                                          <TableColumn fx:id="towaryIloscColumn" prefWidth="75.0" text="Ilość" />
+                                          <TableColumn fx:id="towaryCenaColumn" prefWidth="75.0" text="Cena" />
                                        </columns>
                                     </TableView>
-                                    <Button fx:id="wyswietlStanowiska" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewStanowiska" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                                    <Button fx:id="stanowiskaUsunBtn" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                                    <Button fx:id="stanowiskaUaktualnijBtn" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                                    <Button fx:id="wyswietlTowary" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewTowary" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                                    <Button fx:id="usun2" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                                    <Button fx:id="uaktualnij2" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                                  </children>
                               </AnchorPane>
                            </children>
