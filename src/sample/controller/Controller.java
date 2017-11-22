@@ -219,7 +219,7 @@ public class Controller {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //    KOSZYLK
+    //    KOSZYK
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -256,6 +256,35 @@ public class Controller {
     @FXML
     private Button uaktualnij1111;
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    STANOWISKA
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @FXML
+    private Tab stanowiskaTab;
+
+    @FXML
+    private AnchorPane stanowiskaAnchorPane;
+
+    @FXML
+    private TableView<Stanowiska> tableStanowiska;
+
+    @FXML
+    private TableColumn<Stanowiska, Integer> id_stanowiskaColumn;
+
+    @FXML
+    private TableColumn<Stanowiska, String> stanowiskaNazwaColumn;
+
+    @FXML
+    private Button wyswietlStanowiska;
+
+    @FXML
+    private Button stanowiskaUsunBtn;
+
+    @FXML
+    private Button stanowiskaUaktualnijBtn;
 
     @FXML
     private void initialize() {
@@ -301,9 +330,33 @@ public class Controller {
         koszykIloscColumn.setCellValueFactory(cellData -> cellData.getValue().iloscProperty().asObject());
         koszykCenaColumn.setCellValueFactory(cellData -> cellData.getValue().cenaProperty().asObject());
 
+        id_stanowiskaColumn.setCellValueFactory(cellData -> cellData.getValue().id_stanowiskaProperty().asObject());
+        stanowiskaNazwaColumn.setCellValueFactory(cellData -> cellData.getValue().nazwaProperty());
 
 
+    }
 
+    @FXML
+    void ViewStanowiska(ActionEvent event) throws SQLException {
+        try {
+            //Get all Positions information
+            ObservableList<Stanowiska> positionData = StanowiskaDAO.searchPosition();
+            //Populate Positions on TableView
+            populatePositions(positionData);
+
+        } catch (SQLException e){
+            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate PositionItems for TableView
+    @FXML
+    private void populatePositions (ObservableList<Stanowiska> positionData) throws ClassNotFoundException {
+        //Set items to the tableStanowiska
+        tableStanowiska.setItems(positionData);
     }
 
     @FXML
