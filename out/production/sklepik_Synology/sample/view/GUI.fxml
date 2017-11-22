@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1048.0" vgap="10" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.PracownikController">
+<GridPane alignment="center" hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1048.0" vgap="10" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
    <children>
       <TabPane prefHeight="743.0" prefWidth="1454.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -49,10 +49,6 @@
                               <TextField layoutX="146.0" layoutY="171.0" />
                               <TextField layoutX="146.0" layoutY="207.0" />
                               <Button fx:id="nowy" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
-                              <Button layoutX="348.0" layoutY="221.0" mnemonicParsing="false" text="Pierwszy" />
-                              <Button layoutX="566.0" layoutY="221.0" mnemonicParsing="false" text="Następny" />
-                              <Button layoutX="433.0" layoutY="221.0" mnemonicParsing="false" text="Poprzedni" />
-                              <Button layoutX="658.0" layoutY="221.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="71.0" text="Ostatni" />
                               <TableView fx:id="tablePracownik" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                  <columns>
                                     <TableColumn fx:id="id_pracownikColumn" prefWidth="75.0" text="id_pracownik" />
@@ -108,10 +104,6 @@
                                     <TextField layoutX="146.0" layoutY="171.0" />
                                     <TextField layoutX="146.0" layoutY="207.0" />
                                     <Button fx:id="nowy1" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
-                                    <Button layoutX="348.0" layoutY="221.0" mnemonicParsing="false" text="Pierwszy" />
-                                    <Button layoutX="566.0" layoutY="221.0" mnemonicParsing="false" text="Następny" />
-                                    <Button layoutX="433.0" layoutY="221.0" mnemonicParsing="false" text="Poprzedni" />
-                                    <Button layoutX="658.0" layoutY="221.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="71.0" text="Ostatni" />
                                     <TableView fx:id="tableKlienci" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                        <columns>
                                           <TableColumn fx:id="id_klientColumn" prefWidth="75.0" text="id_klient" />
@@ -136,9 +128,41 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab text="Untitled Tab">
+            <Tab fx:id="kod_towaruTab" text="Kod towaru">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane fx:id="kod_towaruAnchorPane2" minHeight="0.0" minWidth="0.0" prefHeight="645.0" prefWidth="1043.0">
+                           <children>
+                              <Text layoutX="15.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_kod" />
+                              <Text layoutX="17.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hala" />
+                              <Text layoutX="18.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poziom" />
+                              <Text layoutX="17.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Magazyn" />
+                              <Text layoutX="17.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regał" />
+                              <Text layoutX="22.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Półka" />
+                              <TextField layoutX="146.0" layoutY="9.0" />
+                              <TextField layoutX="146.0" layoutY="42.0" />
+                              <TextField layoutX="146.0" layoutY="107.0" />
+                              <TextField layoutX="146.0" layoutY="73.0" />
+                              <TextField layoutX="146.0" layoutY="138.0" />
+                              <TextField layoutX="146.0" layoutY="171.0" />
+                              <Button fx:id="nowy11" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                              <TableView fx:id="tableKod_towaru" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
+                                 <columns>
+                                    <TableColumn fx:id="id_kodColumn" prefWidth="75.0" text="id_kod" />
+                                    <TableColumn fx:id="kod_towaruMagazynColumn" prefWidth="75.0" text="Magazyn" />
+                                    <TableColumn fx:id="kod_towaruHalaColumn" prefWidth="75.0" text="Hala" />
+                                    <TableColumn fx:id="kod_towaruPoziomColumn" prefWidth="75.0" text="Poziom" />
+                                    <TableColumn fx:id="kod_towaruRegalColumn" prefWidth="75.0" text="Regał" />
+                                    <TableColumn fx:id="kod_towaruPolkaColumn" prefWidth="75.0" text="Półka" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="wyswietlKod_towaru" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewKod_towaru" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                              <Button fx:id="usun11" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                              <Button fx:id="uaktualnij11" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
               </content>
             </Tab>
         </tabs>

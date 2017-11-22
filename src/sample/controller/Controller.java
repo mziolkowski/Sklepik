@@ -10,15 +10,12 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
-import sample.model.Klient;
-import sample.model.KlientDAO;
-import sample.model.Pracownicy;
-import sample.model.PracownikDAO;
+import sample.model.*;
 
 import java.sql.Date;
 import java.sql.SQLException;
 
-public class PracownikController {
+public class Controller {
 
     @FXML
     private Button nowy;
@@ -136,6 +133,45 @@ public class PracownikController {
     @FXML
     private Button uaktualnij1;
 
+    @FXML
+    private Tab kod_towaruTab;
+
+    @FXML
+    private AnchorPane kod_towaruAnchorPane2;
+
+    @FXML
+    private Button nowy11;
+
+    @FXML
+    private TableView<KodTowaru> tableKod_towaru;
+
+    @FXML
+    private TableColumn<KodTowaru, Integer> id_kodColumn;
+
+    @FXML
+    private TableColumn<KodTowaru, String> kod_towaruMagazynColumn;
+
+    @FXML
+    private TableColumn<KodTowaru, String> kod_towaruHalaColumn;
+
+    @FXML
+    private TableColumn<KodTowaru, String> kod_towaruPoziomColumn;
+
+    @FXML
+    private TableColumn<KodTowaru, String> kod_towaruRegalColumn;
+
+    @FXML
+    private TableColumn<KodTowaru, String> kod_towaruPolkaColumn;
+
+    @FXML
+    private Button wyswietlKod_towaru;
+
+    @FXML
+    private Button usun11;
+
+    @FXML
+    private Button uaktualnij11;
+
 
     @FXML
     private void initialize() {
@@ -164,15 +200,48 @@ public class PracownikController {
         klientMailColumn.setCellValueFactory(cellData -> cellData.getValue().mailProperty());
         klientStaly_klientColumn.setCellValueFactory(cellData -> cellData.getValue().staly_klientProperty());
 
+        id_kodColumn.setCellValueFactory(cellData -> cellData.getValue().id_kodProperty().asObject());
+        kod_towaruMagazynColumn.setCellValueFactory(cellData -> cellData.getValue().magazynProperty());
+        kod_towaruHalaColumn.setCellValueFactory(cellData -> cellData.getValue().halaProperty());
+        kod_towaruPoziomColumn.setCellValueFactory(cellData -> cellData.getValue().poziomProperty());
+        kod_towaruRegalColumn.setCellValueFactory(cellData -> cellData.getValue().regalProperty());
+        kod_towaruPolkaColumn.setCellValueFactory(cellData -> cellData.getValue().polkaProperty());
 
+
+
+
+    }
+
+
+    @FXML
+    void ViewKod_towaru(ActionEvent event) throws SQLException {
+        try {
+            //Get all Codes information
+            ObservableList<KodTowaru> codeData = KodTowaruDAO.searchKod();
+            //Populate Codes on TableView
+            populateCodes(codeData);
+
+        } catch (SQLException e){
+            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate CodesItems for TableView
+    @FXML
+    private void populateCodes (ObservableList<KodTowaru> codeData) throws ClassNotFoundException {
+        //Set items to the tableKlienci
+        tableKod_towaru.setItems(codeData);
     }
 
     @FXML
     void ViewKlienci(ActionEvent event) throws SQLException {
         try {
-            //Get all Employees information
+            //Get all Clients information
             ObservableList<Klient> cliData = KlientDAO.searchKlient();
-            //Populate Employees on TableView
+            //Populate Clients on TableView
             populateClients(cliData);
 
         } catch (SQLException e){
