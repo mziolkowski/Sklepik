@@ -42,8 +42,7 @@ public class ZamowieniaDAO {
            ord.setFaktura(rs.getBoolean("faktura"));
            ord.setStatus_zamowienia(rs.getString("status_zamowienia"));
            ord.setId_transport(rs.getInt("id_transport"));
-           ord.setCzas_dostawy(rs.getDate("czas_dostawy"));
-
+           ord.setCzas_dostawy(rs.getString("czas_dostawy"));
             //Add employee to the ObservableList
             ordList.add(ord);
         }

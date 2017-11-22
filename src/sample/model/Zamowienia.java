@@ -14,19 +14,20 @@ public class Zamowienia {
     private BooleanProperty faktura;
     private StringProperty status_zamowienia;
     private IntegerProperty id_transport;
-    private SimpleObjectProperty<Date> czas_dostawy;
+    private StringProperty czas_dostawy;
+
 
     public Zamowienia() {
         this.id_zamowienia = new SimpleIntegerProperty();
         this.id_koszyk = new SimpleIntegerProperty();
         this.id_klient = new SimpleIntegerProperty();
-        this. dataZamowienia = new SimpleObjectProperty();
+        this.dataZamowienia = new SimpleObjectProperty();
         this.id_platnosc = new SimpleIntegerProperty();
         this.zaplacone = new SimpleBooleanProperty();
         this.faktura = new SimpleBooleanProperty();
         this.status_zamowienia = new SimpleStringProperty();
         this.id_transport = new SimpleIntegerProperty();
-        this.czas_dostawy = new SimpleObjectProperty();
+        this.czas_dostawy = new SimpleStringProperty();
     }
 
     public int getId_zamowienia() {
@@ -137,15 +138,15 @@ public class Zamowienia {
         this.id_transport.set(id_transport);
     }
 
-    public Date getCzas_dostawy() {
+    public String getCzas_dostawy() {
         return czas_dostawy.get();
     }
 
-    public SimpleObjectProperty<Date> czas_dostawyProperty() {
+    public StringProperty czas_dostawyProperty() {
         return czas_dostawy;
     }
 
-    public void setCzas_dostawy(Date czas_dostawy) {
+    public void setCzas_dostawy(String czas_dostawy) {
         this.czas_dostawy.set(czas_dostawy);
     }
 }

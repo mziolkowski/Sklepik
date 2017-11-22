@@ -423,7 +423,7 @@ public class Controller {
     private TableColumn<Zamowienia, Integer> zamowieniaid_transportColumn;
 
     @FXML
-    private TableColumn<Zamowienia, Date> zamowieniaCzas_dostawyColumn;
+    private TableColumn<Zamowienia, String> zamowieniaCzas_dostawyColumn;
 
     @FXML
     private Button wyswietlZamowienia;
