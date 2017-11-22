@@ -133,6 +133,12 @@ public class Controller {
     @FXML
     private Button uaktualnij1;
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    KOD_TOWARU
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     @FXML
     private Tab kod_towaruTab;
 
@@ -172,6 +178,45 @@ public class Controller {
     @FXML
     private Button uaktualnij11;
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    PLATNOSCI
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @FXML
+    private Tab platnosciTab;
+
+    @FXML
+    private AnchorPane platnosciAnchorPane;
+
+    @FXML
+    private Button nowy111;
+
+    @FXML
+    private TableView<Platnosci> tablePlatnosci;
+
+    @FXML
+    private TableColumn<Platnosci, Integer> id_platnosciColumn;
+
+    @FXML
+    private TableColumn<Platnosci, Boolean> platnosciGotowkaColumn;
+
+    @FXML
+    private TableColumn<Platnosci, Boolean> platnosciPrzelewColumn;
+
+    @FXML
+    private TableColumn<Platnosci, Integer> platnosciKwotaColumn;
+
+    @FXML
+    private Button wyswietlPlatnosci;
+
+    @FXML
+    private Button usun111;
+
+    @FXML
+    private Button uaktualnij111;
+
 
     @FXML
     private void initialize() {
@@ -207,9 +252,37 @@ public class Controller {
         kod_towaruRegalColumn.setCellValueFactory(cellData -> cellData.getValue().regalProperty());
         kod_towaruPolkaColumn.setCellValueFactory(cellData -> cellData.getValue().polkaProperty());
 
+        id_platnosciColumn.setCellValueFactory(cellData -> cellData.getValue().id_patnosciProperty().asObject());
+        platnosciGotowkaColumn.setCellValueFactory(cellData -> cellData.getValue().gotowkaProperty());
+        platnosciPrzelewColumn.setCellValueFactory(cellData -> cellData.getValue().przelewProperty());
+        platnosciKwotaColumn.setCellValueFactory(cellData -> cellData.getValue().kwotaProperty().asObject());
 
 
 
+
+    }
+
+    @FXML
+    void ViewPlatnosci(ActionEvent event) throws SQLException {
+        try {
+            //Get all Codes information
+            ObservableList<Platnosci> paymentData = PlatnosciDAO.searchPlatnosci();
+            //Populate Codes on TableView
+            populatePayments(paymentData);
+
+        } catch (SQLException e){
+            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate CodesItems for TableView
+    @FXML
+    private void populatePayments (ObservableList<Platnosci> paymentData) throws ClassNotFoundException {
+        //Set items to the tableKlienci
+        tablePlatnosci.setItems(paymentData);
     }
 
 
