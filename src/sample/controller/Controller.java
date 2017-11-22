@@ -1,6 +1,7 @@
 package sample.controller;
 
 
+import com.sun.tools.javac.file.ZipArchive;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -376,6 +377,63 @@ public class Controller {
     @FXML
     private Button uaktualnij11111;
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    ZAMOWIENIA
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @FXML
+    private Tab zamowieniaTab;
+
+    @FXML
+    private AnchorPane zamowieniaAnchorPane;
+
+    @FXML
+    private Button nowy3;
+
+    @FXML
+    private TableView<Zamowienia> tableZamowienia;
+
+    @FXML
+    private TableColumn<Zamowienia, Integer> id_zamowieniaColumn;
+
+    @FXML
+    private TableColumn<Zamowienia, Integer> zamowieniaId_koszykColumn;
+
+    @FXML
+    private TableColumn<Zamowienia, Integer> zamowieniaId_klientaColumn;
+
+    @FXML
+    private TableColumn<Zamowienia, Date> zamowieniaData_zamowieniaColumn;
+
+    @FXML
+    private TableColumn<Zamowienia, Integer> zamowieniaId_platnoscColumn;
+
+    @FXML
+    private TableColumn<Zamowienia, Boolean> zamowieniaZaplaconeColumn;
+
+    @FXML
+    private TableColumn<Zamowienia, Boolean> zamowieniaFakturaColumn;
+
+    @FXML
+    private TableColumn<Zamowienia, String> zamowieniaStatusColumn;
+
+    @FXML
+    private TableColumn<Zamowienia, Integer> zamowieniaid_transportColumn;
+
+    @FXML
+    private TableColumn<Zamowienia, String> zamowieniaCzas_dostawyColumn;
+
+    @FXML
+    private Button wyswietlZamowienia;
+
+    @FXML
+    private Button usun3;
+
+    @FXML
+    private Button uaktualnij3;
+
     @FXML
     private void initialize() {
         id_pracownikColumn.setCellValueFactory(cellData -> cellData.getValue().id_pracownicyProperty().asObject());
@@ -437,7 +495,41 @@ public class Controller {
         transportNazwaColumn.setCellValueFactory(cellData -> cellData.getValue().nazwaProperty());
         transportRodzajColumn.setCellValueFactory(cellData -> cellData.getValue().rodzajProperty());
 
+        id_zamowieniaColumn.setCellValueFactory(cellData -> cellData.getValue().id_zamowieniaProperty().asObject());
+        zamowieniaId_koszykColumn.setCellValueFactory(cellData -> cellData.getValue().id_koszykProperty().asObject());
+        zamowieniaId_klientaColumn.setCellValueFactory(cellData -> cellData.getValue().id_klientProperty().asObject());
+        zamowieniaData_zamowieniaColumn.setCellValueFactory(cellData -> cellData.getValue().dataZamowieniaProperty());
+        zamowieniaId_platnoscColumn.setCellValueFactory(cellData -> cellData.getValue().id_platnoscProperty().asObject());
+        zamowieniaZaplaconeColumn.setCellValueFactory(cellData -> cellData.getValue().zaplaconeProperty());
+        zamowieniaFakturaColumn.setCellValueFactory(cellData -> cellData.getValue().fakturaProperty());
+        zamowieniaStatusColumn.setCellValueFactory(cellData -> cellData.getValue().status_zamowieniaProperty());
+        zamowieniaid_transportColumn.setCellValueFactory(cellData -> cellData.getValue().id_transportProperty().asObject());
+        zamowieniaCzas_dostawyColumn.setCellValueFactory(cellData -> cellData.getValue().czas_dostawyProperty());
 
+
+    }
+
+    @FXML
+    void ViewZamowienia(ActionEvent event) throws SQLException {
+        try {
+            //Get all Orders information
+            ObservableList<Zamowienia> ordData = ZamowieniaDAO.searchOrders();
+            //Populate Orders on TableView
+            populateOrder(ordData);
+
+        } catch (SQLException e){
+            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate PositionItems for TableView
+    @FXML
+    private void populateOrder (ObservableList<Zamowienia> ordData) throws ClassNotFoundException {
+        //Set items to the tableZamowienia
+        tableZamowienia.setItems(ordData);
     }
 
     @FXML
