@@ -6,10 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.collections.ObservableList;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import sample.model.*;
 
@@ -19,7 +16,46 @@ import java.sql.SQLException;
 public class Controller {
 
     @FXML
-    private Button nowy;
+    private TextField pracownikIdTF;
+
+    @FXML
+    private TextField pracownikImieTF;
+
+    @FXML
+    private TextField pracownikData_zwolTF;
+
+    @FXML
+    private TextField pracownikPremiaTF;
+
+    @FXML
+    private TextField pracownikId_stanowiskaTF;
+
+    @FXML
+    private TextField pracownikData_urTF;
+
+    @FXML
+    private TextField pracownikNazwiskoTF;
+
+    @FXML
+    private TextField pracownikData_zatrTF;
+
+    @FXML
+    private TextField pracownikMiastoTF;
+
+    @FXML
+    private TextField pracownikTelefonTF;
+
+    @FXML
+    private TextField pracownikPensjaTF;
+
+    @FXML
+    private TextField pracownikMailTF;
+
+    @FXML
+    private TextField pracownikAdresTF;
+
+    @FXML
+    private Button pracownikNowyBtn;
 
     @FXML
     private AnchorPane pracownikAnchorPane;
@@ -28,7 +64,7 @@ public class Controller {
     private Button wyswietl;
 
     @FXML
-    private Button usun;
+    private Button pracownikUsunBtn;
 
     @FXML
     private Button uaktualnij;
@@ -507,6 +543,32 @@ public class Controller {
         zamowieniaCzas_dostawyColumn.setCellValueFactory(cellData -> cellData.getValue().czas_dostawyProperty());
 
 
+    }
+
+    @FXML
+    void deletePracownik(ActionEvent event) throws SQLException {
+        try {
+            PracownikDAO.deleteEmpWithId(pracownikIdTF.getText());
+//            resultArea.setText("Employee deleted! Employee id: " + empIdText.getText() + "\n");
+        } catch (SQLException e) {
+//            resultArea.setText("Problem occurred while deleting employee " + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertPracownik(ActionEvent event) throws SQLException {
+        try {
+            PracownikDAO.insertEmp(pracownikIdTF.getText(), pracownikImieTF.getText(), pracownikNazwiskoTF.getText(), pracownikData_urTF.getText(), pracownikMiastoTF.getText(), pracownikAdresTF.getText(), pracownikTelefonTF.getText(), pracownikData_zatrTF.getText(), pracownikData_zwolTF.getText(), pracownikMailTF.getText(), pracownikPremiaTF.getText(), pracownikPensjaTF.getText(), pracownikId_stanowiskaTF.getText());
+//            resultArea.setText("Employee inserted! \n");
+        } catch (SQLException e) {
+//            resultArea.setText("Problem occurred while inserting employee " + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import sample.util.DBUtil;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -53,4 +54,41 @@ public class PracownikDAO {
         //return empList (ObservableList of Employees)
         return empList;
     }
+
+    //*************************************
+    //DELETE an employee
+    //*************************************
+    public static void deleteEmpWithId (String empId) throws SQLException, ClassNotFoundException {
+        //Declare a DELETE statement
+        String updateStmt =
+                        "   DELETE FROM pracownicy\n" +
+                        "         WHERE id_pracownicy ="+ empId +";\n" +
+                        "   COMMIT;";
+
+        //Execute UPDATE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Error occurred while DELETE Operation: " + e);
+            throw e;
+        }
+    }
+
+    public static void insertEmp(String id_pracownik, String imie, String nazwisko, String data_ur, String miasto, String adres, String telefon, String data_zatr, String data_zwol, String mail, String premia, String pensja, String id_stanowiska) throws SQLException, ClassNotFoundException {
+        //Declare a INSERT statement
+        String updateStmt =
+                        "INSERT INTO pracownicy " +
+                        "(id_pracownicy, imie, nazwisko, data_ur, miasto, adres, telefon, data_zatr, data_zwol, mail, premia, pensja, id_stanowiska) " +
+                        "VALUES " +
+                        "('" + id_pracownik + "','" + imie + "','" + nazwisko + "','" + data_ur + "','" + miasto + "','" + adres + "','" + telefon + "','" + data_zatr + "','" + data_zwol + "','" + mail + "','" + premia + "','" + pensja + "','" + id_stanowiska + "');";
+
+        //Execute INSERT operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Error occurred while INSERT Operation: " + e);
+            throw e;
+        }
+    }
+
 }
