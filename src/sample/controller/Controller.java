@@ -217,6 +217,45 @@ public class Controller {
     @FXML
     private Button uaktualnij111;
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    KOSZYLK
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @FXML
+    private Tab koszykTab;
+
+    @FXML
+    private AnchorPane koszykAnchorPane;
+
+    @FXML
+    private Button nowy1111;
+
+    @FXML
+    private TableView<Koszyk> tableKoszyk;
+
+    @FXML
+    private TableColumn<Koszyk, Integer> id_koszykColumn;
+
+    @FXML
+    private TableColumn<Koszyk, Integer> koszykId_towarColumn;
+
+    @FXML
+    private TableColumn<Koszyk, Integer> koszykIloscColumn;
+
+    @FXML
+    private TableColumn<Koszyk, Integer> koszykCenaColumn;
+
+    @FXML
+    private Button wyswietlKoszyk;
+
+    @FXML
+    private Button usun1111;
+
+    @FXML
+    private Button uaktualnij1111;
+
 
     @FXML
     private void initialize() {
@@ -257,9 +296,37 @@ public class Controller {
         platnosciPrzelewColumn.setCellValueFactory(cellData -> cellData.getValue().przelewProperty());
         platnosciKwotaColumn.setCellValueFactory(cellData -> cellData.getValue().kwotaProperty().asObject());
 
+        id_koszykColumn.setCellValueFactory(cellData -> cellData.getValue().id_koszykProperty().asObject());
+        koszykId_towarColumn.setCellValueFactory(cellData -> cellData.getValue().id_towarProperty().asObject());
+        koszykIloscColumn.setCellValueFactory(cellData -> cellData.getValue().iloscProperty().asObject());
+        koszykCenaColumn.setCellValueFactory(cellData -> cellData.getValue().cenaProperty().asObject());
 
 
 
+
+    }
+
+    @FXML
+    void ViewKoszyk(ActionEvent event) throws SQLException {
+        try {
+            //Get all Baskets information
+            ObservableList<Koszyk> basketData = KoszykDAO.searchBasket();
+            //Populate Baskets on TableView
+            populateBaskets(basketData);
+
+        } catch (SQLException e){
+            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate BasketItems for TableView
+    @FXML
+    private void populateBaskets (ObservableList<Koszyk> basketData) throws ClassNotFoundException {
+        //Set items to the tableKoszyk
+        tableKoszyk.setItems(basketData);
     }
 
     @FXML
