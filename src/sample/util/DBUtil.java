@@ -16,11 +16,6 @@ public class DBUtil {
     //Connection
     private static Connection conn = null;
 
-    //Connection String
-    //String connStr = "jdbc:oracle:thin:Username/Password@IP:Port/SID";
-    //Username=HR, Password=HR, IP=localhost, IP=1521, SID=xe
-//    private static final String connStr = "jdbc:oracle:thin:postgres/postgres@localhost:5432/Sklep_z_multimediami";
-
 
     //Connect to DB
     public static void dbConnect()  {
