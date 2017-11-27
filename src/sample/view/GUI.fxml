@@ -318,16 +318,16 @@
                                     <Text layoutX="351.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość" />
                                     <Text layoutX="351.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cena" />
                                     <Text layoutX="22.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status towaru" />
-                                    <TextField layoutX="146.0" layoutY="9.0" />
-                                    <TextField layoutX="146.0" layoutY="42.0" />
-                                    <TextField layoutX="146.0" layoutY="107.0" />
-                                    <TextField layoutX="146.0" layoutY="73.0" />
-                                    <TextField layoutX="501.0" layoutY="42.0" />
-                                    <TextField layoutX="146.0" layoutY="138.0" />
-                                    <TextField layoutX="501.0" layoutY="9.0" />
-                                    <TextField layoutX="146.0" layoutY="171.0" />
-                                    <TextField layoutX="146.0" layoutY="207.0" />
-                                    <Button fx:id="nowy2" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                                    <TextField fx:id="towaryIdTF" layoutX="146.0" layoutY="9.0" />
+                                    <TextField fx:id="towaryTypTF" layoutX="146.0" layoutY="42.0" />
+                                    <TextField fx:id="towaryModelTF" layoutX="146.0" layoutY="107.0" />
+                                    <TextField fx:id="TowaryMarkaTF" layoutX="146.0" layoutY="73.0" />
+                                    <TextField fx:id="towaryCenaTF" layoutX="501.0" layoutY="42.0" />
+                                    <TextField fx:id="towaryId_kodTF" layoutX="146.0" layoutY="138.0" />
+                                    <TextField fx:id="towaryIloscTF" layoutX="501.0" layoutY="9.0" />
+                                    <TextField fx:id="towaryStatusTF" layoutX="146.0" layoutY="171.0" />
+                                    <TextField fx:id="towaryOpisTF" layoutX="146.0" layoutY="207.0" />
+                                    <Button fx:id="towaryNowyBtn" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" onAction="#insertTowary" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                                     <TableView fx:id="tableTowary" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                        <columns>
                                           <TableColumn fx:id="id_towarColumn" prefWidth="75.0" text="id_towar" />
@@ -342,7 +342,7 @@
                                        </columns>
                                     </TableView>
                                     <Button fx:id="wyswietlTowary" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewTowary" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                                    <Button fx:id="usun2" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                                    <Button fx:id="towaryUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deleteTowary" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
                                     <Button fx:id="uaktualnij2" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                                  </children>
                               </AnchorPane>
@@ -417,17 +417,17 @@
                               <Text layoutX="351.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_transport" />
                               <Text layoutX="349.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Czas dostawy" />
                               <Text layoutX="22.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zaplacone" />
-                              <TextField layoutX="146.0" layoutY="9.0" />
-                              <TextField layoutX="146.0" layoutY="42.0" />
-                              <TextField layoutX="501.0" layoutY="73.0" />
-                              <TextField layoutX="146.0" layoutY="107.0" />
-                              <TextField layoutX="146.0" layoutY="73.0" />
-                              <TextField layoutX="501.0" layoutY="42.0" />
-                              <TextField layoutX="146.0" layoutY="138.0" />
-                              <TextField layoutX="501.0" layoutY="9.0" />
-                              <TextField layoutX="146.0" layoutY="171.0" />
-                              <TextField layoutX="146.0" layoutY="207.0" />
-                              <Button fx:id="nowy3" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                              <TextField fx:id="zamowieniaIdTF" layoutX="146.0" layoutY="9.0" />
+                              <TextField fx:id="zamowieniaId_koszykTF" layoutX="146.0" layoutY="42.0" />
+                              <TextField fx:id="zamowieniaCzas_dostawyTF" layoutX="501.0" layoutY="73.0" />
+                              <TextField fx:id="zamowieniaData_zamTF" layoutX="146.0" layoutY="107.0" />
+                              <TextField fx:id="zamowieniaId_klientTF" layoutX="146.0" layoutY="73.0" />
+                              <TextField fx:id="zamowieniaId_transportTF" layoutX="501.0" layoutY="42.0" />
+                              <TextField fx:id="zamowieniaId_platnoscTF" layoutX="146.0" layoutY="138.0" />
+                              <TextField fx:id="zamowieniaStatusTF" layoutX="501.0" layoutY="9.0" />
+                              <TextField fx:id="zamowieniaZaplaconeTF" layoutX="146.0" layoutY="171.0" />
+                              <TextField fx:id="zamowieniaFakturaTF" layoutX="146.0" layoutY="207.0" />
+                              <Button fx:id="zamowieniaNowyBtn" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" onAction="#insertZamowienia" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                               <TableView fx:id="tableZamowienia" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                  <columns>
                                     <TableColumn fx:id="id_zamowieniaColumn" prefWidth="75.0" text="id_zamowienia" />
@@ -443,7 +443,7 @@
                                  </columns>
                               </TableView>
                               <Button fx:id="wyswietlZamowienia" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewZamowienia" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                              <Button fx:id="usun3" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                              <Button fx:id="zamowieniaUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deleteZamowienia" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
                               <Button fx:id="uaktualnij3" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                            </children>
                         </AnchorPane>
