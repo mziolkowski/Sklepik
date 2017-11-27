@@ -44,4 +44,35 @@ public class StanowiskaDAO {
         //return empList (ObservableList of Clients)
         return positionList;
     }
+
+    public static void deletePositionWithId(String positionId) throws SQLException, ClassNotFoundException {
+        //Declare a DELETE statement
+        String updateStmt = "DELETE FROM stanowiska\n" +
+                "   WHERE id_stanowiska  ="+ positionId +";\n";
+
+        //Execute UPDATE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji DELETE: " + e);
+            throw e;
+        }
+    }
+
+    public static void insertPosition(String id_stanowiska, String nazwa) throws SQLException, ClassNotFoundException {
+        //Declare a INSERT statement
+        String updateStmt =
+                "INSERT INTO stanowiska " +
+                        "(id_stanowiska, nazwa) " +
+                        "VALUES " +
+                        "('" + id_stanowiska + "','" + nazwa + "');";
+
+        //Execute INSERT operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji INSERT: " + e);
+            throw e;
+        }
+    }
 }
