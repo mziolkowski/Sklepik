@@ -50,4 +50,38 @@ public class KlientDAO {
         //return empList (ObservableList of Clients)
         return cliList;
     }
+
+    //*************************************
+    //DELETE an client
+    //*************************************
+    public static void deleteClientWithId(String cliId) throws SQLException, ClassNotFoundException {
+        //Declare a DELETE statement
+        String updateStmt = "DELETE FROM klient\n" +
+                        "   WHERE id_klient ="+ cliId +";\n";
+
+        //Execute UPDATE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji DELETE: " + e);
+            throw e;
+        }
+    }
+
+    public static void insertCli(String id_klient, String firma, String imie, String nazwisko, String adres, String kod_pocztowy, String miejscowosc, String telefon, String mail, String staly_klient) throws SQLException, ClassNotFoundException {
+        //Declare a INSERT statement
+        String updateStmt =
+                "INSERT INTO klient " +
+                        "(id_klient, firma, imie, nazwisko, adres, kod_pocztowy, miejscowosc, telefon, mail, staly_klient) " +
+                        "VALUES " +
+                        "('" + id_klient + "','" + firma + "','" + imie + "','" + nazwisko + "','" + adres + "','" + kod_pocztowy + "','" + miejscowosc + "','" + telefon + "','" + mail + "','" + staly_klient + "');";
+
+        //Execute INSERT operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji INSERT: " + e);
+            throw e;
+        }
+    }
 }

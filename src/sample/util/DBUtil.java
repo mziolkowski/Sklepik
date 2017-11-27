@@ -86,14 +86,15 @@ public class DBUtil {
     //DB Execute Update (For Update/Insert/Delete) Operation
     public static void dbExecuteUpdate(String sqlStmt) throws SQLException, ClassNotFoundException {
         //Declare statement as null
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         try {
             //Connect to DB (Establish Oracle Connection)
             dbConnect();
             //Create Statement
-            stmt = conn.createStatement();
+            stmt = conn.prepareStatement(sqlStmt);
+
             //Run executeUpdate operation with given sql statement
-            stmt.executeUpdate(sqlStmt);
+            stmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Problem occurred at executeUpdate operation : " + e);
             throw e;

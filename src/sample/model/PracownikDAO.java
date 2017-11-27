@@ -69,7 +69,7 @@ public class PracownikDAO {
         try {
             DBUtil.dbExecuteUpdate(updateStmt);
         } catch (SQLException e) {
-            System.out.print("Error occurred while DELETE Operation: " + e);
+            System.out.print("Wystąpił błąd podczas operacji DELETE: " + e);
             throw e;
         }
     }
@@ -86,7 +86,7 @@ public class PracownikDAO {
         try {
             DBUtil.dbExecuteUpdate(updateStmt);
         } catch (SQLException e) {
-            System.out.print("Error occurred while INSERT Operation: " + e);
+            System.out.print("Wystąpił błąd podczas operacji INSERT: " + e);
             throw e;
         }
     }
