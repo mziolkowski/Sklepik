@@ -371,10 +371,10 @@
                                           <Text layoutX="15.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_transport" />
                                           <Text layoutX="17.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rodzaj" />
                                           <Text layoutX="17.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa" />
-                                          <TextField layoutX="146.0" layoutY="9.0" />
-                                          <TextField layoutX="146.0" layoutY="42.0" />
-                                          <TextField layoutX="146.0" layoutY="73.0" />
-                                          <Button fx:id="nowy11111" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                                          <TextField fx:id="transportIdTF" layoutX="146.0" layoutY="9.0" />
+                                          <TextField fx:id="transportNazwaTF" layoutX="146.0" layoutY="42.0" />
+                                          <TextField fx:id="transportRodzajTF" layoutX="146.0" layoutY="73.0" />
+                                          <Button fx:id="transportNowyBtn" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" onAction="#insertTransport" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                                           <TableView fx:id="tableTransport" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                              <columns>
                                                 <TableColumn fx:id="id_transportColumn" prefWidth="75.0" text="id_transport" />
@@ -383,7 +383,7 @@
                                              </columns>
                                           </TableView>
                                           <Button fx:id="wyswietlTransport" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewTransport" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                                          <Button fx:id="usun11111" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                                          <Button fx:id="transportUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deleteTransport" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
                                           <Button fx:id="uaktualnij11111" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                                        </children>
                                     </AnchorPane>
