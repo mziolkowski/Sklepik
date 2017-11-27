@@ -397,6 +397,15 @@ public class Controller {
     private TableView<Stanowiska> tableStanowiska;
 
     @FXML
+    private TextField stanowiskaIdTF;
+
+    @FXML
+    private TextField stanowiskaNazwaTF;
+
+    @FXML
+    private Button stanowiskaNowyBtn;
+
+    @FXML
     private TableColumn<Stanowiska, Integer> id_stanowiskaColumn;
 
     @FXML
@@ -645,10 +654,36 @@ public class Controller {
     }
 
     @FXML
+    void deleteStanowiska(ActionEvent event) throws SQLException {
+        try {
+            StanowiskaDAO.deletePositionWithId(stanowiskaIdTF.getText());
+            stanowiskaResultArea1.setText("Stanowisko zostało usunięte!\n Stanowisko id: " + stanowiskaIdTF.getText() + "\n");
+        } catch (SQLException e) {
+            stanowiskaResultArea1.setText("Wystąpił problem podczas usuwania stanowiska" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertStanowiska(ActionEvent event) throws SQLException {
+        try {
+            StanowiskaDAO.insertPosition(stanowiskaIdTF.getText(), stanowiskaIdTF.getText());
+            stanowiskaResultArea1.setText("Stanowisko zostało dodane! \n");
+        } catch (SQLException e) {
+            stanowiskaResultArea1.setText("Wystąpił problem podczas dodawania stanowiska" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void deletePlatnosci(ActionEvent event) throws SQLException {
         try {
             PlatnosciDAO.deletePaymentWithId(platnosciIdTF.getText());
-            platnosciRsultArea1.setText("Płatność została usunięta!\n Płątność id: " + platnosciIdTF.getText() + "\n");
+            platnosciRsultArea1.setText("Płatność została usunięta!\n Płatność id: " + platnosciIdTF.getText() + "\n");
         } catch (SQLException e) {
             platnosciRsultArea1.setText("Wystąpił problem podczas usuwania płatności" + e);
             throw e;

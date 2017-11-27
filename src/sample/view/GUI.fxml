@@ -275,9 +275,9 @@
                                  <children>
                                     <Text layoutX="15.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id_stanowiska" />
                                     <Text layoutX="17.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwa" />
-                                    <TextField layoutX="146.0" layoutY="9.0" />
-                                    <TextField layoutX="146.0" layoutY="42.0" />
-                                    <Button fx:id="stanowiskaNowyBtn" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                                    <TextField fx:id="stanowiskaIdTF" layoutX="146.0" layoutY="9.0" />
+                                    <TextField fx:id="stanowiskaNazwaTF" layoutX="146.0" layoutY="42.0" />
+                                    <Button fx:id="stanowiskaNowyBtn" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" onAction="#insertStanowiska" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                                     <TableView fx:id="tableStanowiska" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                        <columns>
                                           <TableColumn fx:id="id_stanowiskaColumn" prefWidth="75.0" text="id_stanowiska" />
@@ -285,7 +285,7 @@
                                        </columns>
                                     </TableView>
                                     <Button fx:id="wyswietlStanowiska" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewStanowiska" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                                    <Button fx:id="stanowiskaUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                                    <Button fx:id="stanowiskaUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deleteStanowiska" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
                                     <Button fx:id="stanowiskaUaktualnijBtn" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                                  </children>
                               </AnchorPane>
