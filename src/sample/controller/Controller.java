@@ -70,6 +70,9 @@ public class Controller {
     private Button uaktualnij;
 
     @FXML
+    private TextArea pracownicyResultArea;
+
+    @FXML
     private TableView<Pracownicy> tablePracownik;
 
     @FXML
@@ -126,7 +129,37 @@ public class Controller {
     private AnchorPane KlientAnchorPane2;
 
     @FXML
-    private Button nowy1;
+    private TextField klientIdTF;
+
+    @FXML
+    private TextField klientFirmaTF;
+
+    @FXML
+    private TextField klientStaly_klTF;
+
+    @FXML
+    private TextField klientNazwiskoTF;
+
+    @FXML
+    private TextField klientImieTF;
+
+    @FXML
+    private TextField klientAdresTF;
+
+    @FXML
+    private TextField klientTelefonTF;
+
+    @FXML
+    private TextField klientMailTF;
+
+    @FXML
+    private TextField klientKod_poczTF;
+
+    @FXML
+    private TextField klientMiejscowoscTF;
+
+    @FXML
+    private Button klienciNowyBtn;
 
     @FXML
     private TableView<Klient> tableKlienci;
@@ -165,10 +198,13 @@ public class Controller {
     private Button wyswietlKlient;
 
     @FXML
-    private Button usun1;
+    private Button klienciUsunBtn;
 
     @FXML
     private Button uaktualnij1;
+
+    @FXML
+    private TextArea klientResultArea1;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -215,6 +251,10 @@ public class Controller {
     @FXML
     private Button uaktualnij11;
 
+    @FXML
+    private TextArea kod_towaruResultArea1;
+
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //    PLATNOSCI
@@ -253,6 +293,9 @@ public class Controller {
 
     @FXML
     private Button uaktualnij111;
+
+    @FXML
+    private TextArea platnosciRsultArea1;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -293,6 +336,10 @@ public class Controller {
     @FXML
     private Button uaktualnij1111;
 
+    @FXML
+    private TextArea koszykResultArea1;
+
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //    STANOWISKA
@@ -322,6 +369,9 @@ public class Controller {
 
     @FXML
     private Button stanowiskaUaktualnijBtn;
+
+    @FXML
+    private TextArea stanowiskaResultArea1;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -377,6 +427,9 @@ public class Controller {
     @FXML
     private Button uaktualnij2;
 
+    @FXML
+    private TextArea towaryResultArea1;
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //    TRANSPORT
@@ -412,6 +465,9 @@ public class Controller {
 
     @FXML
     private Button uaktualnij11111;
+
+    @FXML
+    private TextArea transportResultArea1;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -469,6 +525,9 @@ public class Controller {
 
     @FXML
     private Button uaktualnij3;
+
+    @FXML
+    private TextArea zamowieniaResultArea1;
 
     @FXML
     private void initialize() {
@@ -546,12 +605,39 @@ public class Controller {
     }
 
     @FXML
+    void deleteKlient(ActionEvent event) throws SQLException {
+        try {
+            KlientDAO.deleteClientWithId(klientIdTF.getText());
+            klientResultArea1.setText("Klient został usunięty!\n Klient id: " + klientIdTF.getText() + "\n");
+        } catch (SQLException e) {
+            klientResultArea1.setText("Wystąpił problem podczas usuwania klienta " + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
+    void insertKlient(ActionEvent event) throws SQLException {
+        try {
+            KlientDAO.insertCli(klientIdTF.getText(), klientFirmaTF.getText(), klientImieTF.getText(), klientNazwiskoTF.getText(), klientAdresTF.getText(), klientKod_poczTF.getText(), klientMiejscowoscTF.getText(), klientTelefonTF.getText(), klientMailTF.getText(), klientStaly_klTF.getText());
+            klientResultArea1.setText("Klient został dodany! \n");
+        } catch (SQLException e) {
+            klientResultArea1.setText("Wystąpił problem podczas dodawania klienta " + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void deletePracownik(ActionEvent event) throws SQLException {
         try {
             PracownikDAO.deleteEmpWithId(pracownikIdTF.getText());
-//            resultArea.setText("Employee deleted! Employee id: " + empIdText.getText() + "\n");
+            pracownicyResultArea.setText("Pracownik został usunięty!\n Pracownik id: " + pracownikIdTF.getText() + "\n");
         } catch (SQLException e) {
-//            resultArea.setText("Problem occurred while deleting employee " + e);
+            pracownicyResultArea.setText("Wystąpił problem podczas usuwania pracownika " + e);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -562,9 +648,9 @@ public class Controller {
     void insertPracownik(ActionEvent event) throws SQLException {
         try {
             PracownikDAO.insertEmp(pracownikIdTF.getText(), pracownikImieTF.getText(), pracownikNazwiskoTF.getText(), pracownikData_urTF.getText(), pracownikMiastoTF.getText(), pracownikAdresTF.getText(), pracownikTelefonTF.getText(), pracownikData_zatrTF.getText(), pracownikData_zwolTF.getText(), pracownikMailTF.getText(), pracownikPremiaTF.getText(), pracownikPensjaTF.getText(), pracownikId_stanowiskaTF.getText());
-//            resultArea.setText("Employee inserted! \n");
+            pracownicyResultArea.setText("Pracownik został dodany \n");
         } catch (SQLException e) {
-//            resultArea.setText("Problem occurred while inserting employee " + e);
+            pracownicyResultArea.setText("Wystąpił problem podczas dodawania pracownika " + e);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -578,9 +664,11 @@ public class Controller {
             ObservableList<Zamowienia> ordData = ZamowieniaDAO.searchOrders();
             //Populate Orders on TableView
             populateOrder(ordData);
+            zamowieniaResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
         } catch (SQLException e){
-            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o zamówieniach z DB.\n" + e);
+            zamowieniaResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o zamówieniach z DB.\n" + e);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -601,9 +689,11 @@ public class Controller {
             ObservableList<Transport> tranData = TransportDAO.searchTransport();
             //Populate Transports on TableView
             populateTransport(tranData);
+            transportResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
         } catch (SQLException e){
-            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o transporcie z DB.\n" + e);
+            transportResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o transporcie z DB.\n" + e);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -624,9 +714,11 @@ public class Controller {
             ObservableList<Towary> itemData = TowaryDAO.searchItems();
             //Populate Items on TableView
             populateItems(itemData);
+            towaryResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
         } catch (SQLException e){
-            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o towarach z DB.\n" + e);
+            towaryResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o towarach z DB.\n" + e);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -648,9 +740,11 @@ public class Controller {
             ObservableList<Stanowiska> positionData = StanowiskaDAO.searchPosition();
             //Populate Positions on TableView
             populatePositions(positionData);
+            stanowiskaResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
         } catch (SQLException e){
-            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o stanowisku z DB.\n" + e);
+            stanowiskaResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o stanowisku z DB.\n" + e);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -671,9 +765,11 @@ public class Controller {
             ObservableList<Koszyk> basketData = KoszykDAO.searchBasket();
             //Populate Baskets on TableView
             populateBaskets(basketData);
+            koszykResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
         } catch (SQLException e){
-            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o koszyku z DB.\n" + e);
+            koszykResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o koszyku z DB.\n" + e);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -694,9 +790,12 @@ public class Controller {
             ObservableList<Platnosci> paymentData = PlatnosciDAO.searchPlatnosci();
             //Populate Codes on TableView
             populatePayments(paymentData);
+            platnosciRsultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
         } catch (SQLException e){
-            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o płatnościach z DB.\n" + e);
+            platnosciRsultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o płatnościach z DB.\n" + e);
+
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -718,9 +817,12 @@ public class Controller {
             ObservableList<KodTowaru> codeData = KodTowaruDAO.searchKod();
             //Populate Codes on TableView
             populateCodes(codeData);
+            kod_towaruResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
         } catch (SQLException e){
-            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o kodzie towaru z DB.\n" + e);
+            kod_towaruResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o kodzie towaru z DB.\n" + e);
+
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -741,9 +843,12 @@ public class Controller {
             ObservableList<Klient> cliData = KlientDAO.searchKlient();
             //Populate Clients on TableView
             populateClients(cliData);
+            klientResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
         } catch (SQLException e){
-            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o klientach z DB.\n" + e);
+            klientResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o klientach z DB.\n" + e);
+
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -764,9 +869,11 @@ public class Controller {
             ObservableList<Pracownicy> pracData = PracownikDAO.searchPracownicy();
             //Populate Employees on TableView
             populateEmployees(pracData);
+            pracownicyResultArea.setText("Podłączono do bazy\n poprawnie\n");
 
         } catch (SQLException e){
-            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o pracownikach z DB.\n" + e);
+            pracownicyResultArea.setText("Wystąpił błąd podczas\n pobierania informacji o pracownikach z DB.\n" + e);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

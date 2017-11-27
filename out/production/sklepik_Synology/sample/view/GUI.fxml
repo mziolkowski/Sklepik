@@ -5,7 +5,9 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -48,7 +50,7 @@
                               <TextField fx:id="pracownikPensjaTF" layoutX="501.0" layoutY="138.0" />
                               <TextField fx:id="pracownikMailTF" layoutX="146.0" layoutY="207.0" />
                               <TextField fx:id="pracownikAdresTF" layoutX="146.0" layoutY="171.0" />
-                              <Button fx:id="pracownikNowyBtn" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" onAction="#insertPracownik" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                              <Button fx:id="pracownikNowyBtn" layoutX="717.0" layoutY="18.0" mnemonicParsing="false" onAction="#insertPracownik" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                               <TableView fx:id="tablePracownik" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                  <columns>
                                     <TableColumn fx:id="id_pracownikColumn" prefWidth="75.0" text="id_pracownik" />
@@ -66,9 +68,15 @@
                                     <TableColumn fx:id="pracId_stanowiskaColumn" prefWidth="75.0" text="id_stanowiska" />
                                  </columns>
                               </TableView>
-                              <Button fx:id="wyswietl" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewPracownicy" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                              <Button fx:id="pracownikUsunBtn" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" onAction="#deletePracownik" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                              <Button fx:id="uaktualnij" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                              <Button fx:id="wyswietl" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewPracownicy" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                              <Button fx:id="pracownikUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deletePracownik" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                              <Button fx:id="uaktualnij" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                              <TextArea fx:id="pracownicyResultArea" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                              <Text layoutX="836.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Console">
+                                 <effect>
+                                    <Blend />
+                                 </effect>
+                              </Text>
                            </children>
                         </AnchorPane>
                      </children>
@@ -93,17 +101,17 @@
                                     <Text layoutX="22.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kod pocztowy" />
                                     <Text layoutX="350.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail" />
                                     <Text layoutX="348.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staly klient" />
-                                    <TextField layoutX="146.0" layoutY="9.0" />
-                                    <TextField layoutX="146.0" layoutY="42.0" />
-                                    <TextField layoutX="501.0" layoutY="76.0" />
-                                    <TextField layoutX="146.0" layoutY="107.0" />
-                                    <TextField layoutX="146.0" layoutY="73.0" />
-                                    <TextField layoutX="146.0" layoutY="138.0" />
-                                    <TextField layoutX="501.0" layoutY="9.0" />
-                                    <TextField layoutX="501.0" layoutY="43.0" />
-                                    <TextField layoutX="146.0" layoutY="171.0" />
-                                    <TextField layoutX="146.0" layoutY="207.0" />
-                                    <Button fx:id="nowy1" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                                    <TextField fx:id="klientIdTF" layoutX="146.0" layoutY="9.0" />
+                                    <TextField fx:id="klientFirmaTF" layoutX="146.0" layoutY="42.0" />
+                                    <TextField fx:id="klientStaly_klTF" layoutX="501.0" layoutY="76.0" />
+                                    <TextField fx:id="klientNazwiskoTF" layoutX="146.0" layoutY="107.0" />
+                                    <TextField fx:id="klientImieTF" layoutX="146.0" layoutY="73.0" />
+                                    <TextField fx:id="klientAdresTF" layoutX="146.0" layoutY="138.0" />
+                                    <TextField fx:id="klientTelefonTF" layoutX="501.0" layoutY="9.0" />
+                                    <TextField fx:id="klientMailTF" layoutX="501.0" layoutY="43.0" />
+                                    <TextField fx:id="klientKod_poczTF" layoutX="146.0" layoutY="171.0" />
+                                    <TextField fx:id="klientMiejscowoscTF" layoutX="146.0" layoutY="207.0" />
+                                    <Button fx:id="klienciNowyBtn" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" onAction="#insertKlient" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                                     <TableView fx:id="tableKlienci" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                        <columns>
                                           <TableColumn fx:id="id_klientColumn" prefWidth="75.0" text="id_klient" />
@@ -118,11 +126,17 @@
                                           <TableColumn fx:id="klientStaly_klientColumn" prefWidth="75.0" text="Staly_Klient" />
                                        </columns>
                                     </TableView>
-                                    <Button fx:id="wyswietlKlient" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewKlienci" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                                    <Button fx:id="usun1" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                                    <Button fx:id="uaktualnij1" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                                    <Button fx:id="wyswietlKlient" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewKlienci" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                                    <Button fx:id="klienciUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deleteKlient" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                                    <Button fx:id="uaktualnij1" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                                  </children>
                               </AnchorPane>
+                              <TextArea fx:id="klientResultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                              <Text layoutX="836.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Console">
+                                 <effect>
+                                    <Blend />
+                                 </effect>
+                              </Text>
                            </children>
                         </AnchorPane>
                      </children></AnchorPane>
@@ -146,7 +160,7 @@
                               <TextField layoutX="146.0" layoutY="73.0" />
                               <TextField layoutX="146.0" layoutY="138.0" />
                               <TextField layoutX="146.0" layoutY="171.0" />
-                              <Button fx:id="nowy11" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                              <Button fx:id="nowy11" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                               <TableView fx:id="tableKod_towaru" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                  <columns>
                                     <TableColumn fx:id="id_kodColumn" prefWidth="75.0" text="id_kod" />
@@ -157,11 +171,17 @@
                                     <TableColumn fx:id="kod_towaruPolkaColumn" prefWidth="75.0" text="Półka" />
                                  </columns>
                               </TableView>
-                              <Button fx:id="wyswietlKod_towaru" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewKod_towaru" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                              <Button fx:id="usun11" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                              <Button fx:id="uaktualnij11" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                              <Button fx:id="wyswietlKod_towaru" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewKod_towaru" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                              <Button fx:id="usun11" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                              <Button fx:id="uaktualnij11" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                            </children>
                         </AnchorPane>
+                        <TextArea fx:id="kod_towaruResultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                        <Text layoutX="836.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Console">
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </Text>
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -179,7 +199,7 @@
                               <TextField layoutX="146.0" layoutY="42.0" />
                               <TextField layoutX="146.0" layoutY="107.0" />
                               <TextField layoutX="146.0" layoutY="73.0" />
-                              <Button fx:id="nowy111" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                              <Button fx:id="nowy111" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                               <TableView fx:id="tablePlatnosci" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                  <columns>
                                     <TableColumn fx:id="id_platnosciColumn" prefWidth="75.0" text="id_platnosci" />
@@ -188,11 +208,17 @@
                                     <TableColumn fx:id="platnosciKwotaColumn" prefWidth="75.0" text="Kwota" />
                                  </columns>
                               </TableView>
-                              <Button fx:id="wyswietlPlatnosci" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewPlatnosci" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                              <Button fx:id="usun111" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                              <Button fx:id="uaktualnij111" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                              <Button fx:id="wyswietlPlatnosci" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewPlatnosci" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                              <Button fx:id="usun111" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                              <Button fx:id="uaktualnij111" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                            </children>
                         </AnchorPane>
+                        <TextArea fx:id="platnosciRsultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                        <Text layoutX="836.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Console">
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </Text>
                      </children>
                   </AnchorPane>
               </content>
@@ -213,7 +239,7 @@
                                     <TextField layoutX="146.0" layoutY="42.0" />
                                     <TextField layoutX="146.0" layoutY="107.0" />
                                     <TextField layoutX="146.0" layoutY="73.0" />
-                                    <Button fx:id="nowy1111" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                                    <Button fx:id="nowy1111" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                                     <TableView fx:id="tableKoszyk" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                        <columns>
                                           <TableColumn fx:id="id_koszykColumn" prefWidth="75.0" text="id_koszyk" />
@@ -222,9 +248,15 @@
                                           <TableColumn fx:id="koszykCenaColumn" prefWidth="75.0" text="Cena" />
                                        </columns>
                                     </TableView>
-                                    <Button fx:id="wyswietlKoszyk" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewKoszyk" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                                    <Button fx:id="usun1111" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                                    <Button fx:id="uaktualnij1111" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                                    <Button fx:id="wyswietlKoszyk" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewKoszyk" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                                    <Button fx:id="usun1111" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                                    <Button fx:id="uaktualnij1111" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                                    <TextArea fx:id="koszykResultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                                    <Text layoutX="836.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Console">
+                                       <effect>
+                                          <Blend />
+                                       </effect>
+                                    </Text>
                                  </children>
                               </AnchorPane>
                            </children>
@@ -245,18 +277,24 @@
                                     <Text layoutX="17.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nazwa" />
                                     <TextField layoutX="146.0" layoutY="9.0" />
                                     <TextField layoutX="146.0" layoutY="42.0" />
-                                    <Button fx:id="stanowiskaNowyBtn" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                                    <Button fx:id="stanowiskaNowyBtn" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                                     <TableView fx:id="tableStanowiska" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                        <columns>
                                           <TableColumn fx:id="id_stanowiskaColumn" prefWidth="75.0" text="id_stanowiska" />
                                           <TableColumn fx:id="stanowiskaNazwaColumn" prefWidth="75.0" text="Nazwa" />
                                        </columns>
                                     </TableView>
-                                    <Button fx:id="wyswietlStanowiska" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewStanowiska" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                                    <Button fx:id="stanowiskaUsunBtn" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                                    <Button fx:id="stanowiskaUaktualnijBtn" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                                    <Button fx:id="wyswietlStanowiska" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewStanowiska" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                                    <Button fx:id="stanowiskaUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                                    <Button fx:id="stanowiskaUaktualnijBtn" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                                  </children>
                               </AnchorPane>
+                              <TextArea fx:id="stanowiskaResultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                              <Text layoutX="836.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Console">
+                                 <effect>
+                                    <Blend />
+                                 </effect>
+                              </Text>
                            </children>
                         </AnchorPane>
                      </children>
@@ -289,7 +327,7 @@
                                     <TextField layoutX="501.0" layoutY="9.0" />
                                     <TextField layoutX="146.0" layoutY="171.0" />
                                     <TextField layoutX="146.0" layoutY="207.0" />
-                                    <Button fx:id="nowy2" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                                    <Button fx:id="nowy2" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                                     <TableView fx:id="tableTowary" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                        <columns>
                                           <TableColumn fx:id="id_towarColumn" prefWidth="75.0" text="id_towar" />
@@ -303,11 +341,17 @@
                                           <TableColumn fx:id="towaryCenaColumn" prefWidth="75.0" text="Cena" />
                                        </columns>
                                     </TableView>
-                                    <Button fx:id="wyswietlTowary" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewTowary" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                                    <Button fx:id="usun2" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                                    <Button fx:id="uaktualnij2" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                                    <Button fx:id="wyswietlTowary" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewTowary" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                                    <Button fx:id="usun2" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                                    <Button fx:id="uaktualnij2" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                                  </children>
                               </AnchorPane>
+                              <TextArea fx:id="towaryResultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                              <Text layoutX="836.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Console">
+                                 <effect>
+                                    <Blend />
+                                 </effect>
+                              </Text>
                            </children>
                         </AnchorPane>
                      </children>
@@ -330,7 +374,7 @@
                                           <TextField layoutX="146.0" layoutY="9.0" />
                                           <TextField layoutX="146.0" layoutY="42.0" />
                                           <TextField layoutX="146.0" layoutY="73.0" />
-                                          <Button fx:id="nowy11111" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                                          <Button fx:id="nowy11111" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                                           <TableView fx:id="tableTransport" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                              <columns>
                                                 <TableColumn fx:id="id_transportColumn" prefWidth="75.0" text="id_transport" />
@@ -338,11 +382,17 @@
                                                 <TableColumn fx:id="transportRodzajColumn" prefWidth="75.0" text="Rodzaj" />
                                              </columns>
                                           </TableView>
-                                          <Button fx:id="wyswietlTransport" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewTransport" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                                          <Button fx:id="usun11111" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                                          <Button fx:id="uaktualnij11111" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                                          <Button fx:id="wyswietlTransport" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewTransport" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                                          <Button fx:id="usun11111" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                                          <Button fx:id="uaktualnij11111" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                                        </children>
                                     </AnchorPane>
+                                    <TextArea fx:id="transportResultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                                    <Text layoutX="836.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Console">
+                                       <effect>
+                                          <Blend />
+                                       </effect>
+                                    </Text>
                                  </children>
                               </AnchorPane>
                            </children>
@@ -377,7 +427,7 @@
                               <TextField layoutX="501.0" layoutY="9.0" />
                               <TextField layoutX="146.0" layoutY="171.0" />
                               <TextField layoutX="146.0" layoutY="207.0" />
-                              <Button fx:id="nowy3" layoutX="745.0" layoutY="53.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                              <Button fx:id="nowy3" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                               <TableView fx:id="tableZamowienia" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                  <columns>
                                     <TableColumn fx:id="id_zamowieniaColumn" prefWidth="75.0" text="id_zamowienia" />
@@ -392,11 +442,17 @@
                                     <TableColumn fx:id="zamowieniaCzas_dostawyColumn" prefWidth="75.0" text="Czas dostawy" />
                                  </columns>
                               </TableView>
-                              <Button fx:id="wyswietlZamowienia" layoutX="885.0" layoutY="92.0" mnemonicParsing="false" onAction="#ViewZamowienia" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                              <Button fx:id="usun3" layoutX="745.0" layoutY="106.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                              <Button fx:id="uaktualnij3" layoutX="745.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                              <Button fx:id="wyswietlZamowienia" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewZamowienia" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                              <Button fx:id="usun3" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                              <Button fx:id="uaktualnij3" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                            </children>
                         </AnchorPane>
+                        <TextArea fx:id="zamowieniaResultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                        <Text layoutX="836.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Console">
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </Text>
                      </children>
                   </AnchorPane>
               </content>
