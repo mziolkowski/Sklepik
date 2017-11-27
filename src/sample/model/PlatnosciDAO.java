@@ -43,4 +43,35 @@ public class PlatnosciDAO {
         //return empList (ObservableList of Clients)
         return paymentList;
     }
+
+    public static void deletePaymentWithId(String paymentId) throws SQLException, ClassNotFoundException {
+        //Declare a DELETE statement
+        String updateStmt = "DELETE FROM platnosci\n" +
+                "   WHERE id_platnosci ="+ paymentId +";\n";
+
+        //Execute UPDATE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji DELETE: " + e);
+            throw e;
+        }
+    }
+
+    public static void insertPayment(String id_platnosci, String gotowka, String przelew, String kwota) throws SQLException, ClassNotFoundException {
+        //Declare a INSERT statement
+        String updateStmt =
+                "INSERT INTO platnosci " +
+                        "(id_platnosci, gotowka, przelew, kwota) " +
+                        "VALUES " +
+                        "('" + id_platnosci + "','" + gotowka + "','" + przelew + "','" + kwota + "');";
+
+        //Execute INSERT operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji INSERT: " + e);
+            throw e;
+        }
+    }
 }
