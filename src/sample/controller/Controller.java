@@ -435,7 +435,34 @@ public class Controller {
     private AnchorPane towaryAnchorPane1;
 
     @FXML
-    private Button nowy2;
+    private TextField towaryIdTF;
+
+    @FXML
+    private TextField towaryTypTF;
+
+    @FXML
+    private TextField towaryModelTF;
+
+    @FXML
+    private TextField TowaryMarkaTF;
+
+    @FXML
+    private TextField towaryCenaTF;
+
+    @FXML
+    private TextField towaryId_kodTF;
+
+    @FXML
+    private TextField towaryIloscTF;
+
+    @FXML
+    private TextField towaryStatusTF;
+
+    @FXML
+    private TextField towaryOpisTF;
+
+    @FXML
+    private Button towaryNowyBtn;
 
     @FXML
     private TableView<Towary> tableTowary;
@@ -471,7 +498,7 @@ public class Controller {
     private Button wyswietlTowary;
 
     @FXML
-    private Button usun2;
+    private Button towaryUsunBtn;
 
     @FXML
     private Button uaktualnij2;
@@ -540,7 +567,37 @@ public class Controller {
     private AnchorPane zamowieniaAnchorPane;
 
     @FXML
-    private Button nowy3;
+    private TextField zamowieniaIdTF;
+
+    @FXML
+    private TextField zamowieniaId_koszykTF;
+
+    @FXML
+    private TextField zamowieniaCzas_dostawyTF;
+
+    @FXML
+    private TextField zamowieniaData_zamTF;
+
+    @FXML
+    private TextField zamowieniaId_klientTF;
+
+    @FXML
+    private TextField zamowieniaId_transportTF;
+
+    @FXML
+    private TextField zamowieniaId_platnoscTF;
+
+    @FXML
+    private TextField zamowieniaStatusTF;
+
+    @FXML
+    private TextField zamowieniaZaplaconeTF;
+
+    @FXML
+    private TextField zamowieniaFakturaTF;
+
+    @FXML
+    private Button zamowieniaNowyBtn;
 
     @FXML
     private TableView<Zamowienia> tableZamowienia;
@@ -579,7 +636,7 @@ public class Controller {
     private Button wyswietlZamowienia;
 
     @FXML
-    private Button usun3;
+    private Button zamowieniaUsunBtn;
 
     @FXML
     private Button uaktualnij3;
@@ -659,6 +716,41 @@ public class Controller {
         zamowieniaid_transportColumn.setCellValueFactory(cellData -> cellData.getValue().id_transportProperty().asObject());
         zamowieniaCzas_dostawyColumn.setCellValueFactory(cellData -> cellData.getValue().czas_dostawyProperty());
 
+    }
+    @FXML
+    void deleteZamowienia(ActionEvent event) {
+
+    }
+
+    @FXML
+    void insertZamowienia(ActionEvent event) {
+
+    }
+
+    @FXML
+    void deleteTowary(ActionEvent event) throws SQLException {
+        try {
+            TowaryDAO.deleteItemWithId(towaryIdTF.getText());
+            towaryResultArea1.setText("Towar został usunięty!\n Towar id: " + towaryIdTF.getText() + "\n");
+        } catch (SQLException e) {
+            towaryResultArea1.setText("Wystąpił problem podczas usuwania towaru" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertTowary(ActionEvent event) throws SQLException {
+        try {
+            TowaryDAO.insertItem(towaryIdTF.getText(), towaryTypTF.getText(), TowaryMarkaTF.getText(), towaryModelTF.getText(), towaryId_kodTF.getText(), towaryStatusTF.getText(), towaryOpisTF.getText(), towaryIloscTF.getText(), towaryCenaTF.getText());
+            towaryResultArea1.setText("Towar został dodany! \n");
+        } catch (SQLException e) {
+            towaryResultArea1.setText("Wystąpił problem podczas dodawania towaru" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
