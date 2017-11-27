@@ -1,7 +1,6 @@
 package sample.controller;
 
 
-import com.sun.tools.javac.file.ZipArchive;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -493,7 +492,16 @@ public class Controller {
     private AnchorPane transportAnchorPane1;
 
     @FXML
-    private Button nowy11111;
+    private TextField transportIdTF;
+
+    @FXML
+    private TextField transportNazwaTF;
+
+    @FXML
+    private TextField transportRodzajTF;
+
+    @FXML
+    private Button transportNowyBtn;
 
     @FXML
     private TableView<Transport> tableTransport;
@@ -511,7 +519,7 @@ public class Controller {
     private Button wyswietlTransport;
 
     @FXML
-    private Button usun11111;
+    private Button transportUsunBtn;
 
     @FXML
     private Button uaktualnij11111;
@@ -651,6 +659,32 @@ public class Controller {
         zamowieniaid_transportColumn.setCellValueFactory(cellData -> cellData.getValue().id_transportProperty().asObject());
         zamowieniaCzas_dostawyColumn.setCellValueFactory(cellData -> cellData.getValue().czas_dostawyProperty());
 
+    }
+
+    @FXML
+    void deleteTransport(ActionEvent event) throws SQLException {
+        try {
+            TransportDAO.deleteTransportWithId(transportIdTF.getText());
+            transportResultArea1.setText("Transport został usunięty!\n Transport id: " + transportIdTF.getText() + "\n");
+        } catch (SQLException e) {
+            transportResultArea1.setText("Wystąpił problem podczas usuwania transportu" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertTransport(ActionEvent event) throws SQLException {
+        try {
+            TransportDAO.insertTransport(transportIdTF.getText(), transportNazwaTF.getText(), transportRodzajTF.getText());
+            transportResultArea1.setText("Transport został dodany! \n");
+        } catch (SQLException e) {
+            transportResultArea1.setText("Wystąpił problem podczas dodawania transportu" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

@@ -45,4 +45,35 @@ public class TransportDAO {
         //return empList (ObservableList of Clients)
         return transportList;
     }
+
+    public static void deleteTransportWithId(String transportId) throws SQLException, ClassNotFoundException {
+        //Declare a DELETE statement
+        String updateStmt = "DELETE FROM transport\n" +
+                "   WHERE id_transport ="+ transportId +";\n";
+
+        //Execute UPDATE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji DELETE: " + e);
+            throw e;
+        }
+    }
+
+    public static void insertTransport(String id_transport, String nazwa, String rodzaj) throws SQLException, ClassNotFoundException {
+        //Declare a INSERT statement
+        String updateStmt =
+                "INSERT INTO transport " +
+                        "(id_transport, nazwa, rodzaj) " +
+                        "VALUES " +
+                        "('" + id_transport + "','" + nazwa + "','" + rodzaj + "');";
+
+        //Execute INSERT operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji INSERT: " + e);
+            throw e;
+        }
+    }
 }
