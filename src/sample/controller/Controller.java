@@ -328,9 +328,6 @@ public class Controller {
     private AnchorPane koszykAnchorPane;
 
     @FXML
-    private Button nowy1111;
-
-    @FXML
     private TableView<Koszyk> tableKoszyk;
 
     @FXML
@@ -346,10 +343,25 @@ public class Controller {
     private TableColumn<Koszyk, Integer> koszykCenaColumn;
 
     @FXML
+    private TextField koszykId_towarTF;
+
+    @FXML
+    private TextField koszykIdTF;
+
+    @FXML
+    private TextField koszykCenaTF;
+
+    @FXML
+    private TextField koszykIloscTF;
+
+    @FXML
+    private Button koszykNowyBtn;
+
+    @FXML
     private Button wyswietlKoszyk;
 
     @FXML
-    private Button usun1111;
+    private Button koszykUsunBtn;
 
     @FXML
     private Button uaktualnij1111;
@@ -619,8 +631,35 @@ public class Controller {
         zamowieniaid_transportColumn.setCellValueFactory(cellData -> cellData.getValue().id_transportProperty().asObject());
         zamowieniaCzas_dostawyColumn.setCellValueFactory(cellData -> cellData.getValue().czas_dostawyProperty());
 
-
     }
+
+    @FXML
+    void deleteKoszyk(ActionEvent event) throws SQLException {
+        try {
+            KoszykDAO.deleteBasketWithId(koszykIdTF.getText());
+            koszykResultArea1.setText("Koszyk został usunięty!\n Koszyk id: " + koszykIdTF.getText() + "\n");
+        } catch (SQLException e) {
+            koszykResultArea1.setText("Wystąpił problem podczas usuwania koszuka" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertKoszyk(ActionEvent event) throws SQLException {
+        try {
+            KoszykDAO.insertBasket(koszykIdTF.getText(), koszykId_towarTF.getText(), koszykIloscTF.getText(), koszykCenaTF.getText());
+            koszykResultArea1.setText("Koszyk został dodany! \n");
+        } catch (SQLException e) {
+            koszykResultArea1.setText("Wystąpił problem podczas dodawania koszyka " + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     @FXML
     void deleteKod(ActionEvent event) throws SQLException {
         try {
