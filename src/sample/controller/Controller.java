@@ -219,7 +219,7 @@ public class Controller {
     private AnchorPane kod_towaruAnchorPane2;
 
     @FXML
-    private Button nowy11;
+    private Button kod_towaruNowyBtn;
 
     @FXML
     private TableView<KodTowaru> tableKod_towaru;
@@ -243,10 +243,28 @@ public class Controller {
     private TableColumn<KodTowaru, String> kod_towaruPolkaColumn;
 
     @FXML
+    private TextField kod_towaruIdTF;
+
+    @FXML
+    private TextField kodMagazynTF;
+
+    @FXML
+    private TextField kodPoziomTF;
+
+    @FXML
+    private TextField kodHalaTF;
+
+    @FXML
+    private TextField kodRegalTF;
+
+    @FXML
+    private TextField kodPolkaTF;
+
+    @FXML
     private Button wyswietlKod_towaru;
 
     @FXML
-    private Button usun11;
+    private Button kod_towaruUsunBtn;
 
     @FXML
     private Button uaktualnij11;
@@ -602,6 +620,31 @@ public class Controller {
         zamowieniaCzas_dostawyColumn.setCellValueFactory(cellData -> cellData.getValue().czas_dostawyProperty());
 
 
+    }
+    @FXML
+    void deleteKod(ActionEvent event) throws SQLException {
+        try {
+            KodTowaruDAO.deleteCodeWithId(kod_towaruIdTF.getText());
+            kod_towaruResultArea1.setText("Kod towaru został usunięty!\n Kod_towaru id: " + kod_towaruIdTF.getText() + "\n");
+        } catch (SQLException e) {
+            kod_towaruResultArea1.setText("Wystąpił problem podczas usuwania kodu towaru " + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertKod(ActionEvent event) throws SQLException {
+        try {
+            KodTowaruDAO.insertCode(kod_towaruIdTF.getText(), kodMagazynTF.getText(), kodHalaTF.getText(), kodPoziomTF.getText(), kodRegalTF.getText(), kodPolkaTF.getText());
+            kod_towaruResultArea1.setText("Kod towaru został dodany! \n");
+        } catch (SQLException e) {
+            kod_towaruResultArea1.setText("Wystąpił problem podczas dodawania kodu towaru " + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

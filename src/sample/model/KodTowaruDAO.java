@@ -43,7 +43,38 @@ public class KodTowaruDAO {
             //Add clients to the ObservableList
             codeList.add(code);
         }
-        //return empList (ObservableList of Clients)
+        //return codeList (ObservableList of Clients)
         return codeList;
+    }
+
+    public static void deleteCodeWithId(String codeId) throws SQLException, ClassNotFoundException {
+        //Declare a DELETE statement
+        String updateStmt = "DELETE FROM kod_towaru\n" +
+                "   WHERE id_kod ="+ codeId +";\n";
+
+        //Execute UPDATE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji DELETE: " + e);
+            throw e;
+        }
+    }
+
+    public static void insertCode(String id_kod, String magazyn, String hala, String poziom, String regal, String polka) throws SQLException, ClassNotFoundException {
+        //Declare a INSERT statement
+        String updateStmt =
+                "INSERT INTO kod_towaru " +
+                        "(id_kod, magazyn, hala, poziom, regal, polka) " +
+                        "VALUES " +
+                        "('" + id_kod + "','" + magazyn + "','" + hala + "','" + poziom + "','" + regal + "','" + polka + "');";
+
+        //Execute INSERT operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji INSERT: " + e);
+            throw e;
+        }
     }
 }
