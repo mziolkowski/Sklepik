@@ -286,8 +286,19 @@ public class Controller {
     private AnchorPane platnosciAnchorPane;
 
     @FXML
-    private Button nowy111;
+    private TextField platnosciIdTF;
 
+    @FXML
+    private TextField platnosciGotowkTF;
+
+    @FXML
+    private TextField platnosciKwotaTF;
+
+    @FXML
+    private TextField platnosciPrzelewTF;
+
+    @FXML
+    private Button platnosciNowyBtn;
     @FXML
     private TableView<Platnosci> tablePlatnosci;
 
@@ -307,7 +318,7 @@ public class Controller {
     private Button wyswietlPlatnosci;
 
     @FXML
-    private Button usun111;
+    private Button platnosciUsunBtn;
 
     @FXML
     private Button uaktualnij111;
@@ -634,12 +645,39 @@ public class Controller {
     }
 
     @FXML
+    void deletePlatnosci(ActionEvent event) throws SQLException {
+        try {
+            PlatnosciDAO.deletePaymentWithId(platnosciIdTF.getText());
+            platnosciRsultArea1.setText("Płatność została usunięta!\n Płątność id: " + platnosciIdTF.getText() + "\n");
+        } catch (SQLException e) {
+            platnosciRsultArea1.setText("Wystąpił problem podczas usuwania płatności" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertPlatnosci(ActionEvent event) throws SQLException {
+        try {
+            PlatnosciDAO.insertPayment(platnosciIdTF.getText(), platnosciGotowkTF.getText(), platnosciPrzelewTF.getText(), platnosciKwotaTF.getText());
+            platnosciRsultArea1.setText("Płatność została dodana! \n");
+        } catch (SQLException e) {
+            platnosciRsultArea1.setText("Wystąpił problem podczas dodawania płatności" + e);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
     void deleteKoszyk(ActionEvent event) throws SQLException {
         try {
             KoszykDAO.deleteBasketWithId(koszykIdTF.getText());
             koszykResultArea1.setText("Koszyk został usunięty!\n Koszyk id: " + koszykIdTF.getText() + "\n");
         } catch (SQLException e) {
-            koszykResultArea1.setText("Wystąpił problem podczas usuwania koszuka" + e);
+            koszykResultArea1.setText("Wystąpił problem podczas usuwania koszyka" + e);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

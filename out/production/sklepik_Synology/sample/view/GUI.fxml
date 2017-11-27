@@ -195,11 +195,11 @@
                               <Text layoutX="17.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Przelew" />
                               <Text layoutX="18.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kwota" />
                               <Text layoutX="17.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gotowka" />
-                              <TextField layoutX="146.0" layoutY="9.0" />
-                              <TextField layoutX="146.0" layoutY="42.0" />
-                              <TextField layoutX="146.0" layoutY="107.0" />
-                              <TextField layoutX="146.0" layoutY="73.0" />
-                              <Button fx:id="nowy111" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
+                              <TextField fx:id="platnosciIdTF" layoutX="146.0" layoutY="9.0" />
+                              <TextField fx:id="platnosciGotowkTF" layoutX="146.0" layoutY="42.0" />
+                              <TextField fx:id="platnosciKwotaTF" layoutX="146.0" layoutY="107.0" />
+                              <TextField fx:id="platnosciPrzelewTF" layoutX="146.0" layoutY="73.0" />
+                              <Button fx:id="platnosciNowyBtn" layoutX="717.0" layoutY="16.0" mnemonicParsing="false" onAction="#insertPlatnosci" prefHeight="30.0" prefWidth="82.0" text="Nowy" textFill="#0bee4b" />
                               <TableView fx:id="tablePlatnosci" layoutX="22.0" layoutY="270.0" prefHeight="342.0" prefWidth="1003.0">
                                  <columns>
                                     <TableColumn fx:id="id_platnosciColumn" prefWidth="75.0" text="id_platnosci" />
@@ -209,7 +209,7 @@
                                  </columns>
                               </TableView>
                               <Button fx:id="wyswietlPlatnosci" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewPlatnosci" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
-                              <Button fx:id="usun111" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
+                              <Button fx:id="platnosciUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deletePlatnosci" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
                               <Button fx:id="uaktualnij111" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                            </children>
                         </AnchorPane>
