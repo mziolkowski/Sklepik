@@ -49,4 +49,37 @@ public class ZamowieniaDAO {
         //return empList (ObservableList of Employees)
         return ordList;
     }
+
+    public static void deleteOrderWithId(String orderId) throws SQLException, ClassNotFoundException {
+        //Declare a DELETE statement
+        String updateStmt =
+                "   DELETE FROM zamowienia\n" +
+                        "         WHERE id_zamowienia= "+ orderId +";\n" +
+                        "   COMMIT;";
+
+        //Execute UPDATE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji DELETE: " + e);
+            throw e;
+        }
+    }
+
+    public static void insertOrder(String id_zamowienia, String id_koszyk, String id_klienta, String data_zamowienia, String id_platnosc, String zaplacone, String faktura, String status_zamowienia, String id_transport, String czas_dostawy) throws SQLException, ClassNotFoundException {
+        //Declare a INSERT statement
+        String updateStmt =
+                "INSERT INTO zamowienia " +
+                        "(id_zamowienia, id_koszyk, id_klienta, data_zamowienia, id_platnosc, zaplacone, faktura, status_zamowienia, id_transport, czas_dostawy) " +
+                        "VALUES " +
+                        "('" + id_zamowienia + "','" + id_koszyk + "','" + id_klienta + "','" + data_zamowienia + "','" + id_platnosc + "','" + zaplacone + "','" + faktura + "','" + status_zamowienia + "','" + id_transport + "','" + czas_dostawy+ "');";
+
+        //Execute INSERT operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji INSERT: " + e);
+            throw e;
+        }
+    }
 }

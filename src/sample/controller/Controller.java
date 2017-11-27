@@ -663,7 +663,7 @@ public class Controller {
         id_klientColumn.setCellValueFactory(cellData -> cellData.getValue().id_klientProperty().asObject());
         klientFirmaColumn.setCellValueFactory(cellData -> cellData.getValue().firmaProperty());
         klientImieColumn.setCellValueFactory(cellData -> cellData.getValue().imieProperty());
-        klientNazwiskoColumn.setCellValueFactory(cellData ->cellData.getValue().nazwiskoProperty());
+        klientNazwiskoColumn.setCellValueFactory(cellData -> cellData.getValue().nazwiskoProperty());
         klientAdresColumn.setCellValueFactory(cellData -> cellData.getValue().adresProperty());
         klientKod_pocztowyColumn.setCellValueFactory(cellData -> cellData.getValue().kod_pocztowyProperty());
         klientMiejscowoscColumn.setCellValueFactory(cellData -> cellData.getValue().miejscowoscProperty());
@@ -717,14 +717,35 @@ public class Controller {
         zamowieniaCzas_dostawyColumn.setCellValueFactory(cellData -> cellData.getValue().czas_dostawyProperty());
 
     }
-    @FXML
-    void deleteZamowienia(ActionEvent event) {
 
+    @FXML
+    void deleteZamowienia(ActionEvent event) throws SQLException {
+        try {
+            ZamowieniaDAO.deleteOrderWithId(zamowieniaIdTF.getText());
+            zamowieniaResultArea1.setText("Zamówienie zostało usunięte!\n Zamówienie id: " + zamowieniaIdTF.getText() + "\n");
+            zamowieniaResultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            zamowieniaResultArea1.setText("Wystąpił problem podczas usuwania zamówienia" + e);
+            zamowieniaResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    void insertZamowienia(ActionEvent event) {
-
+    void insertZamowienia(ActionEvent event) throws SQLException {
+        try {
+            ZamowieniaDAO.insertOrder(zamowieniaIdTF.getText(), zamowieniaId_koszykTF.getText(), zamowieniaId_klientTF.getText(), zamowieniaData_zamTF.getText(), zamowieniaId_platnoscTF.getText(), zamowieniaZaplaconeTF.getText(), zamowieniaFakturaTF.getText(), zamowieniaStatusTF.getText(), zamowieniaId_transportTF.getText(), zamowieniaCzas_dostawyTF.getText());
+            zamowieniaResultArea1.setText("Zamówienie zostało dodane! \n");
+            zamowieniaResultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            zamowieniaResultArea1.setText("Wystąpił problem podczas dodawania zamówienia" + e);
+            zamowieniaResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -732,8 +753,10 @@ public class Controller {
         try {
             TowaryDAO.deleteItemWithId(towaryIdTF.getText());
             towaryResultArea1.setText("Towar został usunięty!\n Towar id: " + towaryIdTF.getText() + "\n");
+            towaryResultArea1.setWrapText(true);
         } catch (SQLException e) {
             towaryResultArea1.setText("Wystąpił problem podczas usuwania towaru" + e);
+            towaryResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -745,8 +768,10 @@ public class Controller {
         try {
             TowaryDAO.insertItem(towaryIdTF.getText(), towaryTypTF.getText(), TowaryMarkaTF.getText(), towaryModelTF.getText(), towaryId_kodTF.getText(), towaryStatusTF.getText(), towaryOpisTF.getText(), towaryIloscTF.getText(), towaryCenaTF.getText());
             towaryResultArea1.setText("Towar został dodany! \n");
+            towaryResultArea1.setWrapText(true);
         } catch (SQLException e) {
             towaryResultArea1.setText("Wystąpił problem podczas dodawania towaru" + e);
+            towaryResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -758,8 +783,10 @@ public class Controller {
         try {
             TransportDAO.deleteTransportWithId(transportIdTF.getText());
             transportResultArea1.setText("Transport został usunięty!\n Transport id: " + transportIdTF.getText() + "\n");
+            transportResultArea1.setWrapText(true);
         } catch (SQLException e) {
             transportResultArea1.setText("Wystąpił problem podczas usuwania transportu" + e);
+            transportResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -770,9 +797,11 @@ public class Controller {
     void insertTransport(ActionEvent event) throws SQLException {
         try {
             TransportDAO.insertTransport(transportIdTF.getText(), transportNazwaTF.getText(), transportRodzajTF.getText());
+            transportResultArea1.setWrapText(true);
             transportResultArea1.setText("Transport został dodany! \n");
         } catch (SQLException e) {
             transportResultArea1.setText("Wystąpił problem podczas dodawania transportu" + e);
+            transportResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -784,8 +813,10 @@ public class Controller {
         try {
             StanowiskaDAO.deletePositionWithId(stanowiskaIdTF.getText());
             stanowiskaResultArea1.setText("Stanowisko zostało usunięte!\n Stanowisko id: " + stanowiskaIdTF.getText() + "\n");
+            stanowiskaResultArea1.setWrapText(true);
         } catch (SQLException e) {
             stanowiskaResultArea1.setText("Wystąpił problem podczas usuwania stanowiska" + e);
+            stanowiskaResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -797,8 +828,10 @@ public class Controller {
         try {
             StanowiskaDAO.insertPosition(stanowiskaIdTF.getText(), stanowiskaIdTF.getText());
             stanowiskaResultArea1.setText("Stanowisko zostało dodane! \n");
+            stanowiskaResultArea1.setWrapText(true);
         } catch (SQLException e) {
             stanowiskaResultArea1.setText("Wystąpił problem podczas dodawania stanowiska" + e);
+            stanowiskaResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -810,8 +843,10 @@ public class Controller {
         try {
             PlatnosciDAO.deletePaymentWithId(platnosciIdTF.getText());
             platnosciRsultArea1.setText("Płatność została usunięta!\n Płatność id: " + platnosciIdTF.getText() + "\n");
+            platnosciRsultArea1.setWrapText(true);
         } catch (SQLException e) {
             platnosciRsultArea1.setText("Wystąpił problem podczas usuwania płatności" + e);
+            platnosciRsultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -823,8 +858,10 @@ public class Controller {
         try {
             PlatnosciDAO.insertPayment(platnosciIdTF.getText(), platnosciGotowkTF.getText(), platnosciPrzelewTF.getText(), platnosciKwotaTF.getText());
             platnosciRsultArea1.setText("Płatność została dodana! \n");
+            platnosciRsultArea1.setWrapText(true);
         } catch (SQLException e) {
             platnosciRsultArea1.setText("Wystąpił problem podczas dodawania płatności" + e);
+            platnosciRsultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -837,8 +874,10 @@ public class Controller {
         try {
             KoszykDAO.deleteBasketWithId(koszykIdTF.getText());
             koszykResultArea1.setText("Koszyk został usunięty!\n Koszyk id: " + koszykIdTF.getText() + "\n");
+            koszykResultArea1.setWrapText(true);
         } catch (SQLException e) {
             koszykResultArea1.setText("Wystąpił problem podczas usuwania koszyka" + e);
+            koszykResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -850,8 +889,10 @@ public class Controller {
         try {
             KoszykDAO.insertBasket(koszykIdTF.getText(), koszykId_towarTF.getText(), koszykIloscTF.getText(), koszykCenaTF.getText());
             koszykResultArea1.setText("Koszyk został dodany! \n");
+            koszykResultArea1.setWrapText(true);
         } catch (SQLException e) {
             koszykResultArea1.setText("Wystąpił problem podczas dodawania koszyka " + e);
+            koszykResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -864,8 +905,10 @@ public class Controller {
         try {
             KodTowaruDAO.deleteCodeWithId(kod_towaruIdTF.getText());
             kod_towaruResultArea1.setText("Kod towaru został usunięty!\n Kod_towaru id: " + kod_towaruIdTF.getText() + "\n");
+            kod_towaruResultArea1.setWrapText(true);
         } catch (SQLException e) {
             kod_towaruResultArea1.setText("Wystąpił problem podczas usuwania kodu towaru " + e);
+            kod_towaruResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -877,8 +920,10 @@ public class Controller {
         try {
             KodTowaruDAO.insertCode(kod_towaruIdTF.getText(), kodMagazynTF.getText(), kodHalaTF.getText(), kodPoziomTF.getText(), kodRegalTF.getText(), kodPolkaTF.getText());
             kod_towaruResultArea1.setText("Kod towaru został dodany! \n");
+            kod_towaruResultArea1.setWrapText(true);
         } catch (SQLException e) {
             kod_towaruResultArea1.setText("Wystąpił problem podczas dodawania kodu towaru " + e);
+            kod_towaruResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -890,8 +935,10 @@ public class Controller {
         try {
             KlientDAO.deleteClientWithId(klientIdTF.getText());
             klientResultArea1.setText("Klient został usunięty!\n Klient id: " + klientIdTF.getText() + "\n");
+            klientResultArea1.setWrapText(true);
         } catch (SQLException e) {
             klientResultArea1.setText("Wystąpił problem podczas usuwania klienta " + e);
+            klientResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -904,8 +951,10 @@ public class Controller {
         try {
             KlientDAO.insertCli(klientIdTF.getText(), klientFirmaTF.getText(), klientImieTF.getText(), klientNazwiskoTF.getText(), klientAdresTF.getText(), klientKod_poczTF.getText(), klientMiejscowoscTF.getText(), klientTelefonTF.getText(), klientMailTF.getText(), klientStaly_klTF.getText());
             klientResultArea1.setText("Klient został dodany! \n");
+            klientResultArea1.setWrapText(true);
         } catch (SQLException e) {
             klientResultArea1.setText("Wystąpił problem podczas dodawania klienta " + e);
+            klientResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -917,8 +966,10 @@ public class Controller {
         try {
             PracownikDAO.deleteEmpWithId(pracownikIdTF.getText());
             pracownicyResultArea.setText("Pracownik został usunięty!\n Pracownik id: " + pracownikIdTF.getText() + "\n");
+            pracownicyResultArea.setWrapText(true);
         } catch (SQLException e) {
             pracownicyResultArea.setText("Wystąpił problem podczas usuwania pracownika " + e);
+            pracownicyResultArea.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -930,8 +981,10 @@ public class Controller {
         try {
             PracownikDAO.insertEmp(pracownikIdTF.getText(), pracownikImieTF.getText(), pracownikNazwiskoTF.getText(), pracownikData_urTF.getText(), pracownikMiastoTF.getText(), pracownikAdresTF.getText(), pracownikTelefonTF.getText(), pracownikData_zatrTF.getText(), pracownikData_zwolTF.getText(), pracownikMailTF.getText(), pracownikPremiaTF.getText(), pracownikPensjaTF.getText(), pracownikId_stanowiskaTF.getText());
             pracownicyResultArea.setText("Pracownik został dodany \n");
+            pracownicyResultArea.setWrapText(true);
         } catch (SQLException e) {
             pracownicyResultArea.setText("Wystąpił problem podczas dodawania pracownika " + e);
+            pracownicyResultArea.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -947,9 +1000,10 @@ public class Controller {
             populateOrder(ordData);
             zamowieniaResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Wystąpił błąd podczas\n pobierania informacji o zamówieniach z DB.\n" + e);
             zamowieniaResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o zamówieniach z DB.\n" + e);
+            zamowieniaResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -958,7 +1012,7 @@ public class Controller {
 
     //Populate PositionItems for TableView
     @FXML
-    private void populateOrder (ObservableList<Zamowienia> ordData) throws ClassNotFoundException {
+    private void populateOrder(ObservableList<Zamowienia> ordData) throws ClassNotFoundException {
         //Set items to the tableZamowienia
         tableZamowienia.setItems(ordData);
     }
@@ -972,9 +1026,10 @@ public class Controller {
             populateTransport(tranData);
             transportResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Wystąpił błąd podczas\n pobierania informacji o transporcie z DB.\n" + e);
             transportResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o transporcie z DB.\n" + e);
+            transportResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -983,7 +1038,7 @@ public class Controller {
 
     //Populate PositionItems for TableView
     @FXML
-    private void populateTransport (ObservableList<Transport> transData) throws ClassNotFoundException {
+    private void populateTransport(ObservableList<Transport> transData) throws ClassNotFoundException {
         //Set items to the tableStanowiska
         tableTransport.setItems(transData);
     }
@@ -997,9 +1052,10 @@ public class Controller {
             populateItems(itemData);
             towaryResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Wystąpił błąd podczas\n pobierania informacji o towarach z DB.\n" + e);
             towaryResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o towarach z DB.\n" + e);
+            towaryResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -1008,7 +1064,7 @@ public class Controller {
 
     //Populate PositionItems for TableView
     @FXML
-    private void populateItems (ObservableList<Towary> itemData) throws ClassNotFoundException {
+    private void populateItems(ObservableList<Towary> itemData) throws ClassNotFoundException {
         //Set items to the tableStanowiska
         tableTowary.setItems(itemData);
     }
@@ -1023,9 +1079,10 @@ public class Controller {
             populatePositions(positionData);
             stanowiskaResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Wystąpił błąd podczas\n pobierania informacji o stanowisku z DB.\n" + e);
             stanowiskaResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o stanowisku z DB.\n" + e);
+            stanowiskaResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -1034,7 +1091,7 @@ public class Controller {
 
     //Populate PositionItems for TableView
     @FXML
-    private void populatePositions (ObservableList<Stanowiska> positionData) throws ClassNotFoundException {
+    private void populatePositions(ObservableList<Stanowiska> positionData) throws ClassNotFoundException {
         //Set items to the tableStanowiska
         tableStanowiska.setItems(positionData);
     }
@@ -1048,9 +1105,10 @@ public class Controller {
             populateBaskets(basketData);
             koszykResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Wystąpił błąd podczas\n pobierania informacji o koszyku z DB.\n" + e);
             koszykResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o koszyku z DB.\n" + e);
+            kod_towaruResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -1059,7 +1117,7 @@ public class Controller {
 
     //Populate BasketItems for TableView
     @FXML
-    private void populateBaskets (ObservableList<Koszyk> basketData) throws ClassNotFoundException {
+    private void populateBaskets(ObservableList<Koszyk> basketData) throws ClassNotFoundException {
         //Set items to the tableKoszyk
         tableKoszyk.setItems(basketData);
     }
@@ -1073,9 +1131,10 @@ public class Controller {
             populatePayments(paymentData);
             platnosciRsultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Wystąpił błąd podczas\n pobierania informacji o płatnościach z DB.\n" + e);
             platnosciRsultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o płatnościach z DB.\n" + e);
+            platnosciRsultArea1.setWrapText(true);
 
             throw e;
         } catch (ClassNotFoundException e) {
@@ -1085,7 +1144,7 @@ public class Controller {
 
     //Populate CodesItems for TableView
     @FXML
-    private void populatePayments (ObservableList<Platnosci> paymentData) throws ClassNotFoundException {
+    private void populatePayments(ObservableList<Platnosci> paymentData) throws ClassNotFoundException {
         //Set items to the tableKlienci
         tablePlatnosci.setItems(paymentData);
     }
@@ -1100,10 +1159,10 @@ public class Controller {
             populateCodes(codeData);
             kod_towaruResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Wystąpił błąd podczas\n pobierania informacji o kodzie towaru z DB.\n" + e);
             kod_towaruResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o kodzie towaru z DB.\n" + e);
-
+            kod_towaruResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -1112,7 +1171,7 @@ public class Controller {
 
     //Populate CodesItems for TableView
     @FXML
-    private void populateCodes (ObservableList<KodTowaru> codeData) throws ClassNotFoundException {
+    private void populateCodes(ObservableList<KodTowaru> codeData) throws ClassNotFoundException {
         //Set items to the tableKlienci
         tableKod_towaru.setItems(codeData);
     }
@@ -1126,10 +1185,10 @@ public class Controller {
             populateClients(cliData);
             klientResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Wystąpił błąd podczas\n pobierania informacji o klientach z DB.\n" + e);
             klientResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o klientach z DB.\n" + e);
-
+            klientResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -1138,7 +1197,7 @@ public class Controller {
 
     //Populate Clients for TableView
     @FXML
-    private void populateClients (ObservableList<Klient> cliData) throws ClassNotFoundException {
+    private void populateClients(ObservableList<Klient> cliData) throws ClassNotFoundException {
         //Set items to the tableKlienci
         tableKlienci.setItems(cliData);
     }
@@ -1152,9 +1211,10 @@ public class Controller {
             populateEmployees(pracData);
             pracownicyResultArea.setText("Podłączono do bazy\n poprawnie\n");
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Wystąpił błąd podczas\n pobierania informacji o pracownikach z DB.\n" + e);
             pracownicyResultArea.setText("Wystąpił błąd podczas\n pobierania informacji o pracownikach z DB.\n" + e);
+            pracownicyResultArea.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -1163,7 +1223,7 @@ public class Controller {
 
     //Populate Employees for TableView
     @FXML
-    private void populateEmployees (ObservableList<Pracownicy> empData) throws ClassNotFoundException {
+    private void populateEmployees(ObservableList<Pracownicy> empData) throws ClassNotFoundException {
         //Set items to the employeeTable
         tablePracownik.setItems(empData);
     }
