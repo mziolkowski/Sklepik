@@ -42,4 +42,35 @@ public class KoszykDAO {
         //return empList (ObservableList of Clients)
         return basketList;
     }
+
+    public static void deleteBasketWithId(String basketId) throws SQLException, ClassNotFoundException {
+        //Declare a DELETE statement
+        String updateStmt = "DELETE FROM koszyk\n" +
+                "   WHERE id_koszyk ="+ basketId +";\n";
+
+        //Execute UPDATE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji DELETE: " + e);
+            throw e;
+        }
+    }
+
+    public static void insertBasket(String id_koszyk, String id_towar, String ilosc, String cena) throws SQLException, ClassNotFoundException {
+        //Declare a INSERT statement
+        String updateStmt =
+                "INSERT INTO koszyk " +
+                        "(id_koszyk, id_towar, ilosc, cena) " +
+                        "VALUES " +
+                        "('" + id_koszyk + "','" + id_towar + "','" + ilosc + "','" + cena + "');";
+
+        //Execute INSERT operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Wystąpił błąd podczas operacji INSERT: " + e);
+            throw e;
+        }
+    }
 }
