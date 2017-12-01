@@ -320,7 +320,7 @@ public class Controller {
     private Button platnosciUsunBtn;
 
     @FXML
-    private Button uaktualnij111;
+    private Button platnosciUaktualnijBtn;
 
     @FXML
     private TextArea platnosciRsultArea1;
@@ -716,6 +716,42 @@ public class Controller {
         zamowieniaid_transportColumn.setCellValueFactory(cellData -> cellData.getValue().id_transportProperty().asObject());
         zamowieniaCzas_dostawyColumn.setCellValueFactory(cellData -> cellData.getValue().czas_dostawyProperty());
 
+    }
+
+
+    @FXML
+    void updatePlatnosci(ActionEvent event) {
+    // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if(platnosciGotowkTF.getText().isEmpty() == false) {
+                PlatnosciDAO.updatePayment(platnosciIdTF.getText(),platnosciGotowkTF.getText(), flag);
+                platnosciRsultArea1.setText("Dane zostały zaktualizowane dla Platnosci id: " + platnosciIdTF.getText() + "\n");
+                platnosciRsultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(platnosciPrzelewTF.getText().isEmpty() == false) {
+                PlatnosciDAO.updatePayment(platnosciIdTF.getText(),platnosciPrzelewTF.getText(), flag);
+                platnosciRsultArea1.setText("Dane zostały zaktualizowane dla Platnosci id: " + platnosciIdTF.getText() + "\n");
+                platnosciRsultArea1.setWrapText(true);
+            }
+            flag++;
+
+
+            if(platnosciKwotaTF.getText().isEmpty() == false) {
+                PlatnosciDAO.updatePayment(platnosciIdTF.getText(),platnosciKwotaTF.getText(), flag);
+                platnosciRsultArea1.setText("Dane zostały zaktualizowane dla Platnosci id: " + platnosciIdTF.getText() + "\n");
+                platnosciRsultArea1.setWrapText(true);
+            }
+            flag++;
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Platnosci: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

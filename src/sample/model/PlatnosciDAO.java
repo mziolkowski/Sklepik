@@ -74,4 +74,50 @@ public class PlatnosciDAO {
             throw e;
         }
     }
+
+    //*************************************
+    //UPDATE an Platnosci
+    //*************************************
+    public static void updatePayment(String paymentId, String paymentNewValueField, int flag) throws SQLException, ClassNotFoundException {
+        //Declare a UPDATE statement
+        try {
+            switch (flag) {
+                case 0: {
+                    String updateStmt =
+                            "   UPDATE platnosci\n" +
+                                    "      SET gotowka = '" + paymentNewValueField + "'\n" +
+                                    "    WHERE id_platnosci = " + paymentId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 1: {
+                    String updateStmt =
+                            "   UPDATE platnosci\n" +
+                                    "      SET przelew = '" + paymentNewValueField + "'\n" +
+                                    "    WHERE id_platnosci  = " + paymentId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 2: {
+                    String updateStmt =
+                            "   UPDATE platnosci\n" +
+                                    "      SET kwota = '" + paymentNewValueField + "'\n" +
+                                    "    WHERE id_platnosci  = " + paymentId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                default:
+                    System.out.println("Nie znaleziono żadnego pasującego przypadku!!!");
+            }
+
+
+        } catch (SQLException e) {
+            System.out.print("Error occurred while UPDATE Operation: " + e);
+            throw e;
+        }
+        //Execute UPDATE operation
+    }
 }
