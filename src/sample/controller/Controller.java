@@ -200,7 +200,7 @@ public class Controller {
     private Button klienciUsunBtn;
 
     @FXML
-    private Button uaktualnij1;
+    private Button klientUaktualnijBtn;
 
     @FXML
     private TextArea klientResultArea1;
@@ -719,6 +719,81 @@ public class Controller {
     }
 
     @FXML
+    void updateKlient(ActionEvent event) {
+// flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if(klientFirmaTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(),klientFirmaTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(klientImieTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(),klientImieTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(klientNazwiskoTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(),klientNazwiskoTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(klientAdresTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(),klientAdresTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(klientKod_poczTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(),klientKod_poczTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(klientMiejscowoscTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(),klientMiejscowoscTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(klientTelefonTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(),klientTelefonTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(klientMailTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(),klientMailTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(klientStaly_klTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(),klientStaly_klTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Pracownik: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void updatePracownik(ActionEvent event) {
         // flag to distinguish the field to be updated
         int flag = 0;
@@ -727,72 +802,84 @@ public class Controller {
             if(pracownikImieTF.getText().isEmpty() == false) {
                 PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikImieTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+                pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
             if(pracownikNazwiskoTF.getText().isEmpty() == false) {
                 PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikNazwiskoTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+                pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
             if(pracownikData_urTF.getText().isEmpty() == false) {
                 PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikData_urTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+                pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
             if(pracownikMiastoTF.getText().isEmpty() == false) {
                 PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikMiastoTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+                pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
             if(pracownikAdresTF.getText().isEmpty() == false) {
                 PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikAdresTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+                pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
             if(pracownikTelefonTF.getText().isEmpty() == false) {
                 PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikTelefonTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+                pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
             if(pracownikData_zatrTF.getText().isEmpty() == false) {
                 PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikData_zatrTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+                pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
             if(pracownikData_zwolTF.getText().isEmpty() == false) {
                 PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikData_zwolTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+                pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
             if(pracownikMailTF.getText().isEmpty() == false) {
                 PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikMailTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+                pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
             if(pracownikPremiaTF.getText().isEmpty() == false) {
                 PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikPremiaTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+                pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
             if(pracownikPensjaTF.getText().isEmpty() == false) {
                 PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikPensjaTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+                pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
             if(pracownikId_stanowiskaTF.getText().isEmpty() == false) {
                 PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikId_stanowiskaTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+                pracownicyResultArea.setWrapText(true);
             }
 
         } catch (SQLException e) {

@@ -84,4 +84,104 @@ public class KlientDAO {
             throw e;
         }
     }
+
+    //*************************************
+    //UPDATE an Klient
+    //*************************************
+    public static void updateCli(String cliId, String cliNewValueField, int flag) throws SQLException, ClassNotFoundException {
+        //Declare a UPDATE statement
+        try {
+            switch (flag) {
+                case 0: {
+                    String updateStmt =
+                            "   UPDATE klient\n" +
+                                    "      SET firma = '" + cliNewValueField + "'\n" +
+                                    "    WHERE id_klient = " + cliId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 1: {
+                    String updateStmt =
+                            "   UPDATE klient\n" +
+                                    "      SET imie = '" + cliNewValueField + "'\n" +
+                                    "    WHERE id_klient  = " + cliId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 2: {
+                    String updateStmt =
+                            "   UPDATE klient\n" +
+                                    "      SET nazwisko = '" + cliNewValueField + "'\n" +
+                                    "    WHERE id_klient  = " + cliId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 3: {
+                    String updateStmt =
+                            "   UPDATE klient\n" +
+                                    "      SET adres = '" + cliNewValueField + "'\n" +
+                                    "    WHERE id_klient  = " + cliId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 4: {
+                    String updateStmt =
+                            "   UPDATE klient\n" +
+                                    "      SET kod_pocztowy = '" + cliNewValueField + "'\n" +
+                                    "    WHERE id_klient  = " + cliId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 5: {
+                    String updateStmt =
+                            "   UPDATE klient\n" +
+                                    "      SET miejscowosc = '" + cliNewValueField + "'\n" +
+                                    "    WHERE id_klient  = " + cliId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 6: {
+                    String updateStmt =
+                            "   UPDATE klient\n" +
+                                    "      SET telefon = '" + cliNewValueField + "'\n" +
+                                    "    WHERE id_klient  = " + cliId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 7: {
+                    String updateStmt =
+                            "   UPDATE klient\n" +
+                                    "      SET mail = '" + cliNewValueField + "'\n" +
+                                    "    WHERE id_klient  = " + cliId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 8: {
+                    String updateStmt =
+                            "   UPDATE klient\n" +
+                                    "      SET staly_klient = '" + cliNewValueField + "'\n" +
+                                    "    WHERE id_klient  = " + cliId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                default:
+                    System.out.println("Nie znaleziono żadnego pasującego przypadku!!!");
+            }
+
+
+        } catch (SQLException e) {
+            System.out.print("Error occurred while UPDATE Operation: " + e);
+            throw e;
+        }
+        //Execute UPDATE operation
+    }
 }

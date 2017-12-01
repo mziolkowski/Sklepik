@@ -92,7 +92,7 @@ public class PracownikDAO {
     }
 
     //*************************************
-    //UPDATE an employee's email address
+    //UPDATE an Pracownik
     //*************************************
     public static void updateEmp(String empId, String empNewValueField, int flag) throws SQLException, ClassNotFoundException {
         //Declare a UPDATE statement
