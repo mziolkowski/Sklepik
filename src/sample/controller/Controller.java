@@ -66,7 +66,7 @@ public class Controller {
     private Button pracownikUsunBtn;
 
     @FXML
-    private Button uaktualnij;
+    private Button praconwnikUaktualnij;
 
     @FXML
     private TextArea pracownicyResultArea;
@@ -719,6 +719,91 @@ public class Controller {
     }
 
     @FXML
+    void updatePracownik(ActionEvent event) {
+        // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if(pracownikImieTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikImieTF.getText(), flag);
+                pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+            }
+            flag++;
+
+            if(pracownikNazwiskoTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikNazwiskoTF.getText(), flag);
+                pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+            }
+            flag++;
+
+            if(pracownikData_urTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikData_urTF.getText(), flag);
+                pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+            }
+            flag++;
+
+            if(pracownikMiastoTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikMiastoTF.getText(), flag);
+                pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+            }
+            flag++;
+
+            if(pracownikAdresTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikAdresTF.getText(), flag);
+                pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+            }
+            flag++;
+
+            if(pracownikTelefonTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikTelefonTF.getText(), flag);
+                pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+            }
+            flag++;
+
+            if(pracownikData_zatrTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikData_zatrTF.getText(), flag);
+                pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+            }
+            flag++;
+
+            if(pracownikData_zwolTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikData_zwolTF.getText(), flag);
+                pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+            }
+            flag++;
+
+            if(pracownikMailTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikMailTF.getText(), flag);
+                pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+            }
+            flag++;
+
+            if(pracownikPremiaTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikPremiaTF.getText(), flag);
+                pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+            }
+            flag++;
+
+            if(pracownikPensjaTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikPensjaTF.getText(), flag);
+                pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+            }
+            flag++;
+
+            if(pracownikId_stanowiskaTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikId_stanowiskaTF.getText(), flag);
+                pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
+            }
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Pracownik: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
     void deleteZamowienia(ActionEvent event) throws SQLException {
         try {
             ZamowieniaDAO.deleteOrderWithId(zamowieniaIdTF.getText());
@@ -1127,7 +1212,7 @@ public class Controller {
         try {
             //Get all Codes information
             ObservableList<Platnosci> paymentData = PlatnosciDAO.searchPlatnosci();
-            //Populate Codes on TableView
+            //Populate Payment on TableView
             populatePayments(paymentData);
             platnosciRsultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
@@ -1142,7 +1227,7 @@ public class Controller {
         }
     }
 
-    //Populate CodesItems for TableView
+    //Populate Payments for TableView
     @FXML
     private void populatePayments(ObservableList<Platnosci> paymentData) throws ClassNotFoundException {
         //Set items to the tableKlienci
@@ -1226,26 +1311,6 @@ public class Controller {
     private void populateEmployees(ObservableList<Pracownicy> empData) throws ClassNotFoundException {
         //Set items to the employeeTable
         tablePracownik.setItems(empData);
-    }
-
-//    @FXML
-//    private void populateEmployees(Pracownicy prac) throws ClassNotFoundException {
-//        //Declare and ObservableList for table view
-//        ObservableList<Pracownicy> empData = FXCollections.observableArrayList();
-//        //Add employee to the ObservableList
-//        empData.add(prac);
-//        //Set items to the employeeTable
-//        tablePracownik.setItems(empData);
-//    }
-
-    @FXML
-    private void populateAndShowEmployee(Pracownicy prac) throws ClassNotFoundException {
-        if (prac != null) {
-            populateEmployees((ObservableList<Pracownicy>) prac);
-//            setEmpInfoToTextArea(emp);
-        } else {
-//            resultArea.setText("This employee does not exist!\n");
-        }
     }
 }
 

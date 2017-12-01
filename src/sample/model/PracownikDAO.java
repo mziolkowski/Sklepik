@@ -91,4 +91,131 @@ public class PracownikDAO {
         }
     }
 
+    //*************************************
+    //UPDATE an employee's email address
+    //*************************************
+    public static void updateEmp(String empId, String empNewValueField, int flag) throws SQLException, ClassNotFoundException {
+        //Declare a UPDATE statement
+        try {
+        switch (flag) {
+            case 0: {
+                String updateStmt =
+                                "   UPDATE pracownicy\n" +
+                                "      SET imie = '" + empNewValueField + "'\n" +
+                                "    WHERE id_pracownicy = " + empId + ";\n" +
+                                "   COMMIT;\n";
+                DBUtil.dbExecuteUpdate(updateStmt);
+                break;
+            }
+            case 1: {
+                String updateStmt =
+                        "   UPDATE pracownicy\n" +
+                                "      SET nazwisko = '" + empNewValueField + "'\n" +
+                                "    WHERE id_pracownicy  = " + empId + ";\n" +
+                                "   COMMIT;\n";
+                DBUtil.dbExecuteUpdate(updateStmt);
+                break;
+            }
+            case 2: {
+                String updateStmt =
+                        "   UPDATE pracownicy\n" +
+                                "      SET data_ur = '" + empNewValueField + "'\n" +
+                                "    WHERE id_pracownicy  = " + empId + ";\n" +
+                                "   COMMIT;\n";
+                DBUtil.dbExecuteUpdate(updateStmt);
+                break;
+            }
+            case 3: {
+                String updateStmt =
+                        "   UPDATE pracownicy\n" +
+                                "      SET miasto = '" + empNewValueField + "'\n" +
+                                "    WHERE id_pracownicy  = " + empId + ";\n" +
+                                "   COMMIT;\n";
+                DBUtil.dbExecuteUpdate(updateStmt);
+                break;
+            }
+            case 4: {
+                String updateStmt =
+                        "   UPDATE pracownicy\n" +
+                                "      SET adres = '" + empNewValueField + "'\n" +
+                                "    WHERE id_pracownicy  = " + empId + ";\n" +
+                                "   COMMIT;\n";
+                DBUtil.dbExecuteUpdate(updateStmt);
+                break;
+            }
+            case 5: {
+                String updateStmt =
+                        "   UPDATE pracownicy\n" +
+                                "      SET telefon = '" + empNewValueField + "'\n" +
+                                "    WHERE id_pracownicy  = " + empId + ";\n" +
+                                "   COMMIT;\n";
+                DBUtil.dbExecuteUpdate(updateStmt);
+                break;
+            }
+            case 6: {
+                String updateStmt =
+                        "   UPDATE pracownicy\n" +
+                                "      SET data_zatr = '" + empNewValueField + "'\n" +
+                                "    WHERE id_pracownicy  = " + empId + ";\n" +
+                                "   COMMIT;\n";
+                DBUtil.dbExecuteUpdate(updateStmt);
+                break;
+            }
+            case 7: {
+                String updateStmt =
+                        "   UPDATE pracownicy\n" +
+                                "      SET data_zwol = '" + empNewValueField + "'\n" +
+                                "    WHERE id_pracownicy  = " + empId + ";\n" +
+                                "   COMMIT;\n";
+                DBUtil.dbExecuteUpdate(updateStmt);
+                break;
+            }
+            case 8: {
+                String updateStmt =
+                        "   UPDATE pracownicy\n" +
+                                "      SET mail = '" + empNewValueField + "'\n" +
+                                "    WHERE id_pracownicy  = " + empId + ";\n" +
+                                "   COMMIT;\n";
+                DBUtil.dbExecuteUpdate(updateStmt);
+                break;
+            }
+            case 9: {
+                String updateStmt =
+                        "   UPDATE pracownicy\n" +
+                                "      SET premia = '" + empNewValueField + "'\n" +
+                                "    WHERE id_pracownicy  = " + empId + ";\n" +
+                                "   COMMIT;\n";
+                DBUtil.dbExecuteUpdate(updateStmt);
+                break;
+            }
+            case 10: {
+                String updateStmt =
+                        "   UPDATE pracownicy\n" +
+                                "      SET pensja = '" + empNewValueField + "'\n" +
+                                "    WHERE id_pracownicy  = " + empId + ";\n" +
+                                "   COMMIT;\n";
+                DBUtil.dbExecuteUpdate(updateStmt);
+                break;
+            }
+            case 11: {
+                String updateStmt =
+                        "   UPDATE pracownicy\n" +
+                                "      SET id_stanowiska = '" + empNewValueField + "'\n" +
+                                "    WHERE id_pracownicy  = " + empId + ";\n" +
+                                "   COMMIT;\n";
+                DBUtil.dbExecuteUpdate(updateStmt);
+                break;
+            }
+            default:
+                System.out.println("Nie znaleziono żadnego pasującego przypadku!!!");
+        }
+
+
+        } catch (SQLException e) {
+            System.out.print("Error occurred while UPDATE Operation: " + e);
+            throw e;
+        }
+        //Execute UPDATE operation
+    }
+
 }
