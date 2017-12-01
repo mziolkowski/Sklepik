@@ -75,4 +75,32 @@ public class StanowiskaDAO {
             throw e;
         }
     }
+
+    //*************************************
+    //UPDATE an Stanowiska
+    //*************************************
+    public static void updatePosition(String posId, String posNewValueField, int flag) throws SQLException, ClassNotFoundException {
+        //Declare a UPDATE statement
+        try {
+            switch (flag) {
+                case 0: {
+                    String updateStmt =
+                            "   UPDATE stanowiska\n" +
+                                    "      SET nazwa = '" + posNewValueField + "'\n" +
+                                    "    WHERE id_stanowiska = " + posId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                default:
+                    System.out.println("Nie znaleziono żadnego pasującego przypadku!!!");
+            }
+
+
+        } catch (SQLException e) {
+            System.out.print("Error occurred while UPDATE Operation: " + e);
+            throw e;
+        }
+        //Execute UPDATE operation
+    }
 }
