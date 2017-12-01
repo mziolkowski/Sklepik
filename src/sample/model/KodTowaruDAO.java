@@ -77,4 +77,69 @@ public class KodTowaruDAO {
             throw e;
         }
     }
+
+    //*************************************
+    //UPDATE an Kod_towaru
+    //*************************************
+    public static void updateCode(String codeId, String codeNewValueField, int flag) throws SQLException, ClassNotFoundException {
+        //Declare a UPDATE statement
+        try {
+            switch (flag) {
+                case 0: {
+                    String updateStmt =
+                            "   UPDATE kod_towaru\n" +
+                                    "      SET magazyn = '" + codeNewValueField + "'\n" +
+                                    "    WHERE id_kod = " + codeId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 1: {
+                    String updateStmt =
+                            "   UPDATE kod_towaru\n" +
+                                    "      SET hala = '" + codeNewValueField + "'\n" +
+                                    "    WHERE id_kod  = " + codeId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 2: {
+                    String updateStmt =
+                            "   UPDATE kod_towaru\n" +
+                                    "      SET poziom = '" + codeNewValueField + "'\n" +
+                                    "    WHERE id_kod  = " + codeId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 3: {
+                    String updateStmt =
+                            "   UPDATE kod_towaru\n" +
+                                    "      SET regal = '" + codeNewValueField + "'\n" +
+                                    "    WHERE id_kod  = " + codeId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 4: {
+                    String updateStmt =
+                            "   UPDATE kod_towaru\n" +
+                                    "      SET polka = '" + codeNewValueField + "'\n" +
+                                    "    WHERE id_kod  = " + codeId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+
+                default:
+                    System.out.println("Nie znaleziono żadnego pasującego przypadku!!!");
+            }
+
+
+        } catch (SQLException e) {
+            System.out.print("Error occurred while UPDATE Operation: " + e);
+            throw e;
+        }
+        //Execute UPDATE operation
+    }
 }
