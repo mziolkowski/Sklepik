@@ -718,6 +718,24 @@ public class Controller {
 
     }
 
+    @FXML
+    void updateStanowiska(ActionEvent event) {
+    // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if(stanowiskaNazwaTF.getText().isEmpty() == false) {
+                StanowiskaDAO.updatePosition(stanowiskaIdTF.getText(),stanowiskaNazwaTF.getText(), flag);
+                stanowiskaResultArea1.setText("Dane zostały zaktualizowane dla Stanowiska id: " + stanowiskaIdTF.getText() + "\n");
+                stanowiskaResultArea1.setWrapText(true);
+            }
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Stanowiska: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void updatePlatnosci(ActionEvent event) {
