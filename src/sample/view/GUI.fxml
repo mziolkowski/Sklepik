@@ -128,7 +128,7 @@
                                     </TableView>
                                     <Button fx:id="wyswietlKlient" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewKlienci" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
                                     <Button fx:id="klienciUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deleteKlient" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                                    <Button fx:id="uaktualnij1" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                                    <Button fx:id="klientUaktualnijBtn" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" onAction="#updateKlient" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                                  </children>
                               </AnchorPane>
                               <TextArea fx:id="klientResultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
