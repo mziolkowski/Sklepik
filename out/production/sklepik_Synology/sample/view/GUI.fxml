@@ -173,7 +173,7 @@
                               </TableView>
                               <Button fx:id="wyswietlKod_towaru" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewKod_towaru" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
                               <Button fx:id="kod_towaruUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deleteKod" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                              <Button fx:id="uaktualnij11" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                              <Button fx:id="kod_towaruUaktualnijBtn" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" onAction="#updateKod" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                            </children>
                         </AnchorPane>
                         <TextArea fx:id="kod_towaruResultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />

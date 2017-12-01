@@ -266,7 +266,7 @@ public class Controller {
     private Button kod_towaruUsunBtn;
 
     @FXML
-    private Button uaktualnij11;
+    private Button kod_towaruUaktualnijBtn;
 
     @FXML
     private TextArea kod_towaruResultArea1;
@@ -719,8 +719,56 @@ public class Controller {
     }
 
     @FXML
+    void updateKod(ActionEvent event) {
+    // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if(kod_towaruIdTF.getText().isEmpty() == false) {
+                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(),kodMagazynTF.getText(), flag);
+                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
+                kod_towaruResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(kodHalaTF.getText().isEmpty() == false) {
+                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(),kodHalaTF.getText(), flag);
+                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
+                kod_towaruResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(kodPoziomTF.getText().isEmpty() == false) {
+                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(),kodPoziomTF.getText(), flag);
+                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
+                kod_towaruResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(kodRegalTF.getText().isEmpty() == false) {
+                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(),kodRegalTF.getText(), flag);
+                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
+                kod_towaruResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(kodPolkaTF.getText().isEmpty() == false) {
+                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(),kodPolkaTF.getText(), flag);
+                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
+                kod_towaruResultArea1.setWrapText(true);
+            }
+            flag++;
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Kod Towaru: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void updateKlient(ActionEvent event) {
-// flag to distinguish the field to be updated
+    // flag to distinguish the field to be updated
         int flag = 0;
 
         try {
@@ -787,7 +835,7 @@ public class Controller {
             }
 
         } catch (SQLException e) {
-            pracownicyResultArea.setText("Problem occurred while updating Pracownik: " + e);
+            pracownicyResultArea.setText("Problem occurred while updating Klient: " + e);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
