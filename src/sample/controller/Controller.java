@@ -374,7 +374,7 @@ public class Controller {
     private Button koszykUsunBtn;
 
     @FXML
-    private Button uaktualnij1111;
+    private Button koszykUaktualnijBtn;
 
     @FXML
     private TextArea koszykResultArea1;
@@ -719,6 +719,39 @@ public class Controller {
     }
 
     @FXML
+    void updateKoszyk(ActionEvent event) {
+    // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if(koszykId_towarTF.getText().isEmpty() == false) {
+                KoszykDAO.updateBasket(koszykIdTF.getText(),koszykId_towarTF.getText(), flag);
+                koszykResultArea1.setText("Dane zostały zaktualizowane dla Koszyk id: " + koszykIdTF.getText() + "\n");
+                koszykResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(koszykIloscTF.getText().isEmpty() == false) {
+                KoszykDAO.updateBasket(koszykIdTF.getText(),koszykIloscTF.getText(), flag);
+                koszykResultArea1.setText("Dane zostały zaktualizowane dla Koszyk id: " + koszykIdTF.getText() + "\n");
+                koszykResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(koszykCenaTF.getText().isEmpty() == false) {
+                KoszykDAO.updateBasket(koszykIdTF.getText(),koszykCenaTF.getText(), flag);
+                koszykResultArea1.setText("Dane zostały zaktualizowane dla Koszyk id: " + koszykIdTF.getText() + "\n");
+                koszykResultArea1.setWrapText(true);
+            }
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Koszyk: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void updateKod(ActionEvent event) {
     // flag to distinguish the field to be updated
         int flag = 0;
@@ -757,7 +790,6 @@ public class Controller {
                 kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
                 kod_towaruResultArea1.setWrapText(true);
             }
-            flag++;
 
         } catch (SQLException e) {
             pracownicyResultArea.setText("Problem occurred while updating Kod Towaru: " + e);

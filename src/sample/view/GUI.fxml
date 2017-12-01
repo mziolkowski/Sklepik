@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1048.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
+<GridPane alignment="center" hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1048.0" vgap="10" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
    <children>
       <TabPane prefHeight="743.0" prefWidth="1454.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -250,7 +250,7 @@
                                     </TableView>
                                     <Button fx:id="wyswietlKoszyk" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewKoszyk" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
                                     <Button fx:id="koszykUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deleteKoszyk" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                                    <Button fx:id="uaktualnij1111" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                                    <Button fx:id="koszykUaktualnijBtn" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" onAction="#updateKoszyk" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                                     <TextArea fx:id="koszykResultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
                                     <Text layoutX="836.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Console">
                                        <effect>

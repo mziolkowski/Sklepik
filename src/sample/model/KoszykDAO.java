@@ -73,4 +73,50 @@ public class KoszykDAO {
             throw e;
         }
     }
+
+    //*************************************
+    //UPDATE an Koszyk
+    //*************************************
+    public static void updateBasket(String basketId, String basketNewValueField, int flag) throws SQLException, ClassNotFoundException {
+        //Declare a UPDATE statement
+        try {
+            switch (flag) {
+                case 0: {
+                    String updateStmt =
+                            "   UPDATE koszyk\n" +
+                                    "      SET id_towar = '" + basketNewValueField + "'\n" +
+                                    "    WHERE id_koszyk = " + basketId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 1: {
+                    String updateStmt =
+                            "   UPDATE koszyk\n" +
+                                    "      SET ilosc = '" + basketNewValueField + "'\n" +
+                                    "    WHERE id_koszyk  = " + basketId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 2: {
+                    String updateStmt =
+                            "   UPDATE koszyk\n" +
+                                    "      SET cena = '" + basketNewValueField + "'\n" +
+                                    "    WHERE id_koszyk  = " + basketId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                default:
+                    System.out.println("Nie znaleziono żadnego pasującego przypadku!!!");
+            }
+
+
+        } catch (SQLException e) {
+            System.out.print("Error occurred while UPDATE Operation: " + e);
+            throw e;
+        }
+        //Execute UPDATE operation
+    }
 }
