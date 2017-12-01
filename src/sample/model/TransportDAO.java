@@ -76,4 +76,41 @@ public class TransportDAO {
             throw e;
         }
     }
+
+    //*************************************
+    //UPDATE an Transport
+    //*************************************
+    public static void updateTransport(String transportId, String transportNewValueField, int flag) throws SQLException, ClassNotFoundException {
+        //Declare a UPDATE statement
+        try {
+            switch (flag) {
+                case 0: {
+                    String updateStmt =
+                            "   UPDATE transport\n" +
+                                    "      SET nazwa = '" + transportNewValueField + "'\n" +
+                                    "    WHERE id_transport = " + transportId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                case 1: {
+                    String updateStmt =
+                            "   UPDATE transport\n" +
+                                    "      SET rodzaj = '" + transportNewValueField + "'\n" +
+                                    "    WHERE id_transport  = " + transportId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+                default:
+                    System.out.println("Nie znaleziono żadnego pasującego przypadku!!!");
+            }
+
+
+        } catch (SQLException e) {
+            System.out.print("Error occurred while UPDATE Operation: " + e);
+            throw e;
+        }
+        //Execute UPDATE operation
+    }
 }

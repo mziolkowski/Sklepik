@@ -549,7 +549,7 @@ public class Controller {
     private Button transportUsunBtn;
 
     @FXML
-    private Button uaktualnij11111;
+    private Button transportUaktualnij;
 
     @FXML
     private TextArea transportResultArea1;
@@ -716,6 +716,32 @@ public class Controller {
         zamowieniaid_transportColumn.setCellValueFactory(cellData -> cellData.getValue().id_transportProperty().asObject());
         zamowieniaCzas_dostawyColumn.setCellValueFactory(cellData -> cellData.getValue().czas_dostawyProperty());
 
+    }
+
+    @FXML
+    void updateTransport(ActionEvent event) {
+    // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if(transportNazwaTF.getText().isEmpty() == false) {
+                TransportDAO.updateTransport(transportIdTF.getText(),transportNazwaTF.getText(), flag);
+                transportResultArea1.setText("Dane zostały zaktualizowane dla Transport id: " + transportIdTF.getText() + "\n");
+                transportResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(transportRodzajTF.getText().isEmpty() == false) {
+                TransportDAO.updateTransport(transportIdTF.getText(),transportRodzajTF.getText(), flag);
+                transportResultArea1.setText("Dane zostały zaktualizowane dla Transport id: " + transportIdTF.getText() + "\n");
+                transportResultArea1.setWrapText(true);
+            }
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Transport: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
