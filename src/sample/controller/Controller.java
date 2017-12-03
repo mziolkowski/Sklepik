@@ -501,7 +501,7 @@ public class Controller {
     private Button towaryUsunBtn;
 
     @FXML
-    private Button uaktualnij2;
+    private Button towaryUaktualnijBtn;
 
     @FXML
     private TextArea towaryResultArea1;
@@ -716,6 +716,75 @@ public class Controller {
         zamowieniaid_transportColumn.setCellValueFactory(cellData -> cellData.getValue().id_transportProperty().asObject());
         zamowieniaCzas_dostawyColumn.setCellValueFactory(cellData -> cellData.getValue().czas_dostawyProperty());
 
+    }
+
+    @FXML
+    void updateTowary(ActionEvent event) {
+    // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if(towaryTypTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(),towaryTypTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(TowaryMarkaTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(),TowaryMarkaTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(towaryModelTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(),towaryModelTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(towaryId_kodTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(),towaryId_kodTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(towaryStatusTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(),towaryStatusTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(towaryOpisTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(),towaryOpisTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(towaryIloscTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(),towaryIloscTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(towaryCenaTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(),towaryCenaTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Transport: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
