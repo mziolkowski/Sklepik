@@ -639,7 +639,7 @@ public class Controller {
     private Button zamowieniaUsunBtn;
 
     @FXML
-    private Button uaktualnij3;
+    private Button zamowieniaUaktualnijBtn;
 
     @FXML
     private TextArea zamowieniaResultArea1;
@@ -719,6 +719,81 @@ public class Controller {
     }
 
     @FXML
+    void updateZamowienia(ActionEvent event) {
+    // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if(zamowieniaId_koszykTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaId_koszykTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(zamowieniaId_klientTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaId_klientTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(zamowieniaData_zamTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaData_zamTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(zamowieniaId_platnoscTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaId_platnoscTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(zamowieniaZaplaconeTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaZaplaconeTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(zamowieniaFakturaTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaFakturaTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(zamowieniaStatusTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaStatusTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(zamowieniaId_transportTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaId_transportTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if(zamowieniaCzas_dostawyTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaCzas_dostawyTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Zamowienia: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void updateTowary(ActionEvent event) {
     // flag to distinguish the field to be updated
         int flag = 0;
@@ -781,7 +856,7 @@ public class Controller {
             flag++;
 
         } catch (SQLException e) {
-            pracownicyResultArea.setText("Problem occurred while updating Transport: " + e);
+            pracownicyResultArea.setText("Problem occurred while updating Towary: " + e);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

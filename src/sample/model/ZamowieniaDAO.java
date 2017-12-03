@@ -82,4 +82,113 @@ public class ZamowieniaDAO {
             throw e;
         }
     }
+
+    //*************************************
+    //UPDATE an Zamowienia
+    //*************************************
+    public static void updateOrder(String ordId, String empNewValueField, int flag) throws SQLException, ClassNotFoundException {
+        //Declare a UPDATE statement
+        try {
+            switch (flag) {
+                case 0: {
+                    String updateStmt =
+                            "   UPDATE zamowienia\n" +
+                                    "      SET id_koszyk = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_zamowienia = " + ordId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+
+                case 1: {
+                    String updateStmt =
+                            "   UPDATE zamowienia\n" +
+                                    "      SET id_klienta = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_zamowienia = " + ordId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+
+                case 2: {
+                    String updateStmt =
+                            "   UPDATE zamowienia\n" +
+                                    "      SET data_zamowienia = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_zamowienia = " + ordId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+
+                case 3: {
+                    String updateStmt =
+                            "   UPDATE zamowienia\n" +
+                                    "      SET id_platnosc = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_zamowienia = " + ordId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+
+                case 4: {
+                    String updateStmt =
+                            "   UPDATE zamowienia\n" +
+                                    "      SET zaplacone = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_zamowienia = " + ordId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+
+                case 5: {
+                    String updateStmt =
+                            "   UPDATE zamowienia\n" +
+                                    "      SET faktura = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_zamowienia = " + ordId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+
+                case 6: {
+                    String updateStmt =
+                            "   UPDATE zamowienia\n" +
+                                    "      SET status_zamowienia = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_zamowienia = " + ordId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+
+                case 7: {
+                    String updateStmt =
+                            "   UPDATE zamowienia\n" +
+                                    "      SET id_transport = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_zamowienia = " + ordId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+
+                case 8: {
+                    String updateStmt =
+                            "   UPDATE zamowienia\n" +
+                                    "      SET czas_dostawy = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_zamowienia = " + ordId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                    break;
+                }
+
+                default:
+                    System.out.println("Nie znaleziono żadnego pasującego przypadku!!!");
+            }
+
+
+        } catch (SQLException e) {
+            System.out.print("Error occurred while UPDATE Operation: " + e);
+            throw e;
+        }
+        //Execute UPDATE operation
+    }
 }
