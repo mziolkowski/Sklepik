@@ -80,4 +80,103 @@ public class TowaryDAO {
             throw e;
         }
     }
+
+    //*************************************
+    //UPDATE an Towary
+    //*************************************
+    public static void updateItem(String itemId, String empNewValueField, int flag) throws SQLException, ClassNotFoundException {
+        //Declare a UPDATE statement
+        try {
+            switch (flag) {
+                case 0: {
+                    String updateStmt =
+                            "   UPDATE towary\n" +
+                                    "      SET typ = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_towar = " + itemId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                }
+                break;
+
+                case 1: {
+                    String updateStmt =
+                            "   UPDATE towary\n" +
+                                    "      SET marka = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_towar = " + itemId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                }
+                break;
+
+                case 2: {
+                    String updateStmt =
+                            "   UPDATE towary\n" +
+                                    "      SET model = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_towar = " + itemId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                }
+                break;
+
+                case 3: {
+                    String updateStmt =
+                            "   UPDATE towary\n" +
+                                    "      SET id_kod = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_towar = " + itemId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                }
+                break;
+
+                case 4: {
+                    String updateStmt =
+                            "   UPDATE towary\n" +
+                                    "      SET status_towaru = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_towar = " + itemId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                }
+                break;
+
+                case 5: {
+                    String updateStmt =
+                            "   UPDATE towary\n" +
+                                    "      SET opis = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_towar = " + itemId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                }
+                break;
+
+                case 6: {
+                    String updateStmt =
+                            "   UPDATE towary\n" +
+                                    "      SET ilosc = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_towar = " + itemId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                }
+                break;
+
+                case 7: {
+                    String updateStmt =
+                            "   UPDATE towary\n" +
+                                    "      SET cena = '" + empNewValueField + "'\n" +
+                                    "    WHERE id_towar = " + itemId + ";\n" +
+                                    "   COMMIT;\n";
+                    DBUtil.dbExecuteUpdate(updateStmt);
+                }
+                break;
+
+                default:
+                    System.out.println("Nie znaleziono żadnego pasującego przypadku!!!");
+            }
+
+
+        } catch (SQLException e) {
+            System.out.print("Error occurred while UPDATE Operation: " + e);
+            throw e;
+        }
+        //Execute UPDATE operation
+    }
 }

@@ -11,12 +11,12 @@ public class Pracownicy {
     private IntegerProperty id_pracownicy;
     private StringProperty imie;
     private StringProperty nazwisko;
-    private SimpleObjectProperty<java.sql.Date> dataUrodzenia;
+    private SimpleObjectProperty<Date> dataUrodzenia;
     private StringProperty miasto;
     private StringProperty adres;
     private StringProperty telefon;
-    private SimpleObjectProperty<java.sql.Date> dataZatrudnienia;
-    private SimpleObjectProperty<java.sql.Date> dataZwolnienia;
+    private SimpleObjectProperty<Date> dataZatrudnienia;
+    private SimpleObjectProperty<Date> dataZwolnienia;
     private StringProperty mail;
     private IntegerProperty premia;
     private IntegerProperty pensja;
