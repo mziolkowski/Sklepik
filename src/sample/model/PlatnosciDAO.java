@@ -1,4 +1,7 @@
 package sample.model;
+/**
+ * Create by: maciejziolkowski on 05 gru 2017
+ */
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,16 +12,19 @@ import java.sql.SQLException;
 
 public class PlatnosciDAO {
 
+    //*************************************
+    //VIEW an Platnosci
+    //*************************************
     public static ObservableList<Platnosci> searchPlatnosci() throws SQLException, ClassNotFoundException {
         String selectStmt = "SELECT * FROM platnosci";
 
         try {
             //Get ResultSet from dbExecuteQuery method
             ResultSet rsPayment = DBUtil.dbExecuteQuery(selectStmt);
-            //Send ResultSet to the getPlatnosciList method and get employee object
+            //Send ResultSet to the getPlatnosciList method and get payment object
             ObservableList<Platnosci> paymentList = getPaymentList(rsPayment);
 
-            //Return employee object
+            //Return payment object
             return paymentList;
         } catch (SQLException e) {
             System.out.println("SQL select operation has been failed: " + e);
@@ -28,7 +34,7 @@ public class PlatnosciDAO {
     }
 
     private static ObservableList<Platnosci> getPaymentList(ResultSet rs) throws SQLException, ClassNotFoundException {
-        //Declare a observable List which comprises of Client objects
+        //Declare a observable List which comprises of payment objects
         ObservableList<Platnosci> paymentList = FXCollections.observableArrayList();
 
         while (rs.next()) {
@@ -40,14 +46,17 @@ public class PlatnosciDAO {
             //Add clients to the ObservableList
             paymentList.add(payment);
         }
-        //return empList (ObservableList of Clients)
+        //return paymentList (ObservableList of payments)
         return paymentList;
     }
 
+    //*************************************
+    //DELETE an Platnosci
+    //*************************************
     public static void deletePaymentWithId(String paymentId) throws SQLException, ClassNotFoundException {
         //Declare a DELETE statement
         String updateStmt = "DELETE FROM platnosci\n" +
-                "   WHERE id_platnosci ="+ paymentId +";\n";
+                "   WHERE id_platnosci =" + paymentId + ";\n";
 
         //Execute UPDATE operation
         try {
@@ -58,6 +67,9 @@ public class PlatnosciDAO {
         }
     }
 
+    //*************************************
+    //INSERT an Platnosci
+    //*************************************
     public static void insertPayment(String id_platnosci, String gotowka, String przelew, String kwota) throws SQLException, ClassNotFoundException {
         //Declare a INSERT statement
         String updateStmt =

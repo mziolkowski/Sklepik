@@ -1,5 +1,7 @@
 package sample.controller;
-
+/**
+ * Create by: maciejziolkowski on 05 gru 2017
+ */
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +16,11 @@ import java.sql.SQLException;
 
 public class Controller {
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    PRACOWNIK
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @FXML
     private TextField pracownikIdTF;
 
@@ -116,7 +123,7 @@ public class Controller {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //    KLIENT
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @FXML
     private Tab KlienciTab;
@@ -208,7 +215,7 @@ public class Controller {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //    KOD_TOWARU
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @FXML
@@ -718,384 +725,11 @@ public class Controller {
 
     }
 
-    @FXML
-    void updateZamowienia(ActionEvent event) {
-    // flag to distinguish the field to be updated
-        int flag = 0;
-
-        try {
-            if(zamowieniaId_koszykTF.getText().isEmpty() == false) {
-                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaId_koszykTF.getText(), flag);
-                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
-                zamowieniaResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(zamowieniaId_klientTF.getText().isEmpty() == false) {
-                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaId_klientTF.getText(), flag);
-                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
-                zamowieniaResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(zamowieniaData_zamTF.getText().isEmpty() == false) {
-                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaData_zamTF.getText(), flag);
-                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
-                zamowieniaResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(zamowieniaId_platnoscTF.getText().isEmpty() == false) {
-                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaId_platnoscTF.getText(), flag);
-                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
-                zamowieniaResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(zamowieniaZaplaconeTF.getText().isEmpty() == false) {
-                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaZaplaconeTF.getText(), flag);
-                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
-                zamowieniaResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(zamowieniaFakturaTF.getText().isEmpty() == false) {
-                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaFakturaTF.getText(), flag);
-                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
-                zamowieniaResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(zamowieniaStatusTF.getText().isEmpty() == false) {
-                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaStatusTF.getText(), flag);
-                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
-                zamowieniaResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(zamowieniaId_transportTF.getText().isEmpty() == false) {
-                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaId_transportTF.getText(), flag);
-                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
-                zamowieniaResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(zamowieniaCzas_dostawyTF.getText().isEmpty() == false) {
-                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(),zamowieniaCzas_dostawyTF.getText(), flag);
-                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
-                zamowieniaResultArea1.setWrapText(true);
-            }
-
-        } catch (SQLException e) {
-            pracownicyResultArea.setText("Problem occurred while updating Zamowienia: " + e);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void updateTowary(ActionEvent event) {
-    // flag to distinguish the field to be updated
-        int flag = 0;
-
-        try {
-            if(towaryTypTF.getText().isEmpty() == false) {
-                TowaryDAO.updateItem(towaryIdTF.getText(),towaryTypTF.getText(), flag);
-                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
-                towaryResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(TowaryMarkaTF.getText().isEmpty() == false) {
-                TowaryDAO.updateItem(towaryIdTF.getText(),TowaryMarkaTF.getText(), flag);
-                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
-                towaryResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(towaryModelTF.getText().isEmpty() == false) {
-                TowaryDAO.updateItem(towaryIdTF.getText(),towaryModelTF.getText(), flag);
-                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
-                towaryResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(towaryId_kodTF.getText().isEmpty() == false) {
-                TowaryDAO.updateItem(towaryIdTF.getText(),towaryId_kodTF.getText(), flag);
-                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
-                towaryResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(towaryStatusTF.getText().isEmpty() == false) {
-                TowaryDAO.updateItem(towaryIdTF.getText(),towaryStatusTF.getText(), flag);
-                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
-                towaryResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(towaryOpisTF.getText().isEmpty() == false) {
-                TowaryDAO.updateItem(towaryIdTF.getText(),towaryOpisTF.getText(), flag);
-                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
-                towaryResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(towaryIloscTF.getText().isEmpty() == false) {
-                TowaryDAO.updateItem(towaryIdTF.getText(),towaryIloscTF.getText(), flag);
-                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
-                towaryResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(towaryCenaTF.getText().isEmpty() == false) {
-                TowaryDAO.updateItem(towaryIdTF.getText(),towaryCenaTF.getText(), flag);
-                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
-                towaryResultArea1.setWrapText(true);
-            }
-            flag++;
-
-        } catch (SQLException e) {
-            pracownicyResultArea.setText("Problem occurred while updating Towary: " + e);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void updateTransport(ActionEvent event) {
-    // flag to distinguish the field to be updated
-        int flag = 0;
-
-        try {
-            if(transportNazwaTF.getText().isEmpty() == false) {
-                TransportDAO.updateTransport(transportIdTF.getText(),transportNazwaTF.getText(), flag);
-                transportResultArea1.setText("Dane zostały zaktualizowane dla Transport id: " + transportIdTF.getText() + "\n");
-                transportResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(transportRodzajTF.getText().isEmpty() == false) {
-                TransportDAO.updateTransport(transportIdTF.getText(),transportRodzajTF.getText(), flag);
-                transportResultArea1.setText("Dane zostały zaktualizowane dla Transport id: " + transportIdTF.getText() + "\n");
-                transportResultArea1.setWrapText(true);
-            }
-
-        } catch (SQLException e) {
-            pracownicyResultArea.setText("Problem occurred while updating Transport: " + e);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void updateStanowiska(ActionEvent event) {
-    // flag to distinguish the field to be updated
-        int flag = 0;
-
-        try {
-            if(stanowiskaNazwaTF.getText().isEmpty() == false) {
-                StanowiskaDAO.updatePosition(stanowiskaIdTF.getText(),stanowiskaNazwaTF.getText(), flag);
-                stanowiskaResultArea1.setText("Dane zostały zaktualizowane dla Stanowiska id: " + stanowiskaIdTF.getText() + "\n");
-                stanowiskaResultArea1.setWrapText(true);
-            }
-
-        } catch (SQLException e) {
-            pracownicyResultArea.setText("Problem occurred while updating Stanowiska: " + e);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void updatePlatnosci(ActionEvent event) {
-    // flag to distinguish the field to be updated
-        int flag = 0;
-
-        try {
-            if(platnosciGotowkTF.getText().isEmpty() == false) {
-                PlatnosciDAO.updatePayment(platnosciIdTF.getText(),platnosciGotowkTF.getText(), flag);
-                platnosciRsultArea1.setText("Dane zostały zaktualizowane dla Platnosci id: " + platnosciIdTF.getText() + "\n");
-                platnosciRsultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(platnosciPrzelewTF.getText().isEmpty() == false) {
-                PlatnosciDAO.updatePayment(platnosciIdTF.getText(),platnosciPrzelewTF.getText(), flag);
-                platnosciRsultArea1.setText("Dane zostały zaktualizowane dla Platnosci id: " + platnosciIdTF.getText() + "\n");
-                platnosciRsultArea1.setWrapText(true);
-            }
-            flag++;
-
-
-            if(platnosciKwotaTF.getText().isEmpty() == false) {
-                PlatnosciDAO.updatePayment(platnosciIdTF.getText(),platnosciKwotaTF.getText(), flag);
-                platnosciRsultArea1.setText("Dane zostały zaktualizowane dla Platnosci id: " + platnosciIdTF.getText() + "\n");
-                platnosciRsultArea1.setWrapText(true);
-            }
-            flag++;
-
-        } catch (SQLException e) {
-            pracownicyResultArea.setText("Problem occurred while updating Platnosci: " + e);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void updateKoszyk(ActionEvent event) {
-    // flag to distinguish the field to be updated
-        int flag = 0;
-
-        try {
-            if(koszykId_towarTF.getText().isEmpty() == false) {
-                KoszykDAO.updateBasket(koszykIdTF.getText(),koszykId_towarTF.getText(), flag);
-                koszykResultArea1.setText("Dane zostały zaktualizowane dla Koszyk id: " + koszykIdTF.getText() + "\n");
-                koszykResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(koszykIloscTF.getText().isEmpty() == false) {
-                KoszykDAO.updateBasket(koszykIdTF.getText(),koszykIloscTF.getText(), flag);
-                koszykResultArea1.setText("Dane zostały zaktualizowane dla Koszyk id: " + koszykIdTF.getText() + "\n");
-                koszykResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(koszykCenaTF.getText().isEmpty() == false) {
-                KoszykDAO.updateBasket(koszykIdTF.getText(),koszykCenaTF.getText(), flag);
-                koszykResultArea1.setText("Dane zostały zaktualizowane dla Koszyk id: " + koszykIdTF.getText() + "\n");
-                koszykResultArea1.setWrapText(true);
-            }
-
-        } catch (SQLException e) {
-            pracownicyResultArea.setText("Problem occurred while updating Koszyk: " + e);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void updateKod(ActionEvent event) {
-    // flag to distinguish the field to be updated
-        int flag = 0;
-
-        try {
-            if(kod_towaruIdTF.getText().isEmpty() == false) {
-                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(),kodMagazynTF.getText(), flag);
-                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
-                kod_towaruResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(kodHalaTF.getText().isEmpty() == false) {
-                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(),kodHalaTF.getText(), flag);
-                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
-                kod_towaruResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(kodPoziomTF.getText().isEmpty() == false) {
-                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(),kodPoziomTF.getText(), flag);
-                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
-                kod_towaruResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(kodRegalTF.getText().isEmpty() == false) {
-                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(),kodRegalTF.getText(), flag);
-                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
-                kod_towaruResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(kodPolkaTF.getText().isEmpty() == false) {
-                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(),kodPolkaTF.getText(), flag);
-                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
-                kod_towaruResultArea1.setWrapText(true);
-            }
-
-        } catch (SQLException e) {
-            pracownicyResultArea.setText("Problem occurred while updating Kod Towaru: " + e);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void updateKlient(ActionEvent event) {
-    // flag to distinguish the field to be updated
-        int flag = 0;
-
-        try {
-            if(klientFirmaTF.getText().isEmpty() == false) {
-                KlientDAO.updateCli(klientIdTF.getText(),klientFirmaTF.getText(), flag);
-                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
-                klientResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(klientImieTF.getText().isEmpty() == false) {
-                KlientDAO.updateCli(klientIdTF.getText(),klientImieTF.getText(), flag);
-                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
-                klientResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(klientNazwiskoTF.getText().isEmpty() == false) {
-                KlientDAO.updateCli(klientIdTF.getText(),klientNazwiskoTF.getText(), flag);
-                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
-                klientResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(klientAdresTF.getText().isEmpty() == false) {
-                KlientDAO.updateCli(klientIdTF.getText(),klientAdresTF.getText(), flag);
-                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
-                klientResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(klientKod_poczTF.getText().isEmpty() == false) {
-                KlientDAO.updateCli(klientIdTF.getText(),klientKod_poczTF.getText(), flag);
-                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
-                klientResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(klientMiejscowoscTF.getText().isEmpty() == false) {
-                KlientDAO.updateCli(klientIdTF.getText(),klientMiejscowoscTF.getText(), flag);
-                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
-                klientResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(klientTelefonTF.getText().isEmpty() == false) {
-                KlientDAO.updateCli(klientIdTF.getText(),klientTelefonTF.getText(), flag);
-                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
-                klientResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(klientMailTF.getText().isEmpty() == false) {
-                KlientDAO.updateCli(klientIdTF.getText(),klientMailTF.getText(), flag);
-                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
-                klientResultArea1.setWrapText(true);
-            }
-            flag++;
-
-            if(klientStaly_klTF.getText().isEmpty() == false) {
-                KlientDAO.updateCli(klientIdTF.getText(),klientStaly_klTF.getText(), flag);
-                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
-                klientResultArea1.setWrapText(true);
-            }
-
-        } catch (SQLException e) {
-            pracownicyResultArea.setText("Problem occurred while updating Klient: " + e);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    PRACOWNIK
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @FXML
     void updatePracownik(ActionEvent event) {
@@ -1103,85 +737,85 @@ public class Controller {
         int flag = 0;
 
         try {
-            if(pracownikImieTF.getText().isEmpty() == false) {
-                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikImieTF.getText(), flag);
+            if (pracownikImieTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(), pracownikImieTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
                 pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
-            if(pracownikNazwiskoTF.getText().isEmpty() == false) {
-                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikNazwiskoTF.getText(), flag);
+            if (pracownikNazwiskoTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(), pracownikNazwiskoTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
                 pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
-            if(pracownikData_urTF.getText().isEmpty() == false) {
-                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikData_urTF.getText(), flag);
+            if (pracownikData_urTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(), pracownikData_urTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
                 pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
-            if(pracownikMiastoTF.getText().isEmpty() == false) {
-                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikMiastoTF.getText(), flag);
+            if (pracownikMiastoTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(), pracownikMiastoTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
                 pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
-            if(pracownikAdresTF.getText().isEmpty() == false) {
-                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikAdresTF.getText(), flag);
+            if (pracownikAdresTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(), pracownikAdresTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
                 pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
-            if(pracownikTelefonTF.getText().isEmpty() == false) {
-                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikTelefonTF.getText(), flag);
+            if (pracownikTelefonTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(), pracownikTelefonTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
                 pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
-            if(pracownikData_zatrTF.getText().isEmpty() == false) {
-                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikData_zatrTF.getText(), flag);
+            if (pracownikData_zatrTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(), pracownikData_zatrTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
                 pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
-            if(pracownikData_zwolTF.getText().isEmpty() == false) {
-                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikData_zwolTF.getText(), flag);
+            if (pracownikData_zwolTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(), pracownikData_zwolTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
                 pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
-            if(pracownikMailTF.getText().isEmpty() == false) {
-                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikMailTF.getText(), flag);
+            if (pracownikMailTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(), pracownikMailTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
                 pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
-            if(pracownikPremiaTF.getText().isEmpty() == false) {
-                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikPremiaTF.getText(), flag);
+            if (pracownikPremiaTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(), pracownikPremiaTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
                 pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
-            if(pracownikPensjaTF.getText().isEmpty() == false) {
-                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikPensjaTF.getText(), flag);
+            if (pracownikPensjaTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(), pracownikPensjaTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
                 pracownicyResultArea.setWrapText(true);
             }
             flag++;
 
-            if(pracownikId_stanowiskaTF.getText().isEmpty() == false) {
-                PracownikDAO.updateEmp(pracownikIdTF.getText(),pracownikId_stanowiskaTF.getText(), flag);
+            if (pracownikId_stanowiskaTF.getText().isEmpty() == false) {
+                PracownikDAO.updateEmp(pracownikIdTF.getText(), pracownikId_stanowiskaTF.getText(), flag);
                 pracownicyResultArea.setText("Dane zostały zaktualizowane dla pracownik id: " + pracownikIdTF.getText() + "\n");
                 pracownicyResultArea.setWrapText(true);
             }
@@ -1193,16 +827,15 @@ public class Controller {
         }
     }
 
-
     @FXML
-    void deleteZamowienia(ActionEvent event) throws SQLException {
+    void deletePracownik(ActionEvent event) throws SQLException {
         try {
-            ZamowieniaDAO.deleteOrderWithId(zamowieniaIdTF.getText());
-            zamowieniaResultArea1.setText("Zamówienie zostało usunięte!\n Zamówienie id: " + zamowieniaIdTF.getText() + "\n");
-            zamowieniaResultArea1.setWrapText(true);
+            PracownikDAO.deleteEmpWithId(pracownikIdTF.getText());
+            pracownicyResultArea.setText("Pracownik został usunięty!\n Pracownik id: " + pracownikIdTF.getText() + "\n");
+            pracownicyResultArea.setWrapText(true);
         } catch (SQLException e) {
-            zamowieniaResultArea1.setText("Wystąpił problem podczas usuwania zamówienia" + e);
-            zamowieniaResultArea1.setWrapText(true);
+            pracownicyResultArea.setText("Wystąpił problem podczas usuwania pracownika " + e);
+            pracownicyResultArea.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -1210,14 +843,14 @@ public class Controller {
     }
 
     @FXML
-    void insertZamowienia(ActionEvent event) throws SQLException {
+    void insertPracownik(ActionEvent event) throws SQLException {
         try {
-            ZamowieniaDAO.insertOrder(zamowieniaIdTF.getText(), zamowieniaId_koszykTF.getText(), zamowieniaId_klientTF.getText(), zamowieniaData_zamTF.getText(), zamowieniaId_platnoscTF.getText(), zamowieniaZaplaconeTF.getText(), zamowieniaFakturaTF.getText(), zamowieniaStatusTF.getText(), zamowieniaId_transportTF.getText(), zamowieniaCzas_dostawyTF.getText());
-            zamowieniaResultArea1.setText("Zamówienie zostało dodane! \n");
-            zamowieniaResultArea1.setWrapText(true);
+            PracownikDAO.insertEmp(pracownikIdTF.getText(), pracownikImieTF.getText(), pracownikNazwiskoTF.getText(), pracownikData_urTF.getText(), pracownikMiastoTF.getText(), pracownikAdresTF.getText(), pracownikTelefonTF.getText(), pracownikData_zatrTF.getText(), pracownikData_zwolTF.getText(), pracownikMailTF.getText(), pracownikPremiaTF.getText(), pracownikPensjaTF.getText(), pracownikId_stanowiskaTF.getText());
+            pracownicyResultArea.setText("Pracownik został dodany \n");
+            pracownicyResultArea.setWrapText(true);
         } catch (SQLException e) {
-            zamowieniaResultArea1.setText("Wystąpił problem podczas dodawania zamówienia" + e);
-            zamowieniaResultArea1.setWrapText(true);
+            pracownicyResultArea.setText("Wystąpił problem podczas dodawania pracownika " + e);
+            pracownicyResultArea.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -1225,182 +858,107 @@ public class Controller {
     }
 
     @FXML
-    void deleteTowary(ActionEvent event) throws SQLException {
+    void ViewPracownicy(ActionEvent event) throws SQLException {
         try {
-            TowaryDAO.deleteItemWithId(towaryIdTF.getText());
-            towaryResultArea1.setText("Towar został usunięty!\n Towar id: " + towaryIdTF.getText() + "\n");
-            towaryResultArea1.setWrapText(true);
+            //Get all Employees information
+            ObservableList<Pracownicy> pracData = PracownikDAO.searchPracownicy();
+            //Populate Employees on TableView
+            populateEmployees(pracData);
+            pracownicyResultArea.setText("Podłączono do bazy\n poprawnie\n");
+
         } catch (SQLException e) {
-            towaryResultArea1.setText("Wystąpił problem podczas usuwania towaru" + e);
-            towaryResultArea1.setWrapText(true);
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o pracownikach z DB.\n" + e);
+            pracownicyResultArea.setText("Wystąpił błąd podczas\n pobierania informacji o pracownikach z DB.\n" + e);
+            pracownicyResultArea.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
+    //Populate Employees for TableView
     @FXML
-    void insertTowary(ActionEvent event) throws SQLException {
-        try {
-            TowaryDAO.insertItem(towaryIdTF.getText(), towaryTypTF.getText(), TowaryMarkaTF.getText(), towaryModelTF.getText(), towaryId_kodTF.getText(), towaryStatusTF.getText(), towaryOpisTF.getText(), towaryIloscTF.getText(), towaryCenaTF.getText());
-            towaryResultArea1.setText("Towar został dodany! \n");
-            towaryResultArea1.setWrapText(true);
-        } catch (SQLException e) {
-            towaryResultArea1.setText("Wystąpił problem podczas dodawania towaru" + e);
-            towaryResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+    private void populateEmployees(ObservableList<Pracownicy> empData) throws ClassNotFoundException {
+        //Set items to the employeeTable
+        tablePracownik.setItems(empData);
     }
 
-    @FXML
-    void deleteTransport(ActionEvent event) throws SQLException {
-        try {
-            TransportDAO.deleteTransportWithId(transportIdTF.getText());
-            transportResultArea1.setText("Transport został usunięty!\n Transport id: " + transportIdTF.getText() + "\n");
-            transportResultArea1.setWrapText(true);
-        } catch (SQLException e) {
-            transportResultArea1.setText("Wystąpił problem podczas usuwania transportu" + e);
-            transportResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    KLIENT
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @FXML
-    void insertTransport(ActionEvent event) throws SQLException {
+    void updateKlient(ActionEvent event) {
+        // flag to distinguish the field to be updated
+        int flag = 0;
+
         try {
-            TransportDAO.insertTransport(transportIdTF.getText(), transportNazwaTF.getText(), transportRodzajTF.getText());
-            transportResultArea1.setWrapText(true);
-            transportResultArea1.setText("Transport został dodany! \n");
+            if (klientFirmaTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(), klientFirmaTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (klientImieTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(), klientImieTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (klientNazwiskoTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(), klientNazwiskoTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (klientAdresTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(), klientAdresTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (klientKod_poczTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(), klientKod_poczTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (klientMiejscowoscTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(), klientMiejscowoscTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (klientTelefonTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(), klientTelefonTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (klientMailTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(), klientMailTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (klientStaly_klTF.getText().isEmpty() == false) {
+                KlientDAO.updateCli(klientIdTF.getText(), klientStaly_klTF.getText(), flag);
+                klientResultArea1.setText("Dane zostały zaktualizowane dla klient id: " + klientIdTF.getText() + "\n");
+                klientResultArea1.setWrapText(true);
+            }
+
         } catch (SQLException e) {
-            transportResultArea1.setText("Wystąpił problem podczas dodawania transportu" + e);
-            transportResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void deleteStanowiska(ActionEvent event) throws SQLException {
-        try {
-            StanowiskaDAO.deletePositionWithId(stanowiskaIdTF.getText());
-            stanowiskaResultArea1.setText("Stanowisko zostało usunięte!\n Stanowisko id: " + stanowiskaIdTF.getText() + "\n");
-            stanowiskaResultArea1.setWrapText(true);
-        } catch (SQLException e) {
-            stanowiskaResultArea1.setText("Wystąpił problem podczas usuwania stanowiska" + e);
-            stanowiskaResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void insertStanowiska(ActionEvent event) throws SQLException {
-        try {
-            StanowiskaDAO.insertPosition(stanowiskaIdTF.getText(), stanowiskaIdTF.getText());
-            stanowiskaResultArea1.setText("Stanowisko zostało dodane! \n");
-            stanowiskaResultArea1.setWrapText(true);
-        } catch (SQLException e) {
-            stanowiskaResultArea1.setText("Wystąpił problem podczas dodawania stanowiska" + e);
-            stanowiskaResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void deletePlatnosci(ActionEvent event) throws SQLException {
-        try {
-            PlatnosciDAO.deletePaymentWithId(platnosciIdTF.getText());
-            platnosciRsultArea1.setText("Płatność została usunięta!\n Płatność id: " + platnosciIdTF.getText() + "\n");
-            platnosciRsultArea1.setWrapText(true);
-        } catch (SQLException e) {
-            platnosciRsultArea1.setText("Wystąpił problem podczas usuwania płatności" + e);
-            platnosciRsultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void insertPlatnosci(ActionEvent event) throws SQLException {
-        try {
-            PlatnosciDAO.insertPayment(platnosciIdTF.getText(), platnosciGotowkTF.getText(), platnosciPrzelewTF.getText(), platnosciKwotaTF.getText());
-            platnosciRsultArea1.setText("Płatność została dodana! \n");
-            platnosciRsultArea1.setWrapText(true);
-        } catch (SQLException e) {
-            platnosciRsultArea1.setText("Wystąpił problem podczas dodawania płatności" + e);
-            platnosciRsultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @FXML
-    void deleteKoszyk(ActionEvent event) throws SQLException {
-        try {
-            KoszykDAO.deleteBasketWithId(koszykIdTF.getText());
-            koszykResultArea1.setText("Koszyk został usunięty!\n Koszyk id: " + koszykIdTF.getText() + "\n");
-            koszykResultArea1.setWrapText(true);
-        } catch (SQLException e) {
-            koszykResultArea1.setText("Wystąpił problem podczas usuwania koszyka" + e);
-            koszykResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void insertKoszyk(ActionEvent event) throws SQLException {
-        try {
-            KoszykDAO.insertBasket(koszykIdTF.getText(), koszykId_towarTF.getText(), koszykIloscTF.getText(), koszykCenaTF.getText());
-            koszykResultArea1.setText("Koszyk został dodany! \n");
-            koszykResultArea1.setWrapText(true);
-        } catch (SQLException e) {
-            koszykResultArea1.setText("Wystąpił problem podczas dodawania koszyka " + e);
-            koszykResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @FXML
-    void deleteKod(ActionEvent event) throws SQLException {
-        try {
-            KodTowaruDAO.deleteCodeWithId(kod_towaruIdTF.getText());
-            kod_towaruResultArea1.setText("Kod towaru został usunięty!\n Kod_towaru id: " + kod_towaruIdTF.getText() + "\n");
-            kod_towaruResultArea1.setWrapText(true);
-        } catch (SQLException e) {
-            kod_towaruResultArea1.setText("Wystąpił problem podczas usuwania kodu towaru " + e);
-            kod_towaruResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void insertKod(ActionEvent event) throws SQLException {
-        try {
-            KodTowaruDAO.insertCode(kod_towaruIdTF.getText(), kodMagazynTF.getText(), kodHalaTF.getText(), kodPoziomTF.getText(), kodRegalTF.getText(), kodPolkaTF.getText());
-            kod_towaruResultArea1.setText("Kod towaru został dodany! \n");
-            kod_towaruResultArea1.setWrapText(true);
-        } catch (SQLException e) {
-            kod_towaruResultArea1.setText("Wystąpił problem podczas dodawania kodu towaru " + e);
-            kod_towaruResultArea1.setWrapText(true);
-            throw e;
+            pracownicyResultArea.setText("Problem occurred while updating Klient: " + e);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -1438,14 +996,93 @@ public class Controller {
     }
 
     @FXML
-    void deletePracownik(ActionEvent event) throws SQLException {
+    void ViewKlienci(ActionEvent event) throws SQLException {
         try {
-            PracownikDAO.deleteEmpWithId(pracownikIdTF.getText());
-            pracownicyResultArea.setText("Pracownik został usunięty!\n Pracownik id: " + pracownikIdTF.getText() + "\n");
-            pracownicyResultArea.setWrapText(true);
+            //Get all Clients information
+            ObservableList<Klient> cliData = KlientDAO.searchKlient();
+            //Populate Clients on TableView
+            populateClients(cliData);
+            klientResultArea1.setText("Podłączono do bazy\n poprawnie\n");
+
         } catch (SQLException e) {
-            pracownicyResultArea.setText("Wystąpił problem podczas usuwania pracownika " + e);
-            pracownicyResultArea.setWrapText(true);
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o klientach z DB.\n" + e);
+            klientResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o klientach z DB.\n" + e);
+            klientResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate Clients for TableView
+    @FXML
+    private void populateClients(ObservableList<Klient> cliData) throws ClassNotFoundException {
+        //Set items to the table Klienci
+        tableKlienci.setItems(cliData);
+    }
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    KOD_TOWARU
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @FXML
+    void updateKod(ActionEvent event) {
+        // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if (kod_towaruIdTF.getText().isEmpty() == false) {
+                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(), kodMagazynTF.getText(), flag);
+                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
+                kod_towaruResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (kodHalaTF.getText().isEmpty() == false) {
+                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(), kodHalaTF.getText(), flag);
+                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
+                kod_towaruResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (kodPoziomTF.getText().isEmpty() == false) {
+                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(), kodPoziomTF.getText(), flag);
+                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
+                kod_towaruResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (kodRegalTF.getText().isEmpty() == false) {
+                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(), kodRegalTF.getText(), flag);
+                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
+                kod_towaruResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (kodPolkaTF.getText().isEmpty() == false) {
+                KodTowaruDAO.updateCode(kod_towaruIdTF.getText(), kodPolkaTF.getText(), flag);
+                kod_towaruResultArea1.setText("Dane zostały zaktualizowane dla Kod Towaru id: " + kod_towaruIdTF.getText() + "\n");
+                kod_towaruResultArea1.setWrapText(true);
+            }
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Kod Towaru: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void deleteKod(ActionEvent event) throws SQLException {
+        try {
+            KodTowaruDAO.deleteCodeWithId(kod_towaruIdTF.getText());
+            kod_towaruResultArea1.setText("Kod towaru został usunięty!\n Kod_towaru id: " + kod_towaruIdTF.getText() + "\n");
+            kod_towaruResultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            kod_towaruResultArea1.setText("Wystąpił problem podczas usuwania kodu towaru " + e);
+            kod_towaruResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -1453,14 +1090,644 @@ public class Controller {
     }
 
     @FXML
-    void insertPracownik(ActionEvent event) throws SQLException {
+    void insertKod(ActionEvent event) throws SQLException {
         try {
-            PracownikDAO.insertEmp(pracownikIdTF.getText(), pracownikImieTF.getText(), pracownikNazwiskoTF.getText(), pracownikData_urTF.getText(), pracownikMiastoTF.getText(), pracownikAdresTF.getText(), pracownikTelefonTF.getText(), pracownikData_zatrTF.getText(), pracownikData_zwolTF.getText(), pracownikMailTF.getText(), pracownikPremiaTF.getText(), pracownikPensjaTF.getText(), pracownikId_stanowiskaTF.getText());
-            pracownicyResultArea.setText("Pracownik został dodany \n");
-            pracownicyResultArea.setWrapText(true);
+            KodTowaruDAO.insertCode(kod_towaruIdTF.getText(), kodMagazynTF.getText(), kodHalaTF.getText(), kodPoziomTF.getText(), kodRegalTF.getText(), kodPolkaTF.getText());
+            kod_towaruResultArea1.setText("Kod towaru został dodany! \n");
+            kod_towaruResultArea1.setWrapText(true);
         } catch (SQLException e) {
-            pracownicyResultArea.setText("Wystąpił problem podczas dodawania pracownika " + e);
-            pracownicyResultArea.setWrapText(true);
+            kod_towaruResultArea1.setText("Wystąpił problem podczas dodawania kodu towaru " + e);
+            kod_towaruResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void ViewKod_towaru(ActionEvent event) throws SQLException {
+        try {
+            //Get all Codes information
+            ObservableList<KodTowaru> codeData = KodTowaruDAO.searchKod();
+            //Populate Codes on TableView
+            populateCodes(codeData);
+            kod_towaruResultArea1.setText("Podłączono do bazy\n poprawnie\n");
+
+        } catch (SQLException e) {
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o kodzie towaru z DB.\n" + e);
+            kod_towaruResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o kodzie towaru z DB.\n" + e);
+            kod_towaruResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate CodesItems for TableView
+    @FXML
+    private void populateCodes(ObservableList<KodTowaru> codeData) throws ClassNotFoundException {
+        //Set items to the table Kod_towaru
+        tableKod_towaru.setItems(codeData);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    PLATNOSC
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @FXML
+    void updatePlatnosci(ActionEvent event) {
+        // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if (platnosciGotowkTF.getText().isEmpty() == false) {
+                PlatnosciDAO.updatePayment(platnosciIdTF.getText(), platnosciGotowkTF.getText(), flag);
+                platnosciRsultArea1.setText("Dane zostały zaktualizowane dla Platnosci id: " + platnosciIdTF.getText() + "\n");
+                platnosciRsultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (platnosciPrzelewTF.getText().isEmpty() == false) {
+                PlatnosciDAO.updatePayment(platnosciIdTF.getText(), platnosciPrzelewTF.getText(), flag);
+                platnosciRsultArea1.setText("Dane zostały zaktualizowane dla Platnosci id: " + platnosciIdTF.getText() + "\n");
+                platnosciRsultArea1.setWrapText(true);
+            }
+            flag++;
+
+
+            if (platnosciKwotaTF.getText().isEmpty() == false) {
+                PlatnosciDAO.updatePayment(platnosciIdTF.getText(), platnosciKwotaTF.getText(), flag);
+                platnosciRsultArea1.setText("Dane zostały zaktualizowane dla Platnosci id: " + platnosciIdTF.getText() + "\n");
+                platnosciRsultArea1.setWrapText(true);
+            }
+            flag++;
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Platnosci: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void deletePlatnosci(ActionEvent event) throws SQLException {
+        try {
+            PlatnosciDAO.deletePaymentWithId(platnosciIdTF.getText());
+            platnosciRsultArea1.setText("Płatność została usunięta!\n Płatność id: " + platnosciIdTF.getText() + "\n");
+            platnosciRsultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            platnosciRsultArea1.setText("Wystąpił problem podczas usuwania płatności" + e);
+            platnosciRsultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertPlatnosci(ActionEvent event) throws SQLException {
+        try {
+            PlatnosciDAO.insertPayment(platnosciIdTF.getText(), platnosciGotowkTF.getText(), platnosciPrzelewTF.getText(), platnosciKwotaTF.getText());
+            platnosciRsultArea1.setText("Płatność została dodana! \n");
+            platnosciRsultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            platnosciRsultArea1.setText("Wystąpił problem podczas dodawania płatności" + e);
+            platnosciRsultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void ViewPlatnosci(ActionEvent event) throws SQLException {
+        try {
+            //Get all Codes information
+            ObservableList<Platnosci> paymentData = PlatnosciDAO.searchPlatnosci();
+            //Populate Payment on TableView
+            populatePayments(paymentData);
+            platnosciRsultArea1.setText("Podłączono do bazy\n poprawnie\n");
+
+        } catch (SQLException e) {
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o płatnościach z DB.\n" + e);
+            platnosciRsultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o płatnościach z DB.\n" + e);
+            platnosciRsultArea1.setWrapText(true);
+
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate Payments for TableView
+    @FXML
+    private void populatePayments(ObservableList<Platnosci> paymentData) throws ClassNotFoundException {
+        //Set items to the table Platnosci
+        tablePlatnosci.setItems(paymentData);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    KOSZYK
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @FXML
+    void updateKoszyk(ActionEvent event) {
+        // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if (koszykId_towarTF.getText().isEmpty() == false) {
+                KoszykDAO.updateBasket(koszykIdTF.getText(), koszykId_towarTF.getText(), flag);
+                koszykResultArea1.setText("Dane zostały zaktualizowane dla Koszyk id: " + koszykIdTF.getText() + "\n");
+                koszykResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (koszykIloscTF.getText().isEmpty() == false) {
+                KoszykDAO.updateBasket(koszykIdTF.getText(), koszykIloscTF.getText(), flag);
+                koszykResultArea1.setText("Dane zostały zaktualizowane dla Koszyk id: " + koszykIdTF.getText() + "\n");
+                koszykResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (koszykCenaTF.getText().isEmpty() == false) {
+                KoszykDAO.updateBasket(koszykIdTF.getText(), koszykCenaTF.getText(), flag);
+                koszykResultArea1.setText("Dane zostały zaktualizowane dla Koszyk id: " + koszykIdTF.getText() + "\n");
+                koszykResultArea1.setWrapText(true);
+            }
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Koszyk: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void deleteKoszyk(ActionEvent event) throws SQLException {
+        try {
+            KoszykDAO.deleteBasketWithId(koszykIdTF.getText());
+            koszykResultArea1.setText("Koszyk został usunięty!\n Koszyk id: " + koszykIdTF.getText() + "\n");
+            koszykResultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            koszykResultArea1.setText("Wystąpił problem podczas usuwania koszyka" + e);
+            koszykResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertKoszyk(ActionEvent event) throws SQLException {
+        try {
+            KoszykDAO.insertBasket(koszykIdTF.getText(), koszykId_towarTF.getText(), koszykIloscTF.getText(), koszykCenaTF.getText());
+            koszykResultArea1.setText("Koszyk został dodany! \n");
+            koszykResultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            koszykResultArea1.setText("Wystąpił problem podczas dodawania koszyka " + e);
+            koszykResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void ViewKoszyk(ActionEvent event) throws SQLException {
+        try {
+            //Get all Baskets information
+            ObservableList<Koszyk> basketData = KoszykDAO.searchBasket();
+            //Populate Baskets on TableView
+            populateBaskets(basketData);
+            koszykResultArea1.setText("Podłączono do bazy\n poprawnie\n");
+
+        } catch (SQLException e) {
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o koszyku z DB.\n" + e);
+            koszykResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o koszyku z DB.\n" + e);
+            kod_towaruResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate BasketItems for TableView
+    @FXML
+    private void populateBaskets(ObservableList<Koszyk> basketData) throws ClassNotFoundException {
+        //Set items to the table Koszyk
+        tableKoszyk.setItems(basketData);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    STANOWISKA
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @FXML
+    void updateStanowiska(ActionEvent event) {
+        // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if (stanowiskaNazwaTF.getText().isEmpty() == false) {
+                StanowiskaDAO.updatePosition(stanowiskaIdTF.getText(), stanowiskaNazwaTF.getText(), flag);
+                stanowiskaResultArea1.setText("Dane zostały zaktualizowane dla Stanowiska id: " + stanowiskaIdTF.getText() + "\n");
+                stanowiskaResultArea1.setWrapText(true);
+            }
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Stanowiska: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void deleteStanowiska(ActionEvent event) throws SQLException {
+        try {
+            StanowiskaDAO.deletePositionWithId(stanowiskaIdTF.getText());
+            stanowiskaResultArea1.setText("Stanowisko zostało usunięte!\n Stanowisko id: " + stanowiskaIdTF.getText() + "\n");
+            stanowiskaResultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            stanowiskaResultArea1.setText("Wystąpił problem podczas usuwania stanowiska" + e);
+            stanowiskaResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertStanowiska(ActionEvent event) throws SQLException {
+        try {
+            StanowiskaDAO.insertPosition(stanowiskaIdTF.getText(), stanowiskaIdTF.getText());
+            stanowiskaResultArea1.setText("Stanowisko zostało dodane! \n");
+            stanowiskaResultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            stanowiskaResultArea1.setText("Wystąpił problem podczas dodawania stanowiska" + e);
+            stanowiskaResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void ViewStanowiska(ActionEvent event) throws SQLException {
+        try {
+            //Get all Positions information
+            ObservableList<Stanowiska> positionData = StanowiskaDAO.searchPosition();
+            //Populate Positions on TableView
+            populatePositions(positionData);
+            stanowiskaResultArea1.setText("Podłączono do bazy\n poprawnie\n");
+
+        } catch (SQLException e) {
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o stanowisku z DB.\n" + e);
+            stanowiskaResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o stanowisku z DB.\n" + e);
+            stanowiskaResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate PositionItems for TableView
+    @FXML
+    private void populatePositions(ObservableList<Stanowiska> positionData) throws ClassNotFoundException {
+        //Set items to the table Stanowiska
+        tableStanowiska.setItems(positionData);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    TOWARY
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @FXML
+    void updateTowary(ActionEvent event) {
+        // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if (towaryTypTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(), towaryTypTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (TowaryMarkaTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(), TowaryMarkaTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (towaryModelTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(), towaryModelTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (towaryId_kodTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(), towaryId_kodTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (towaryStatusTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(), towaryStatusTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (towaryOpisTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(), towaryOpisTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (towaryIloscTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(), towaryIloscTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (towaryCenaTF.getText().isEmpty() == false) {
+                TowaryDAO.updateItem(towaryIdTF.getText(), towaryCenaTF.getText(), flag);
+                towaryResultArea1.setText("Dane zostały zaktualizowane dla Towary id: " + towaryIdTF.getText() + "\n");
+                towaryResultArea1.setWrapText(true);
+            }
+            flag++;
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Towary: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void deleteTowary(ActionEvent event) throws SQLException {
+        try {
+            TowaryDAO.deleteItemWithId(towaryIdTF.getText());
+            towaryResultArea1.setText("Towar został usunięty!\n Towar id: " + towaryIdTF.getText() + "\n");
+            towaryResultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            towaryResultArea1.setText("Wystąpił problem podczas usuwania towaru" + e);
+            towaryResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertTowary(ActionEvent event) throws SQLException {
+        try {
+            TowaryDAO.insertItem(towaryIdTF.getText(), towaryTypTF.getText(), TowaryMarkaTF.getText(), towaryModelTF.getText(), towaryId_kodTF.getText(), towaryStatusTF.getText(), towaryOpisTF.getText(), towaryIloscTF.getText(), towaryCenaTF.getText());
+            towaryResultArea1.setText("Towar został dodany! \n");
+            towaryResultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            towaryResultArea1.setText("Wystąpił problem podczas dodawania towaru" + e);
+            towaryResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void ViewTowary(ActionEvent event) throws SQLException {
+        try {
+            //Get all Items information
+            ObservableList<Towary> itemData = TowaryDAO.searchItems();
+            //Populate Items on TableView
+            populateItems(itemData);
+            towaryResultArea1.setText("Podłączono do bazy\n poprawnie\n");
+
+        } catch (SQLException e) {
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o towarach z DB.\n" + e);
+            towaryResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o towarach z DB.\n" + e);
+            towaryResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate PositionItems for TableView
+    @FXML
+    private void populateItems(ObservableList<Towary> itemData) throws ClassNotFoundException {
+        //Set items to the table Towary
+        tableTowary.setItems(itemData);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    TRANSPORT
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @FXML
+    void updateTransport(ActionEvent event) {
+        // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if (transportNazwaTF.getText().isEmpty() == false) {
+                TransportDAO.updateTransport(transportIdTF.getText(), transportNazwaTF.getText(), flag);
+                transportResultArea1.setText("Dane zostały zaktualizowane dla Transport id: " + transportIdTF.getText() + "\n");
+                transportResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (transportRodzajTF.getText().isEmpty() == false) {
+                TransportDAO.updateTransport(transportIdTF.getText(), transportRodzajTF.getText(), flag);
+                transportResultArea1.setText("Dane zostały zaktualizowane dla Transport id: " + transportIdTF.getText() + "\n");
+                transportResultArea1.setWrapText(true);
+            }
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Transport: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void deleteTransport(ActionEvent event) throws SQLException {
+        try {
+            TransportDAO.deleteTransportWithId(transportIdTF.getText());
+            transportResultArea1.setText("Transport został usunięty!\n Transport id: " + transportIdTF.getText() + "\n");
+            transportResultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            transportResultArea1.setText("Wystąpił problem podczas usuwania transportu" + e);
+            transportResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertTransport(ActionEvent event) throws SQLException {
+        try {
+            TransportDAO.insertTransport(transportIdTF.getText(), transportNazwaTF.getText(), transportRodzajTF.getText());
+            transportResultArea1.setWrapText(true);
+            transportResultArea1.setText("Transport został dodany! \n");
+        } catch (SQLException e) {
+            transportResultArea1.setText("Wystąpił problem podczas dodawania transportu" + e);
+            transportResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void ViewTransport(ActionEvent event) throws SQLException {
+        try {
+            //Get all Transports information
+            ObservableList<Transport> tranData = TransportDAO.searchTransport();
+            //Populate Transports on TableView
+            populateTransport(tranData);
+            transportResultArea1.setText("Podłączono do bazy\n poprawnie\n");
+
+        } catch (SQLException e) {
+            System.out.println("Wystąpił błąd podczas\n pobierania informacji o transporcie z DB.\n" + e);
+            transportResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o transporcie z DB.\n" + e);
+            transportResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Populate PositionItems for TableView
+    @FXML
+    private void populateTransport(ObservableList<Transport> transData) throws ClassNotFoundException {
+        //Set items to the table Transport
+        tableTransport.setItems(transData);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //    ZAMOWIENIA
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    @FXML
+    void updateZamowienia(ActionEvent event) {
+        // flag to distinguish the field to be updated
+        int flag = 0;
+
+        try {
+            if (zamowieniaId_koszykTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(), zamowieniaId_koszykTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (zamowieniaId_klientTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(), zamowieniaId_klientTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (zamowieniaData_zamTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(), zamowieniaData_zamTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (zamowieniaId_platnoscTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(), zamowieniaId_platnoscTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (zamowieniaZaplaconeTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(), zamowieniaZaplaconeTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (zamowieniaFakturaTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(), zamowieniaFakturaTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (zamowieniaStatusTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(), zamowieniaStatusTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (zamowieniaId_transportTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(), zamowieniaId_transportTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+            flag++;
+
+            if (zamowieniaCzas_dostawyTF.getText().isEmpty() == false) {
+                ZamowieniaDAO.updateOrder(zamowieniaIdTF.getText(), zamowieniaCzas_dostawyTF.getText(), flag);
+                zamowieniaResultArea1.setText("Dane zostały zaktualizowane dla Zamowienia id: " + zamowieniaIdTF.getText() + "\n");
+                zamowieniaResultArea1.setWrapText(true);
+            }
+
+        } catch (SQLException e) {
+            pracownicyResultArea.setText("Problem occurred while updating Zamowienia: " + e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void deleteZamowienia(ActionEvent event) throws SQLException {
+        try {
+            ZamowieniaDAO.deleteOrderWithId(zamowieniaIdTF.getText());
+            zamowieniaResultArea1.setText("Zamówienie zostało usunięte!\n Zamówienie id: " + zamowieniaIdTF.getText() + "\n");
+            zamowieniaResultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            zamowieniaResultArea1.setText("Wystąpił problem podczas usuwania zamówienia" + e);
+            zamowieniaResultArea1.setWrapText(true);
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void insertZamowienia(ActionEvent event) throws SQLException {
+        try {
+            ZamowieniaDAO.insertOrder(zamowieniaIdTF.getText(), zamowieniaId_koszykTF.getText(), zamowieniaId_klientTF.getText(), zamowieniaData_zamTF.getText(), zamowieniaId_platnoscTF.getText(), zamowieniaZaplaconeTF.getText(), zamowieniaFakturaTF.getText(), zamowieniaStatusTF.getText(), zamowieniaId_transportTF.getText(), zamowieniaCzas_dostawyTF.getText());
+            zamowieniaResultArea1.setText("Zamówienie zostało dodane! \n");
+            zamowieniaResultArea1.setWrapText(true);
+        } catch (SQLException e) {
+            zamowieniaResultArea1.setText("Wystąpił problem podczas dodawania zamówienia" + e);
+            zamowieniaResultArea1.setWrapText(true);
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -1489,219 +1756,10 @@ public class Controller {
     //Populate PositionItems for TableView
     @FXML
     private void populateOrder(ObservableList<Zamowienia> ordData) throws ClassNotFoundException {
-        //Set items to the tableZamowienia
+        //Set items to the table Zamowienia
         tableZamowienia.setItems(ordData);
     }
 
-    @FXML
-    void ViewTransport(ActionEvent event) throws SQLException {
-        try {
-            //Get all Transports information
-            ObservableList<Transport> tranData = TransportDAO.searchTransport();
-            //Populate Transports on TableView
-            populateTransport(tranData);
-            transportResultArea1.setText("Podłączono do bazy\n poprawnie\n");
 
-        } catch (SQLException e) {
-            System.out.println("Wystąpił błąd podczas\n pobierania informacji o transporcie z DB.\n" + e);
-            transportResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o transporcie z DB.\n" + e);
-            transportResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //Populate PositionItems for TableView
-    @FXML
-    private void populateTransport(ObservableList<Transport> transData) throws ClassNotFoundException {
-        //Set items to the tableStanowiska
-        tableTransport.setItems(transData);
-    }
-
-    @FXML
-    void ViewTowary(ActionEvent event) throws SQLException {
-        try {
-            //Get all Items information
-            ObservableList<Towary> itemData = TowaryDAO.searchItems();
-            //Populate Items on TableView
-            populateItems(itemData);
-            towaryResultArea1.setText("Podłączono do bazy\n poprawnie\n");
-
-        } catch (SQLException e) {
-            System.out.println("Wystąpił błąd podczas\n pobierania informacji o towarach z DB.\n" + e);
-            towaryResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o towarach z DB.\n" + e);
-            towaryResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //Populate PositionItems for TableView
-    @FXML
-    private void populateItems(ObservableList<Towary> itemData) throws ClassNotFoundException {
-        //Set items to the tableStanowiska
-        tableTowary.setItems(itemData);
-    }
-
-
-    @FXML
-    void ViewStanowiska(ActionEvent event) throws SQLException {
-        try {
-            //Get all Positions information
-            ObservableList<Stanowiska> positionData = StanowiskaDAO.searchPosition();
-            //Populate Positions on TableView
-            populatePositions(positionData);
-            stanowiskaResultArea1.setText("Podłączono do bazy\n poprawnie\n");
-
-        } catch (SQLException e) {
-            System.out.println("Wystąpił błąd podczas\n pobierania informacji o stanowisku z DB.\n" + e);
-            stanowiskaResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o stanowisku z DB.\n" + e);
-            stanowiskaResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //Populate PositionItems for TableView
-    @FXML
-    private void populatePositions(ObservableList<Stanowiska> positionData) throws ClassNotFoundException {
-        //Set items to the tableStanowiska
-        tableStanowiska.setItems(positionData);
-    }
-
-    @FXML
-    void ViewKoszyk(ActionEvent event) throws SQLException {
-        try {
-            //Get all Baskets information
-            ObservableList<Koszyk> basketData = KoszykDAO.searchBasket();
-            //Populate Baskets on TableView
-            populateBaskets(basketData);
-            koszykResultArea1.setText("Podłączono do bazy\n poprawnie\n");
-
-        } catch (SQLException e) {
-            System.out.println("Wystąpił błąd podczas\n pobierania informacji o koszyku z DB.\n" + e);
-            koszykResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o koszyku z DB.\n" + e);
-            kod_towaruResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //Populate BasketItems for TableView
-    @FXML
-    private void populateBaskets(ObservableList<Koszyk> basketData) throws ClassNotFoundException {
-        //Set items to the tableKoszyk
-        tableKoszyk.setItems(basketData);
-    }
-
-    @FXML
-    void ViewPlatnosci(ActionEvent event) throws SQLException {
-        try {
-            //Get all Codes information
-            ObservableList<Platnosci> paymentData = PlatnosciDAO.searchPlatnosci();
-            //Populate Payment on TableView
-            populatePayments(paymentData);
-            platnosciRsultArea1.setText("Podłączono do bazy\n poprawnie\n");
-
-        } catch (SQLException e) {
-            System.out.println("Wystąpił błąd podczas\n pobierania informacji o płatnościach z DB.\n" + e);
-            platnosciRsultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o płatnościach z DB.\n" + e);
-            platnosciRsultArea1.setWrapText(true);
-
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //Populate Payments for TableView
-    @FXML
-    private void populatePayments(ObservableList<Platnosci> paymentData) throws ClassNotFoundException {
-        //Set items to the tableKlienci
-        tablePlatnosci.setItems(paymentData);
-    }
-
-
-    @FXML
-    void ViewKod_towaru(ActionEvent event) throws SQLException {
-        try {
-            //Get all Codes information
-            ObservableList<KodTowaru> codeData = KodTowaruDAO.searchKod();
-            //Populate Codes on TableView
-            populateCodes(codeData);
-            kod_towaruResultArea1.setText("Podłączono do bazy\n poprawnie\n");
-
-        } catch (SQLException e) {
-            System.out.println("Wystąpił błąd podczas\n pobierania informacji o kodzie towaru z DB.\n" + e);
-            kod_towaruResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o kodzie towaru z DB.\n" + e);
-            kod_towaruResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //Populate CodesItems for TableView
-    @FXML
-    private void populateCodes(ObservableList<KodTowaru> codeData) throws ClassNotFoundException {
-        //Set items to the tableKlienci
-        tableKod_towaru.setItems(codeData);
-    }
-
-    @FXML
-    void ViewKlienci(ActionEvent event) throws SQLException {
-        try {
-            //Get all Clients information
-            ObservableList<Klient> cliData = KlientDAO.searchKlient();
-            //Populate Clients on TableView
-            populateClients(cliData);
-            klientResultArea1.setText("Podłączono do bazy\n poprawnie\n");
-
-        } catch (SQLException e) {
-            System.out.println("Wystąpił błąd podczas\n pobierania informacji o klientach z DB.\n" + e);
-            klientResultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o klientach z DB.\n" + e);
-            klientResultArea1.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //Populate Clients for TableView
-    @FXML
-    private void populateClients(ObservableList<Klient> cliData) throws ClassNotFoundException {
-        //Set items to the tableKlienci
-        tableKlienci.setItems(cliData);
-    }
-
-    @FXML
-    void ViewPracownicy(ActionEvent event) throws SQLException {
-        try {
-            //Get all Employees information
-            ObservableList<Pracownicy> pracData = PracownikDAO.searchPracownicy();
-            //Populate Employees on TableView
-            populateEmployees(pracData);
-            pracownicyResultArea.setText("Podłączono do bazy\n poprawnie\n");
-
-        } catch (SQLException e) {
-            System.out.println("Wystąpił błąd podczas\n pobierania informacji o pracownikach z DB.\n" + e);
-            pracownicyResultArea.setText("Wystąpił błąd podczas\n pobierania informacji o pracownikach z DB.\n" + e);
-            pracownicyResultArea.setWrapText(true);
-            throw e;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //Populate Employees for TableView
-    @FXML
-    private void populateEmployees(ObservableList<Pracownicy> empData) throws ClassNotFoundException {
-        //Set items to the employeeTable
-        tablePracownik.setItems(empData);
-    }
 }
 

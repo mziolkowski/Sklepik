@@ -1,4 +1,7 @@
 package sample;
+/**
+ * Create by: maciejziolkowski on 05 gru 2017
+ */
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

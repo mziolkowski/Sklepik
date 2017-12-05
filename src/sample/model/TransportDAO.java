@@ -1,4 +1,7 @@
 package sample.model;
+/**
+ * Create by: maciejziolkowski on 05 gru 2017
+ */
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -12,13 +15,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TransportDAO {
+
+    //*************************************
+    //VIEW an Transport
+    //*************************************
     public static ObservableList<Transport> searchTransport() throws SQLException, ClassNotFoundException {
         String selectStmt = "SELECT * FROM transport";
 
         try {
             //Get ResultSet from dbExecuteQuery method
             ResultSet rsTransport = DBUtil.dbExecuteQuery(selectStmt);
-            //Send ResultSet to the getBasketList method and get employee object
+            //Send ResultSet to the getBasketList method and get transport object
             ObservableList<Transport> transportList = getTransportList(rsTransport);
 
             //Return employee object
@@ -42,14 +49,17 @@ public class TransportDAO {
             //Add clients to the ObservableList
             transportList.add(trans);
         }
-        //return empList (ObservableList of Clients)
+        //return transportList (ObservableList of transports)
         return transportList;
     }
 
+    //*************************************
+    //DELETE an Transport
+    //*************************************
     public static void deleteTransportWithId(String transportId) throws SQLException, ClassNotFoundException {
         //Declare a DELETE statement
         String updateStmt = "DELETE FROM transport\n" +
-                "   WHERE id_transport ="+ transportId +";\n";
+                "   WHERE id_transport =" + transportId + ";\n";
 
         //Execute UPDATE operation
         try {
@@ -60,6 +70,9 @@ public class TransportDAO {
         }
     }
 
+    //*************************************
+    //INSERT an Transport
+    //*************************************
     public static void insertTransport(String id_transport, String nazwa, String rodzaj) throws SQLException, ClassNotFoundException {
         //Declare a INSERT statement
         String updateStmt =

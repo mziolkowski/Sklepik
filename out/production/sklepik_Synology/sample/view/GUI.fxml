@@ -68,7 +68,10 @@
                                     <TableColumn fx:id="pracId_stanowiskaColumn" prefWidth="75.0" text="id_stanowiska" />
                                  </columns>
                               </TableView>
-                              <Button fx:id="wyswietl" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewPracownicy" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
+                              <Button fx:id="wyswietl" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewPracownicy" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff">
+                                 <effect>
+                                    <Blend opacity="0.23" />
+                                 </effect></Button>
                               <Button fx:id="pracownikUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deletePracownik" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
                               <Button fx:id="praconwnikUaktualnij" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" onAction="#updatePracownik" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                               <TextArea fx:id="pracownicyResultArea" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
@@ -343,7 +346,7 @@
                                     </TableView>
                                     <Button fx:id="wyswietlTowary" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewTowary" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
                                     <Button fx:id="towaryUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deleteTowary" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                                    <Button fx:id="transportUaktualnijBtn" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                                    <Button fx:id="transportUaktualnijBtn" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" onAction="#updateTowary" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                                  </children>
                               </AnchorPane>
                               <TextArea fx:id="towaryResultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
@@ -444,7 +447,7 @@
                               </TableView>
                               <Button fx:id="wyswietlZamowienia" layoutX="699.0" layoutY="178.0" mnemonicParsing="false" onAction="#ViewZamowienia" prefHeight="58.0" prefWidth="119.0" text="Wyświetl" textFill="#00aaff" />
                               <Button fx:id="zamowieniaUsunBtn" layoutX="717.0" layoutY="71.0" mnemonicParsing="false" onAction="#deleteZamowienia" prefHeight="30.0" prefWidth="82.0" text="Usuń" textFill="RED" />
-                              <Button fx:id="uaktualnij3" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
+                              <Button fx:id="zamowieniaUaktualnijBtn" layoutX="717.0" layoutY="126.0" mnemonicParsing="false" onAction="#updateZamowienia" prefHeight="30.0" prefWidth="83.0" text="Uaktualnij" textFill="#0073ff" />
                            </children>
                         </AnchorPane>
                         <TextArea fx:id="zamowieniaResultArea1" layoutX="836.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
