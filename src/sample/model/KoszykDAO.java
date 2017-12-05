@@ -1,4 +1,7 @@
 package sample.model;
+/**
+ * Create by: maciejziolkowski on 05 gru 2017
+ */
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,16 +11,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class KoszykDAO {
+
+    //*************************************
+    //VIEW an Koszyk
+    //*************************************
     public static ObservableList<Koszyk> searchBasket() throws SQLException, ClassNotFoundException {
         String selectStmt = "SELECT * FROM koszyk";
 
         try {
             //Get ResultSet from dbExecuteQuery method
             ResultSet rsBasket = DBUtil.dbExecuteQuery(selectStmt);
-            //Send ResultSet to the getBasketList method and get employee object
+            //Send ResultSet to the getBasketList method and get basket object
             ObservableList<Koszyk> basketList = getBasketList(rsBasket);
 
-            //Return employee object
+            //Return basket object
             return basketList;
         } catch (SQLException e) {
             System.out.println("SQL select operation has been failed: " + e);
@@ -27,7 +34,7 @@ public class KoszykDAO {
     }
 
     private static ObservableList<Koszyk> getBasketList(ResultSet rs) throws SQLException, ClassNotFoundException {
-        //Declare a observable List which comprises of Client objects
+        //Declare a observable List which comprises of basket objects
         ObservableList<Koszyk> basketList = FXCollections.observableArrayList();
 
         while (rs.next()) {
@@ -39,14 +46,17 @@ public class KoszykDAO {
             //Add clients to the ObservableList
             basketList.add(basket);
         }
-        //return empList (ObservableList of Clients)
+        //return basketList (ObservableList of Baskets)
         return basketList;
     }
 
+    //*************************************
+    //DELETE an Koszyk
+    //*************************************
     public static void deleteBasketWithId(String basketId) throws SQLException, ClassNotFoundException {
         //Declare a DELETE statement
         String updateStmt = "DELETE FROM koszyk\n" +
-                "   WHERE id_koszyk ="+ basketId +";\n";
+                "   WHERE id_koszyk =" + basketId + ";\n";
 
         //Execute UPDATE operation
         try {
@@ -57,6 +67,9 @@ public class KoszykDAO {
         }
     }
 
+    //*************************************
+    //INSERT an Koszyk
+    //*************************************
     public static void insertBasket(String id_koszyk, String id_towar, String ilosc, String cena) throws SQLException, ClassNotFoundException {
         //Declare a INSERT statement
         String updateStmt =

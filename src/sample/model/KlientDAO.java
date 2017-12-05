@@ -1,4 +1,7 @@
 package sample.model;
+/**
+ * Create by: maciejziolkowski on 05 gru 2017
+ */
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,16 +12,19 @@ import java.sql.SQLException;
 
 public class KlientDAO {
 
+    //*************************************
+    //VIEW an client
+    //*************************************
     public static ObservableList<Klient> searchKlient() throws SQLException, ClassNotFoundException {
         String selectStmt = "SELECT * FROM klient";
 
         try {
             //Get ResultSet from dbExecuteQuery method
             ResultSet rsKlienci = DBUtil.dbExecuteQuery(selectStmt);
-            //Send ResultSet to the getClientList method and get employee object
+            //Send ResultSet to the getClientList method and get client object
             ObservableList<Klient> cliList = getClientList(rsKlienci);
 
-            //Return employee object
+            //Return client object
             return cliList;
         } catch (SQLException e) {
             System.out.println("SQL select operation has been failed: " + e);
@@ -47,7 +53,7 @@ public class KlientDAO {
             //Add clients to the ObservableList
             cliList.add(klient);
         }
-        //return empList (ObservableList of Clients)
+        //return cliList (ObservableList of Clients)
         return cliList;
     }
 
@@ -57,7 +63,7 @@ public class KlientDAO {
     public static void deleteClientWithId(String cliId) throws SQLException, ClassNotFoundException {
         //Declare a DELETE statement
         String updateStmt = "DELETE FROM klient\n" +
-                        "   WHERE id_klient ="+ cliId +";\n";
+                "   WHERE id_klient =" + cliId + ";\n";
 
         //Execute UPDATE operation
         try {
@@ -68,6 +74,9 @@ public class KlientDAO {
         }
     }
 
+    //*************************************
+    //INSERT an client
+    //*************************************
     public static void insertCli(String id_klient, String firma, String imie, String nazwisko, String adres, String kod_pocztowy, String miejscowosc, String telefon, String mail, String staly_klient) throws SQLException, ClassNotFoundException {
         //Declare a INSERT statement
         String updateStmt =
@@ -86,7 +95,7 @@ public class KlientDAO {
     }
 
     //*************************************
-    //UPDATE an Klient
+    //UPDATE an client
     //*************************************
     public static void updateCli(String cliId, String cliNewValueField, int flag) throws SQLException, ClassNotFoundException {
         //Declare a UPDATE statement

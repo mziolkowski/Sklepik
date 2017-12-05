@@ -1,4 +1,7 @@
 package sample.model;
+/**
+ * Create by: maciejziolkowski on 05 gru 2017
+ */
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -12,16 +15,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class StanowiskaDAO {
+
+    //*************************************
+    //VIEW an Stanowiska
+    //*************************************
     public static ObservableList<Stanowiska> searchPosition() throws SQLException, ClassNotFoundException {
         String selectStmt = "SELECT * FROM stanowiska";
 
         try {
             //Get ResultSet from dbExecuteQuery method
             ResultSet rsPosition = DBUtil.dbExecuteQuery(selectStmt);
-            //Send ResultSet to the getPositionList method and get employee object
+            //Send ResultSet to the getPositionList method and get position object
             ObservableList<Stanowiska> positionList = getPositionList(rsPosition);
 
-            //Return employee object
+            //Return position object
             return positionList;
         } catch (SQLException e) {
             System.out.println("SQL select operation has been failed: " + e);
@@ -41,14 +48,17 @@ public class StanowiskaDAO {
             //Add positions to the ObservableList
             positionList.add(position);
         }
-        //return empList (ObservableList of Clients)
+        //return positionList (ObservableList of Clients)
         return positionList;
     }
 
+    //*************************************
+    //DELETE an Stanowiska
+    //*************************************
     public static void deletePositionWithId(String positionId) throws SQLException, ClassNotFoundException {
         //Declare a DELETE statement
         String updateStmt = "DELETE FROM stanowiska\n" +
-                "   WHERE id_stanowiska  ="+ positionId +";\n";
+                "   WHERE id_stanowiska  =" + positionId + ";\n";
 
         //Execute UPDATE operation
         try {
@@ -59,6 +69,9 @@ public class StanowiskaDAO {
         }
     }
 
+    //*************************************
+    //INSERT an Stanowiska
+    //*************************************
     public static void insertPosition(String id_stanowiska, String nazwa) throws SQLException, ClassNotFoundException {
         //Declare a INSERT statement
         String updateStmt =

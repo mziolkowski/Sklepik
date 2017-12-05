@@ -1,4 +1,7 @@
 package sample.model;
+/**
+ * Create by: maciejziolkowski on 05 gru 2017
+ */
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,16 +12,19 @@ import java.sql.SQLException;
 
 public class KodTowaruDAO {
 
+    //*************************************
+    //VIEW an Kod_towaru
+    //*************************************
     public static ObservableList<KodTowaru> searchKod() throws SQLException, ClassNotFoundException {
         String selectStmt = "SELECT * FROM kod_towaru";
 
         try {
             //Get ResultSet from dbExecuteQuery method
             ResultSet rsKod = DBUtil.dbExecuteQuery(selectStmt);
-            //Send ResultSet to the getKodList method and get employee object
+            //Send ResultSet to the getKodList method and get code object
             ObservableList<KodTowaru> codeList = getCodeList(rsKod);
 
-            //Return employee object
+            //Return code object
             return codeList;
         } catch (SQLException e) {
             System.out.println("SQL select operation has been failed: " + e);
@@ -43,14 +49,17 @@ public class KodTowaruDAO {
             //Add clients to the ObservableList
             codeList.add(code);
         }
-        //return codeList (ObservableList of Clients)
+        //return codeList (ObservableList of Codes)
         return codeList;
     }
 
+    //*************************************
+    //DELETE an Kod_towaru
+    //*************************************
     public static void deleteCodeWithId(String codeId) throws SQLException, ClassNotFoundException {
         //Declare a DELETE statement
         String updateStmt = "DELETE FROM kod_towaru\n" +
-                "   WHERE id_kod ="+ codeId +";\n";
+                "   WHERE id_kod =" + codeId + ";\n";
 
         //Execute UPDATE operation
         try {
@@ -61,6 +70,9 @@ public class KodTowaruDAO {
         }
     }
 
+    //*************************************
+    //INSERT an Kod_towaru
+    //*************************************
     public static void insertCode(String id_kod, String magazyn, String hala, String poziom, String regal, String polka) throws SQLException, ClassNotFoundException {
         //Declare a INSERT statement
         String updateStmt =
