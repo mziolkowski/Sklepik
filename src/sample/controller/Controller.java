@@ -1209,7 +1209,7 @@ public class Controller {
             //Populate Payment on TableView
             populatePayments(paymentData);
             platnosciRsultArea1.setText("Podłączono do bazy\n poprawnie\n");
-
+            
         } catch (SQLException e) {
             System.out.println("Wystąpił błąd podczas\n pobierania informacji o płatnościach z DB.\n" + e);
             platnosciRsultArea1.setText("Wystąpił błąd podczas\n pobierania informacji o płatnościach z DB.\n" + e);
@@ -1365,7 +1365,7 @@ public class Controller {
     @FXML
     void insertStanowiska(ActionEvent event) throws SQLException {
         try {
-            StanowiskaDAO.insertPosition(stanowiskaIdTF.getText(), stanowiskaIdTF.getText());
+            StanowiskaDAO.insertPosition(stanowiskaIdTF.getText(), stanowiskaNazwaTF.getText());
             stanowiskaResultArea1.setText("Stanowisko zostało dodane! \n");
             stanowiskaResultArea1.setWrapText(true);
         } catch (SQLException e) {
