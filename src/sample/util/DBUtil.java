@@ -1,31 +1,28 @@
 package sample.util;
+/**
+ * Create by: maciejziolkowski on 05 gru 2017
+ */
 
 import com.sun.rowset.CachedRowSetImpl;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 import java.sql.*;
 
-/**
- * Created by ONUR BASKIRT on 22.02.2016.
- */
 public class DBUtil {
-    //Declare JDBC Driver
-    private static final String JDBC_DRIVER = "org.postgresql.Driver";
-
     //Connection
     private static Connection conn = null;
 
-
     //Connect to DB
-    public static void dbConnect()  {
+    public static void dbConnect() {
         try {
             Class.forName("org.postgresql.Driver");
             conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Sklep_z_multimediami",
-                            "postgres", "postgres");
+                    "postgres", "postgres");
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
         System.out.println("Opened database successfully");
@@ -37,7 +34,7 @@ public class DBUtil {
             if (conn != null && !conn.isClosed()) {
                 conn.close();
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }

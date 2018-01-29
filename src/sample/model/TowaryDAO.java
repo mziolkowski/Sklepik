@@ -1,4 +1,7 @@
 package sample.model;
+/**
+ * Create by: maciejziolkowski on 05 gru 2017
+ */
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +17,7 @@ public class TowaryDAO {
         try {
             //Get ResultSet from dbExecuteQuery method
             ResultSet rsItem = DBUtil.dbExecuteQuery(selectStmt);
-            //Send ResultSet to the getItamList method and get employee object
+            //Send ResultSet to the getItamList method and get item object
             ObservableList<Towary> itemList = getItamList(rsItem);
 
             //Return employee object
@@ -44,15 +47,18 @@ public class TowaryDAO {
             //Add items to the ObservableList
             itemList.add(item);
         }
-        //return itemList (ObservableList of Clients)
+        //return itemList (ObservableList of items)
         return itemList;
     }
 
+    //*************************************
+    //DELETE an Towary
+    //*************************************
     public static void deleteItemWithId(String itemId) throws SQLException, ClassNotFoundException {
         //Declare a DELETE statement
         String updateStmt =
                 "   DELETE FROM towary\n" +
-                        "         WHERE id_towar= "+ itemId +";\n" +
+                        "         WHERE id_towar= " + itemId + ";\n" +
                         "   COMMIT;";
 
         //Execute UPDATE operation
@@ -64,6 +70,9 @@ public class TowaryDAO {
         }
     }
 
+    //*************************************
+    //INSERT an Towary
+    //*************************************
     public static void insertItem(String id_towar, String typ, String marka, String model, String id_kod, String status_towaru, String opis, String ilosc, String cena) throws SQLException, ClassNotFoundException {
         //Declare a INSERT statement
         String updateStmt =

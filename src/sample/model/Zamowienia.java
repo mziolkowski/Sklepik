@@ -1,4 +1,7 @@
 package sample.model;
+/**
+ * Create by: maciejziolkowski on 05 gru 2017
+ */
 
 import javafx.beans.property.*;
 

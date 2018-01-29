@@ -1,12 +1,12 @@
 package sample.model;
+/**
+ * Create by: maciejziolkowski on 05 gru 2017
+ */
 
 import javafx.beans.property.*;
+
 import java.sql.Date;
 
-
-/**
- * Created by maciejziolkowski on 12.11.2017.
- */
 public class Pracownicy {
     private IntegerProperty id_pracownicy;
     private StringProperty imie;
