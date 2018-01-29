@@ -1302,7 +1302,7 @@ public class Controller {
     @FXML
     void insertStanowiska(ActionEvent event) throws SQLException {
         try {
-            StanowiskaDAO.insertPosition(stanowiskaIdTF.getText(), stanowiskaIdTF.getText());
+            StanowiskaDAO.insertPosition(stanowiskaIdTF.getText(), stanowiskaNazwaTF.getText());
             stanowiskaResultArea1.setText("Stanowisko zostało dodane! \n");
             stanowiskaResultArea1.setWrapText(true);
         } catch (SQLException e) {
